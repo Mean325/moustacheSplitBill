@@ -103,9 +103,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "管理员设置页面",
+					"id": 7,
+					"name": "设置页面",
 					"pathName": "pages/setting/setting",
+					"query": "",
 					"scene": null
 				}
 			]

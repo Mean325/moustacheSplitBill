@@ -1,73 +1,39 @@
-<!--index.wxml-->
+<!-- 我的页面 -->
 <view class="container">
   <!-- 用户信息 -->
-  <view class="weui-cells weui-cells_after-title">
-    <navigator url="/pages/setting/login/login" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__hd" style="height: 50px;">
-        <image wx:if="{{ userInfo.avatarUrl }}" class="userinfo-avatar" src="{{ userInfo.avatarUrl }}"></image>
-        <image wx:else class="userinfo-avatar" src="{{ unloginAvatar }}"></image>
-      </view>
-      <view class="weui-cell__bd">{{ userInfo.nickName || "立即登录" }}</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </navigator>
-  </view>
+  <navigator url="/pages/setting/login/login" class="userinfo">
+    <avatar wx:if="{{ userInfo.avatarUrl }}" class="userinfo-avatar" avatarUrl="{{ userInfo.avatarUrl }}" nickName="{{ userInfo.nickName }}" width="80px"></avatar>
+    <avatar wx:else class="userinfo-avatar" avatarUrl="{{ unloginAvatar }}" width="80px"></avatar>
+    <text class="userinfo__nick-name">{{ userInfo.nickName || "立即登录" }}</text>
+    <text class="userinfo__team-name">{{ userInfo.nickName || " " }}</text>
+  </navigator>
   <!-- 其余设置 -->
-  <view class="weui-cells weui-cells_after-title">
-    <!-- <navigator url="/pages/personalSetting/personalSetting" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__hd">
-        <image src="/images/setting/xitongguanli.png" class="cell__icon"></image>
-      </view>
-      <view class="weui-cell__bd">高级设置</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </navigator> -->
-    <navigator url="/pages/setting/classManage/classManage" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__hd">
-        <image src="/images/setting/xiangqing.png" class="cell__icon"></image>
-      </view>
-      <view class="weui-cell__bd">分类管理</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  <view class="setting-cells">
+    <navigator url="/pages/setting/classManage/classManage" class="setting-cell" hover-class="weui-cell_active">
+      <image src="/images/setting/category.png" class="setting-cell__icon border"></image>
+      <text>分类管理</text>
     </navigator>
-    <view bindtap="openSetting" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__hd">
-        <image src="/images/setting/zuzhiguanli.png" class="cell__icon"></image>
-      </view>
-      <view class="weui-cell__bd">授权管理</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    <view bindtap="openSetting" class="setting-cell" hover-class="weui-cell_active" class="setting-cell">
+      <image src="/images/setting/authorize.png" class="setting-cell__icon"></image>
+      <text>授权管理</text>
     </view>
-  </view>
-  <!-- 管理员设置 - 仅超级管理员显示 -->
-  <view wx:if="{{ userInfo.openid === 'o8Hls5RluXwV-Hktw2CNiiIEFe2M' }}" class="weui-cells weui-cells_after-title">
-    <navigator url="/pages/setting/admin/index/index" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__hd">
-        <image src="/images/setting/jiekou.png" class="cell__icon"></image>
-      </view>
-      <view class="weui-cell__bd">小程序设置</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access">超级管理员</view>
-    </navigator>
-  </view>
-  <!-- 意见反馈 -->
-  <view class="weui-cells weui-cells_after-title">
     <button
       open-type='feedback'
-      style="width: 100%;text-align:left;font-weight: normal;"
-      class="weui-cell weui-cell_access"
+      style="width: calc(50% - 16rpx);text-align:left;font-weight: normal;"
+      class="setting-cell"
       hover-class="weui-cell_active"
     >
-      <view class="weui-cell__hd">
-        <image src="/images/setting/feedback.png" class="cell__icon"></image>
-      </view>
-      <view class="weui-cell__bd">意见反馈</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      <image src="/images/setting/feedback.png" class="setting-cell__icon"></image>
+      <text>意见反馈</text>
     </button>
-  </view>
-  <!-- 关于 -->
-  <view class="weui-cells weui-cells_after-title">
-    <navigator url="/pages/setting/about/about" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__hd">
-        <image src="/images/setting/zhuyishixiang.png" class="cell__icon"></image>
-      </view>
-      <view class="weui-cell__bd">关于</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    <!-- 管理员设置 - 仅超级管理员显示 -->
+    <view wx:if="{{ userInfo.openid === 'ouGKR4pZmbV1WnrmRCwHP8_Aw7oA' }}" class="setting-cell">
+      <image src="/images/setting/jiekou.png" class="setting-cell__icon" hover-class="weui-cell_active"></image>
+      <text>小程序设置</text>
+    </view>
+    <navigator url="/pages/setting/about/about" class="setting-cell" hover-class="weui-cell_active">
+      <image src="/images/setting/about.png" class="setting-cell__icon"></image>
+      <text>关于</text>
     </navigator>
   </view>
   <!-- 退出登录 -->

@@ -17,7 +17,7 @@
       </navigator>
     </view>
     <view class="team-amount">
-      <text class="team-amount__num">¥ {{ teamData.amount }}</text>
+      <text bindlongpress="toSetting" class="team-amount__num">¥ {{ teamData.amount }}</text>
       <text class="team-amount__title">团队总消费 CNY</text>
     </view>
   </view>
@@ -88,4 +88,8 @@
     </mp-cells>
   </view>
 </view>
-<mp-tabbar style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{list}}" bindchange="tabChange"></mp-tabbar>
+
+<navigator url="/pages/bookkeep/bookkeep" class="bookkeep-btn">
+  <image bindtap="showModal" src="/images/tabBar/add.png" />
+</navigator>
+<!-- <mp-tabbar style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{list}}" bindchange="tabChange"></mp-tabbar> -->

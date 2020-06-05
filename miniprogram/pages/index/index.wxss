@@ -91,3 +91,17 @@
   height: 40px;
   border-radius: 50%;
 }
+
+/* 记账按钮 */
+.bookkeep-btn {
+  width: 100rpx;
+  height: 100rpx;
+  position: fixed;
+  right: 100rpx;
+  bottom: 100rpx;  
+}
+
+.bookkeep-btn image {
+  width: 100rpx;
+  height: 100rpx;
+}

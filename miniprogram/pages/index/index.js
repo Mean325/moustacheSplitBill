@@ -52,4 +52,9 @@ Page({
       })
       .catch(console.error)
   },
+  toSetting() {
+    wx.navigateTo({
+      url: '/pages/setting/setting',
+    })
+  }
 })
