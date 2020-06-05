@@ -1,6 +1,7 @@
 <!--components/bottomButton/bottomButton.wxml-->
 <button
   class="bottom-button"
+  hover-class="bottom-button_active"
   style="width: 100%;"
 >
 {{ value }}

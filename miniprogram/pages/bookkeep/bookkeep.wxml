@@ -59,18 +59,26 @@
 				</mp-cell>
 				<!-- 选择分账类型 -->
 				<mp-cell bindtap="addUser">
-					<view>
+					<view class="flex__cell">
 						分账
 						平分{{ partnerList.length > 0 ? bookkeep.num / (partnerList.length) : '' }}/人
 						<!-- 具体 -->
+					</view>
+				</mp-cell>
+				<mp-cell bindtap="addUser">
+					<view class="flex__cell">
+						备注
+						<input bindinput="handleInputChange" placeholder="添加备注" maxlength="30" class="bookkeep__remark-input"></input>
 					</view>
 				</mp-cell>
 			</mp-cells>
 		</view>
 
 		<!-- 备注栏 -->
-		<view class="module">
+		<!-- <view class="module">
 			<input bindinput="handleInputChange" placeholder="添加备注" maxlength="30" class="bookkeep__remark-input"></input>
-		</view>
+		</view> -->
+
+		<bottom-button value="添加"></bottom-button>
 	</view>
 </view>

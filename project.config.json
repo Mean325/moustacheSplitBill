@@ -4,15 +4,15 @@
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
-		"enhance": true,
 		"postcss": true,
 		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
-		"coverView": true,
 		"autoAudits": false,
+		"coverView": true,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
+		"enhance": true,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
@@ -100,6 +100,12 @@
 					"name": "选择付款人",
 					"pathName": "pages/bookkeep/selectPayer/selectPayer",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "管理员设置页面",
+					"pathName": "pages/setting/setting",
 					"scene": null
 				}
 			]

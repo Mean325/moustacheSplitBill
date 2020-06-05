@@ -9,3 +9,7 @@
   bottom: 0;
   border-radius: 0;
 }
+
+.bottom-button_active {
+  background: #129b9b;
+}
