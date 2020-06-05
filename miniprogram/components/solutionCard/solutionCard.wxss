@@ -1,0 +1,77 @@
+.solution-card {
+  background: #FFFFFF;
+  border-radius: 10px;
+  margin-bottom: 30rpx;
+}
+
+/* 结算方案卡片 - 上部信息栏 */
+.solution {
+  padding: 60rpx 0;
+  border-bottom: 2rpx solid #EDEDED;
+  display: flex;
+  flex-direction: row;
+}
+
+.solution-part {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.solution__avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+.solution-part.pay {
+  color: #cdcdcd;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.solution-part.pay .solution__avatar{
+  width: 60rpx;
+  height: 60rpx;
+  padding: 10rpx;
+}
+
+/* 结算方案卡片 - 底部信息栏 */
+.solution-card__ft {
+  padding: 10rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.solution__amount {
+  font-size: 28px;
+}
+
+.solution__btns {
+  display: flex;
+  align-items: center;
+}
+
+.solution__btn {
+  padding: 2px 8px;
+  font-size: 13px;
+  background: #16c2c2;
+  border-radius: 20px;
+  border: 1rpx solid #16c2c2;
+}
+
+.solution__btn + .solution__btn {
+  margin-left: 5px;
+}
+
+.solution__btn.remind {
+  border: 1rpx solid #333333;
+  background: transparent;
+}
+
+.solution__btn.paid {
+  border: 1rpx solid #CCCCCC;
+  background: #CCCCCC;
+  color: #999999;
+}

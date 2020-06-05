@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "团队列表",
+  "usingComponents": {
+    "mp-dialog": "weui-miniprogram/dialog/dialog",
+    "avatar": "/components/avatar/avatar"
+  },
+  "enablePullDownRefresh": false
+}

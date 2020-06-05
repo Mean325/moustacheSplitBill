@@ -1,0 +1,10 @@
+.container {
+  min-height: 100vh;
+  padding: 30rpx;
+  box-sizing: border-box;
+  background: #EDEDED;
+}
+
+.solution-card + .solution-card {
+  margin-top: 30rpx;
+}

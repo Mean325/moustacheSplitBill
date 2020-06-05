@@ -1,0 +1,7 @@
+<!--components/bottomButton/bottomButton.wxml-->
+<button
+  class="bottom-button"
+  style="width: 100%;"
+>
+{{ value }}
+</button>

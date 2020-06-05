@@ -1,0 +1,23 @@
+<view class="weui-tabbar {{extClass}}">
+  <!-- 选中的时候往weui-tabbar__item加class:weui-bar__item_on -->
+  <view
+    bindtap="tabChange"
+    data-index="{{ index }}"
+    data-path="{{ item.pagePath }}"
+    wx:for="{{ list }}"
+    class="{{ index === 1 ? 'weui-tabbar__add' : 'weui-tabbar__item' }} {{ index === current ? 'weui-bar__item_on' : ''}}"
+  >
+    <block wx:if="{{ index === 1 }}">
+      <image src="{{ item.iconPath }}" class="weui-tabbar__add__icon" mode="aspectFit"/>
+    </block>
+    <block wx:else>
+      <view style="position: relative;display:inline-block;">
+        <image
+          src="{{current === index ? item.selectedIconPath : item.iconPath}}"
+          class="weui-tabbar__icon"
+        />
+      </view>
+      <view class="weui-tabbar__label">{{item.text}}</view>
+    </block>
+  </view>
+</view>

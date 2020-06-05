@@ -1,0 +1,62 @@
+.container {
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 30rpx;
+  background: #F6F6F6;
+}
+
+.team {
+  background: #FFFFFF;
+  padding: 40rpx;
+  border-radius: 10px;
+}
+
+.team + .team {
+  margin-top: 30rpx;
+}
+
+.team-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.team-title__date {
+  color: #CCCCCC;
+  font-size: 14px;
+}
+
+.team-member {
+  padding: 30rpx 0;
+  margin-bottom: 30rpx;
+  border-bottom: 2px solid #CCCCCC;
+  display: flex;
+  align-items: flex-end;
+}
+
+.team-member__avatar {
+  width: 84rpx;
+  height: 84rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+}
+
+.team-amount {
+  font-size: 30px;
+  line-height: 1;
+}
+
+/* 添加群组按钮 */
+.add-team-btn {
+  width: 120rpx;
+  height: 120rpx;
+  position: fixed;
+  right: 100rpx;
+  bottom: 180rpx;
+}
+
+/* 弹窗 - input */
+.dialog-input {
+  background: #CCCCCC;
+  height: 80rpx;
+  line-height: 1;
+}

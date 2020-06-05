@@ -1,0 +1,30 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 60rpx;
+  flex-direction: row;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 启动页 - 天气 */
+.weather {
+  width: 80rpx;
+  font-size: 24rpx;
+  text-align: center;
+  position: absolute;
+  right: 60rpx;
+}
+
+.weather-icon {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+/* 启动页 - 文字 */
+.p {
+  color: #999999;
+} 

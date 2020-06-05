@@ -1,0 +1,19 @@
+<view class="container">
+    <!-- 顶部输入框 -->
+    <view class="add-class-wrapper">
+      <view class="icon-wrapper">
+        <image class="icon" src="{{ activeClass.icon }}" mode="aspectFill"></image>
+      </view>
+      <input bindinput="handleInputChange" value="{{ activeClass.name }}" class="add-class__input" maxlength="20" placeholder="分类名称"	/>
+    </view>
+    <!-- 类型图标合集 -->
+    <view class="icons">
+      <block wx:for="{{ iconList }}" wx:key="*this">
+        <view bindtap="selectIcon" data-icon="{{ item }}" class="icon-wrapper {{ item === activeClass.icon ? 'icon-selected' : '' }}">
+          <image class="icon" src="{{ item }}" mode="aspectFill"></image>
+        </view>
+      </block>
+    </view>
+    <!-- 添加分类按钮 -->
+  <button bindtap="addClass" class="add-class-btn" hover-class="add-class-btn_active" style="width: calc(100% - 60rpx);">添加</button>
+</view>

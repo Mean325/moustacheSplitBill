@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "付款人",
+  "usingComponents": {
+    "index-list": "/components/indexList/indexList"
+  }
+}

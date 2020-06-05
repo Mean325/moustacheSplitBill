@@ -1,0 +1,91 @@
+<!-- 群组列表管理 -->
+<view class="container">
+  <view class="banner">
+    <view class="team-info">
+      <navigator url="/pages/team/team" class="team-info__name">我的团队 ▶</navigator>
+      <navigator url="/pages/member/member" class="team-info__member">
+        <view style="font-size: 0;">
+        <avatar
+          wx:for="{{ teamData.members }}"
+          class="team-info__member-avatar"
+          avatarUrl="{{ item.avatarUrl }}"
+          nickName="{{ item.nickName }}"
+          width="34px"
+        ></avatar>
+        <image src="/images/tabBar/add.png" class="team-info__member-add" />
+        </view>
+      </navigator>
+    </view>
+    <view class="team-amount">
+      <text class="team-amount__num">¥ {{ teamData.amount }}</text>
+      <text class="team-amount__title">团队总消费 CNY</text>
+    </view>
+  </view>
+  <view class="bill">
+    <view class="bill__title">
+      <text>4月29日</text>
+      <text>¥51.00</text>
+    </view>
+    <mp-cells>
+      <mp-slideview
+        bindtap="toDetail"
+        buttons="{{ slideButtons }}"
+        bindbuttontap="delAccount"
+      >
+        <mp-cell>
+          <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+          <view>一般 - Mean 付款</view>
+          <view slot="footer">
+            ¥24.00
+          </view>
+        </mp-cell>
+      </mp-slideview>
+      <mp-slideview
+        bindtap="toDetail"
+        buttons="{{ slideButtons }}"
+        bindbuttontap="delAccount"
+      >
+        <mp-cell>
+          <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+          <view>一般 - Mean 付款</view>
+          <view slot="footer">
+            ¥24.00
+          </view>
+        </mp-cell>
+      </mp-slideview>
+    </mp-cells>
+    <view class="bill__title">
+      <text>4月29日</text>
+      <text>¥51.00</text>
+    </view>
+    <mp-cells>
+      <mp-slideview
+        bindtap="toDetail"
+        buttons="{{ slideButtons }}"
+        bindbuttontap="delAccount"
+      >
+        <mp-cell>
+          <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+          <view>一般 - Mean 付款</view>
+          <view slot="footer">
+            ¥24.00
+          </view>
+        </mp-cell>
+      </mp-slideview>
+      <mp-slideview
+        bindtap="toDetail"
+        buttons="{{ slideButtons }}"
+        bindbuttontap="delAccount"
+      >
+        <mp-cell>
+          <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+          <view>一般 - Mean 付款</view>
+          <view slot="footer">
+            ¥24.00
+          </view>
+        </mp-cell>
+      </mp-slideview>
+    </mp-cells>
+  </view>
+</view>
+<mp-tabbar style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{list}}" bindchange="tabChange"></mp-tabbar>

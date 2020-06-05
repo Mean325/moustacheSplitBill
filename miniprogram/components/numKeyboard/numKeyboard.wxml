@@ -1,0 +1,27 @@
+<view class="keyboard">
+  <view class='keyboard-row'>
+    <view type='default' plain='true' class='key one' data-key='1' bindtap='tapKey'>1</view>
+    <view type='default' plain='true' class='key two' data-key='2' bindtap='tapKey'>2</view>
+    <view type='default' plain='true' class='key three' data-key='3' bindtap='tapKey'>3</view>
+    <view type='default' plain='true' class='key del' bindtap='tapDel'>退格</view>
+  </view>
+  <view class="keyboard-bottom3">
+    <view class="keyboard-bottom3-num">
+      <view class='keyboard-row'>
+        <view type='default' plain='true' class='key four' data-key='4' bindtap='tapKey'>4</view>
+        <view type='default' plain='true' class='key five' data-key='5' bindtap='tapKey'>5</view>
+        <view type='default' plain='true' class='key six' data-key='6' bindtap='tapKey'>6</view>
+      </view>
+      <view class='keyboard-row'>
+        <view type='default' plain='true' class='key seven' data-key='7' bindtap='tapKey'>7</view>
+        <view type='default' plain='true' class='key eight' data-key='8' bindtap='tapKey'>8</view>
+        <view type='default' plain='true' class='key nine' data-key='9' bindtap='tapKey'>9</view>
+      </view>
+      <view class='keyboard-row'>
+        <view type='default' plain='true' class='key flex2 zero' data-key='0' bindtap='tapKey'>0</view>
+        <view type='default' plain='true' class='key dot' data-key='.' bindtap='tapKey'>.</view>
+      </view>
+    </view>
+    <view type='default' plain='true' class='key submit' bindtap='tapSubmit'>确定</view>
+  </view>
+</view>

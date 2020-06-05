@@ -1,0 +1,13 @@
+<!--components/avatar/avatar.wxml-->
+<view
+	class="avatar"
+	style="width: {{ width }};height: {{ width }};line-height: {{ width }};margin-left: {{ marginLeft }}"
+>
+	<image
+		wx:if="{{ avatarUrl }}"
+		src="{{ avatarUrl }}"
+		style="width: {{ width }};height: {{ width }};" mode="aspectFill"
+	>
+	</image>
+	<view wx:else>{{ nickName[0] }}</view>
+</view>

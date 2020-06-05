@@ -1,0 +1,14 @@
+<view class="container" data-weui-theme="dark">
+  <block wx:if="{{ canIUse }}">
+    <view
+      wx:if="{{ config.showWeather }}"
+      style="top: {{ statusBarHeight + 44 }}px;"
+      class="weather"
+    >
+      <image class="weather-icon" src="/images/weather/duoyun.png"></image>
+      <text>{{ weather.temperature }}°C</text>
+    </view>
+    <text class="p">{{ config.text }}</text>
+  </block>
+  <view wx:else>请升级微信版本</view>
+</view>

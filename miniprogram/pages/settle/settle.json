@@ -1,0 +1,11 @@
+{
+  "navigationBarBackgroundColor": "#16c2c2",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "团队结算",
+  "usingComponents": {
+    "mp-cells": "/components/weui/cells/cells",
+    "mp-cell": "/components/weui/cell/cell",
+    "mp-tabbar": "/components/tabbar/tabbar"
+  },
+  "enablePullDownRefresh": false
+}

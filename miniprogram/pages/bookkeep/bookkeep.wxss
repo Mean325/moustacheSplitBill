@@ -1,0 +1,175 @@
+.container {
+  height: 100vh;
+  background: #F6F6F6;
+  box-sizing: border-box;
+}
+
+.module {
+  background: #FFFFFF;
+  padding: 20rpx 30rpx;
+  margin-bottom: 20rpx;
+}
+
+/* 金额框 */
+.bookkeep__amount {
+  font-size: 74rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bookkeep__amount-num {
+  flex: 1;
+  height: 100rpx;
+  letter-spacing: 4rpx;
+  padding: 0 8rpx;
+}
+
+.bookkeep__amount-date {
+  font-size: 14px;
+  background: #16c2c2;
+  color: #FFFFFF;
+  padding: 1px 10px;
+  border-radius: 20px;
+  height: 26px;
+  line-height: 26px;
+}
+
+/* 类型选择框 */
+.bookkeep__category-box {
+  height: 190rpx;
+  padding: 30rpx 0 30rpx 30rpx;
+  box-sizing: border-box;
+  /* background: blue; */
+  white-space: nowrap;
+  display: flex;
+}
+
+.bookkeep__category {
+  width: 112rpx;
+  height: 122rpx;
+  border: 4rpx solid transparent;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bookkeep__category.selected {
+  background: rgba(22, 194, 194, 0.6);
+  border: 4rpx solid #16c2c2;
+  border-radius: 5px;
+}
+
+
+.bookkeep__category image {
+  width: 60rpx;
+  height: 60rpx;
+  padding: 10rpx;
+  border-radius: 50%;
+}
+
+.bookkeep__category text{
+  font-size: 11px;
+  color: #999999;
+}
+
+/* 属性选择栏 */
+.bookkeep__attr-box {
+  padding: 0;
+}
+
+.flex__cell {
+  display: flex;
+  align-items: center;
+  line-height: 34px;
+}
+
+.avatar {
+  margin-left: 10rpx;
+}
+
+/* 备注输入框 */
+.bookkeep__remark-input {
+  padding: 0 30rpx;
+  /* height: 28rpx; */
+} 
+
+
+/* 自定义数字键盘 */
+.keyboard{
+  width: 100vw;
+  padding: 30rpx;
+  box-sizing: border-box;
+  background: #F6F6F6;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.key {
+  width: calc((100vw - 30rpx - 60rpx)/4);
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border-radius: 10px;
+  line-height: 110rpx;
+  margin-bottom: 12rpx;
+}
+
+.key.flex2 {
+  width: calc((100vw - 30rpx - 40rpx)/2);
+}
+
+/* 底部3层键盘 */
+.keyboard-bottom3 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  text-align: center;
+}
+/* 底部3层左侧数字键盘 */
+.keyboard-bottom3-num {
+  flex: 3;
+  margin-right: 12rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+}
+/* 键盘每行 */
+.keyboard-row {
+  flex: 1;
+  width: 100%;
+  /* border-radius: 98rpx; */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+/* 底部按钮margin清0 */
+.zero, .dot, .submit{
+  margin-bottom: 0;
+}
+/* 退格按钮图片 */
+.del {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.del image {
+  width: 44rpx;
+  height: 32rpx;
+}
+/* 确定按钮文字居中 */
+.submit {
+  background: #16C2C2;
+  color: #FFFFFF;
+  line-height: 354rpx;
+}

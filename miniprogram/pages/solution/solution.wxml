@@ -1,0 +1,7 @@
+<!-- 群组列表管理 -->
+<view class="container">
+  <solution-card></solution-card>
+  <solution-card></solution-card>
+  <solution-card></solution-card>
+  <solution-card></solution-card>
+</view>

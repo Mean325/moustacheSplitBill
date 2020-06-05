@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#16c2c2",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "结算方案",
+  "usingComponents": {
+    "solution-card": "/components/solutionCard/solutionCard"
+  },
+  "enablePullDownRefresh": false
+}

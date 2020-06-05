@@ -1,0 +1,43 @@
+<view class="page" data-weui-theme="{{theme}}">
+  <view class="weui-form">
+    <view class="weui-form__text-area">
+      <h2 class="weui-form__title">设置启动页</h2>
+    </view>
+    <view class="weui-form__control-area">
+      <view class="weui-cells__group weui-cells__group_form">
+        <view class="weui-cells weui-cells_form">
+          <view class="weui-cell weui-cell_active weui-cell_switch">
+            <view class="weui-cell__bd">天气</view>
+            <view class="weui-cell__ft">
+              <label class="weui-switch-cp">
+                <switch bindchange="switchWeather" checked="{{ config.showWeather }}" />
+              </label>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="weui-cells__group weui-cells__group_form">
+        <view class="weui-cells__title">文字</view>
+        <view class="weui-cells weui-cells_form">
+          <view class="weui-cell ">
+            <view class="weui-cell__bd">
+              <textarea
+                bindinput="handleTextInput"
+                value="{{ config.text }}"
+                class="weui-textarea"
+                placeholder="请输入你想要显示的文字"
+                rows="3"
+              >
+              </textarea>
+              <view class="weui-textarea-counter">
+                <text>{{ config.text.length }}</text>/200</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-form__opr-area">
+      <a bindtap="saveWelcomeConfig" class="weui-btn weui-btn_primary">确定</a>
+    </view>
+  </view>
+</view>

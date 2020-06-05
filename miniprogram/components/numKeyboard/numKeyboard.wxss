@@ -1,0 +1,63 @@
+.keyboard{
+  width: 100vw;
+  padding: 30rpx;
+  box-sizing: border-box;
+  background: #F6F6F6;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.key {
+  width: calc((100vw - 30rpx - 60rpx)/4);
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border-radius: 10px;
+  line-height: 110rpx;
+  margin-bottom: 12rpx;
+}
+
+.key.flex2 {
+  width: calc((100vw - 30rpx - 40rpx)/2);
+}
+
+/* 底部3层键盘 */
+.keyboard-bottom3 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  text-align: center;
+}
+/* 底部3层左侧数字键盘 */
+.keyboard-bottom3-num {
+  flex: 3;
+  margin-right: 12rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+}
+/* 键盘每行 */
+.keyboard-row {
+  flex: 1;
+  width: 100%;
+  /* border-radius: 98rpx; */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+/* 底部按钮margin清0 */
+.zero, .dot, .submit{
+  margin-bottom: 0;
+}
+/* 确定按钮文字居中 */
+.submit {
+  background: #16C2C2;
+  color: #FFFFFF;
+  line-height: 354rpx;
+}

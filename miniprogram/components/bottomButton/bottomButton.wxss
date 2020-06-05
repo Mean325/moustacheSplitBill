@@ -1,0 +1,11 @@
+/* components/bottomButton/index.wxss */
+.bottom-button {
+  height: 120rpx;
+  line-height: 60rpx;
+  padding-bottom: 40rpx;
+  background: #16c2c2;
+  color: #FFFFFF;
+  position: fixed;
+  bottom: 0;
+  border-radius: 0;
+}

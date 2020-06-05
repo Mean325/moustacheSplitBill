@@ -1,0 +1,5 @@
+/* 插槽图片 */
+.slot-image {
+  width: 100%;
+  height: 100%;
+}

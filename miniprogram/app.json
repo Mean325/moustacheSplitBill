@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/welcome/welcome",
+    "pages/index/index",
+    "pages/team/team",
+    "pages/member/member",
+    "pages/invite/invite",
+    "pages/settle/settle",
+    "pages/solution/solution",
+    "pages/setting/setting",
+    "pages/bookkeep/bookkeep",
+    "pages/bookkeep/inputAmount/inputAmount",
+    "pages/bookkeep/selectPart/selectPart",
+    "pages/bookkeep/selectPayer/selectPayer"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#16c2c2",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "default",
+    "backgroundColor": "#EDEDED"
+  },
+  "usingComponents": {},
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于天气及定位"
+    }
+  },
+  "useExtendedLib": {
+    "kbone": true,
+    "weui": true
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

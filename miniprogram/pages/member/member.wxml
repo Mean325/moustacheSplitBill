@@ -1,0 +1,62 @@
+<view class="page" data-weui-theme="{{theme}}">
+	<!-- 群组管理 -->
+	<view class="container">
+		<view class="banner">
+			<text class="banner__item-name">{{ teamData.name }}</text>
+			<text class="banner__item-date">{{ teamData.time }}创建</text>
+		</view>
+		<view class="member-list">
+			<view class="member-list__title">
+				团队人数・{{ teamData.members.length }}人
+			</view>
+			<mp-cells>
+				<mp-cell wx:for="{{ teamData.members }}">
+          <avatar slot="icon" class="cell__icon" avatarUrl="{{ item.avatarUrl }}" nickName="{{ item.nickName }}" width="40px"></avatar>
+					<view>
+						{{ item.nickName }}
+						<text wx:if="{{ item.openid === teamData.adminId }}">(管理员)</text>
+					</view>
+					<view wx:if="{{ item.openid === userInfo.openid }}" slot="footer">
+						<view class="quit-btn">退出</view>
+					</view>
+				</mp-cell>
+        <!-- 邀请好友按钮 -->
+        <mp-cell bindtap="addUser">
+					<image slot="icon" class="cell__icon" src="/images/tabBar/add.png"></image>
+					<view>邀请好友</view>
+				</mp-cell>
+			</mp-cells>
+
+			<bottom-button value="开始记账"></bottom-button>
+			
+			<view wx:if="{{ showActionsheet }}" class="fadeIn" bindtap="close">
+				<view class="weui-mask"></view>
+				<view class="weui-actionsheet weui-actionsheet_toggle">
+					<view class="weui-actionsheet__title">
+						<view class="weui-actionsheet__title-text">邀请好友</view>
+					</view>
+					<view class="weui-actionsheet__menu">
+            <!-- open-type='share' -->
+            <button
+              open-type='share'
+              style="width: 100%;font-weight:normal;"
+              class="weui-actionsheet__cell"
+              hover-class="weui-cell_active"
+            >
+              微信邀请
+            </button>
+						<view bindtap="showAnonymousUserDialog" class="weui-actionsheet__cell">虚拟好友(对方没有微信)</view>
+					</view>
+					<view class="weui-actionsheet__action">
+						<view class="weui-actionsheet__cell">取消</view>
+					</view>
+				</view>
+			</view>
+
+      <mp-dialog title="输入好友名称" show="{{ showDialog  }}" bindbuttontap="tapDialogButton" buttons="{{[{text: '取消'}, {text: '添加'}]}}">
+        <input bindinput="handleInputChange" class="dialog-input"></input>
+      </mp-dialog>
+  
+		</view>
+	</view>
+</view>

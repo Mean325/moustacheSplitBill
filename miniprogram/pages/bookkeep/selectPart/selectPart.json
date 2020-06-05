@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "参与人员",
+  "usingComponents": {
+    "index-list": "/components/indexList/indexList"
+  }
+}

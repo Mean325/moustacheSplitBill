@@ -1,0 +1,21 @@
+<!-- 设置记账分类类别 -->
+<view class="container">
+  <!-- 右侧-添加分类按钮 -->
+  <!-- <bookkeep-type-bar bind:changeType="handleTypeChange">
+    
+    <image bindtap="addClass" slot="right" class="slot-image" src="/images/icon/add.png" mode="aspectFit"></image>
+  </bookkeep-type-bar> -->
+  <drag
+    id="drag"
+    bind:click="itemClick"
+    bind:change="change"
+    bind:sortend="sortEnd"
+    bind:scroll="scroll"
+    bind:del="handleDel"
+    list-data="{{ listData[activeType - 1] }}"
+    columns="1"
+    scroll-top="{{ scrollTop }}"
+    top-size="110"
+  >
+  </drag>
+</view>

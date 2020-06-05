@@ -1,0 +1,37 @@
+.banner {
+  height: 160rpx;
+  padding: 60rpx;
+  background: #16c2c2;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.banner__item-name {
+  font-size: 22px;
+}
+
+.member-list__title {
+  padding: 16px;
+}
+
+/* 退出按钮 */
+.quit-btn {
+  padding: 1px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+}
+
+.invite-btn {
+  width: 100%;
+  text-align: left;
+  font-weight: normal;
+}
+
+/* 弹窗 - input */
+.dialog-input {
+  background: #CCCCCC;
+  height: 80rpx;
+  line-height: 1;
+}

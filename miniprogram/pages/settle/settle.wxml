@@ -1,0 +1,83 @@
+<!-- 群组列表管理 -->
+<view class="container">
+  <mp-cells class="solution">
+    <mp-cell bindtap="toSolution" link value="查看全员结算方案">
+      <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+    </mp-cell>
+  </mp-cells>
+  <mp-cells>
+    <mp-cell>
+      <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+      <view>Mean</view>
+      <view class="cell-footer" slot="footer">
+        <text>应付</text>
+        <text>¥24.00</text>
+      </view>
+    </mp-cell>
+    <mp-cell>
+      <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+      <view>Mean</view>
+      <view class="cell-footer" slot="footer">
+        <text>应付</text>
+        <text>¥24.00</text>
+      </view>
+    </mp-cell>
+    <mp-cell>
+      <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+      <view>Mean</view>
+      <view class="cell-footer" slot="footer">
+        <text>应付</text>
+        <text>¥24.00</text>
+      </view>
+    </mp-cell>
+    <mp-cell>
+      <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+      <view>Mean</view>
+      <view class="cell-footer" slot="footer">
+        <text>应付</text>
+        <text>¥24.00</text>
+      </view>
+    </mp-cell>
+    <mp-cell>
+      <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+      <view>Mean</view>
+      <view class="cell-footer" slot="footer">
+        <text>应付</text>
+        <text>¥24.00</text>
+      </view>
+    </mp-cell>
+    <mp-cell>
+      <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+      <view>Mean</view>
+      <view class="cell-footer" slot="footer">
+        <text>应付</text>
+        <text>¥24.00</text>
+      </view>
+    </mp-cell>
+    <mp-cell>
+      <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+      <view>Mean</view>
+      <view class="cell-footer" slot="footer">
+        <text>应付</text>
+        <text>¥24.00</text>
+      </view>
+    </mp-cell>
+    <mp-cell>
+      <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+      <view>Mean</view>
+      <view class="cell-footer" slot="footer">
+        <text>应付</text>
+        <text>¥24.00</text>
+      </view>
+    </mp-cell>
+    <mp-cell>
+      <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+      <view>Mean</view>
+      <view class="cell-footer" slot="footer">
+        <text>应付</text>
+        <text>¥24.00</text>
+      </view>
+    </mp-cell>
+  </mp-cells>
+</view>
+<mp-tabbar current="{{ 2 }}" style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{list}}" bindchange="tabChange"></mp-tabbar>

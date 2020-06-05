@@ -1,0 +1,13 @@
+{
+  "navigationBarBackgroundColor": "#16c2c2",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "团队成员",
+  "usingComponents": {
+    "mp-cells": "/components/weui/cells/cells",
+    "mp-cell": "/components/weui/cell/cell",
+    "mp-dialog": "weui-miniprogram/dialog/dialog",
+    "avatar": "/components/avatar/avatar",
+    "bottom-button": "/components/bottomButton/bottomButton"
+  },
+  "enablePullDownRefresh": false
+}

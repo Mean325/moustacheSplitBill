@@ -1,0 +1,79 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="bookkeep">
+    <!-- 账本分类类别 -->
+    <!-- <bookkeep-type-bar bind:changeType="handleTypeChange">
+      <picker
+        bindchange="bindDateChange"
+        value="{{ date }}"
+        mode="date"
+        end="{{ today }}"
+        slot="right"
+      >
+        <image class="slot-image" src="/images/icon/rili{{ activeDay }}.png" mode="aspectFit"></image>
+      </picker>
+      
+    </bookkeep-type-bar> -->
+
+    <!-- 记账金额输入框 -->
+    <view class="bookkeep__amount module">
+      <text class="bookkeep__amount-currency">¥</text>
+      <view class="bookkeep__amount-num">
+        {{ bookkeep.num === 0 ? '' : bookkeep.num }}
+      </view>
+      <view class="bookkeep__amount-date">今日</view>
+    </view>
+
+    <!-- 记账分类选择框 -->
+    <scroll-view class="bookkeep__category-box module" scroll-x>
+      <view
+        bindtap="selectCategory"
+        data-id="{{ item._id }}"
+        wx:for="{{ categoryList[bookkeep.type - 1] }}"
+        class="bookkeep__category {{ item._id === bookkeep.category ? 'selected' : '' }}"
+      >
+        <image src="{{ item.icon }}" mode="aspectFill"></image>
+        <text>{{ item.name }}</text>
+      </view>
+      <view bindtap="toCategoryManage" class="bookkeep__category">
+        <image src="/images/setting/xitongguanli.png" mode="aspectFill"></image>
+        <text>自定义</text>
+      </view>
+    </scroll-view>
+
+    <!-- 备注栏 -->
+    <input bindinput="handleInputChange" placeholder="添加备注" maxlength="30" class="bookkeep__remark-input"></input>
+    
+    <!-- 自定义数字键盘 -->
+    <view class="keyboard">
+      <view class='keyboard-row'>
+        <view class='key one' hover-class="weui-cell_active" data-key='1' bindtap='tapKey'>1</view>
+        <view class='key two' hover-class="weui-cell_active" data-key='2' bindtap='tapKey'>2</view>
+        <view class='key three' hover-class="weui-cell_active" data-key='3' bindtap='tapKey'>3</view>
+        <view class='key del' hover-class="weui-cell_active" bindtap='tapDel' bindlongpress="longpressDel" bindtouchend="clearDelInterval">
+          <image src="/images/bookkeep/del.png" mode="aspectFill"></image>
+        </view>
+      </view>
+      <view class="keyboard-bottom3">
+        <view class="keyboard-bottom3-num">
+          <view class='keyboard-row'>
+            <view class='key four' hover-class="weui-cell_active" data-key='4' bindtap='tapKey'>4</view>
+            <view class='key five' hover-class="weui-cell_active" data-key='5' bindtap='tapKey'>5</view>
+            <view class='key six' hover-class="weui-cell_active" data-key='6' bindtap='tapKey'>6</view>
+          </view>
+          <view class='keyboard-row'>
+            <view class='key seven' hover-class="weui-cell_active" data-key='7' bindtap='tapKey'>7</view>
+            <view class='key eight' hover-class="weui-cell_active" data-key='8' bindtap='tapKey'>8</view>
+            <view class='key nine' hover-class="weui-cell_active" data-key='9' bindtap='tapKey'>9</view>
+          </view>
+          <view class='keyboard-row'>
+            <view class='key flex2 zero' hover-class="weui-cell_active" data-key='0' bindtap='tapKey'>0</view>
+            <view class='key dot' hover-class="weui-cell_active" data-key='.' bindtap='tapKey'>.</view>
+          </view>
+        </view>
+        <view class='key submit' hover-class="weui-cell_active" bindtap='tapSubmit'>确定</view>
+      </view>
+    </view>
+    
+  </view>
+</view>

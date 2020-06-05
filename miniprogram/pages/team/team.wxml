@@ -1,0 +1,30 @@
+<!-- 群组列表管理 -->
+<view class="container">
+  <view bindtap="switchTeam" data-teamId="{{ item._teamId }}" wx:for="{{ teamList }}" wx:key="_teamId" class="team">
+    <view class="team-title">
+      <text>{{ item.name }}</text>
+      <text class="team-title__date">{{ item.time }}</text>
+    </view>
+    <!-- <view class="team-spend">
+      <text>总消费 ¥500.00</text>
+    </view> -->
+    <view class="team-member">
+      <avatar
+        wx:for="{{ item.members }}"
+        class="team-member__avatar"
+        avatarUrl="{{ item.avatarUrl }}"
+        nickName="{{ item.nickName }}"
+        width="40px"
+      ></avatar>
+      <text>等{{ item.members.length }}个人</text>
+    </view>
+    <view class="team-amount">
+      <text>¥ {{ item.amount }}</text>
+    </view>
+  </view>
+  <image bindtap="showModal" class="add-team-btn" src="/images/tabBar/add.png" />
+
+  <mp-dialog title="新建团队" show="{{ isDialogShow }}" bindbuttontap="tapDialogButton" buttons="{{[{text: '取消'}, {text: '创建'}]}}">
+    <input bindinput="handleInputChange" class="dialog-input"></input>
+  </mp-dialog>
+</view>

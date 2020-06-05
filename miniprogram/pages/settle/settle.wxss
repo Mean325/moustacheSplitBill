@@ -1,0 +1,17 @@
+.container {
+  /* height: 100vh; */
+  box-sizing: border-box;
+  background: #ededed;
+  padding: 0 0 60px 0;
+}
+
+.solution {
+  /* position: sticky;
+  top: 0px; */
+  margin-bottom: 8px;
+}
+
+.cell-footer {
+  display: flex;
+  flex-direction: column;
+}
