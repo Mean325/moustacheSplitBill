@@ -27,7 +27,10 @@ Page({
     // },    // 当前选中的日期,用于右上角小日历显示
   },
   onLoad(options) {
-    let _id = options._id;
+    let { _id, num } = options;
+    this.setData({
+      'bookkeep.num': num
+    })
     if (_id) {
       let {
         activeAccountDetail

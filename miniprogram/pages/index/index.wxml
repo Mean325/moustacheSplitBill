@@ -89,7 +89,7 @@
   </view>
 </view>
 
-<navigator url="/pages/bookkeep/bookkeep" class="bookkeep-btn">
+<navigator url="/pages/bookkeep/inputAmount/inputAmount" class="bookkeep-btn">
   <image bindtap="showModal" src="/images/tabBar/add.png" />
 </navigator>
 <!-- <mp-tabbar style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{list}}" bindchange="tabChange"></mp-tabbar> -->

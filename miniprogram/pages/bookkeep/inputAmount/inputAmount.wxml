@@ -1,48 +1,16 @@
 <!--index.wxml-->
 <view class="container">
   <view class="bookkeep">
-    <!-- 账本分类类别 -->
-    <!-- <bookkeep-type-bar bind:changeType="handleTypeChange">
-      <picker
-        bindchange="bindDateChange"
-        value="{{ date }}"
-        mode="date"
-        end="{{ today }}"
-        slot="right"
-      >
-        <image class="slot-image" src="/images/icon/rili{{ activeDay }}.png" mode="aspectFit"></image>
-      </picker>
-      
-    </bookkeep-type-bar> -->
-
     <!-- 记账金额输入框 -->
-    <view class="bookkeep__amount module">
-      <text class="bookkeep__amount-currency">¥</text>
-      <view class="bookkeep__amount-num">
-        {{ bookkeep.num === 0 ? '' : bookkeep.num }}
-      </view>
-      <view class="bookkeep__amount-date">今日</view>
+    <view class="bookkeep__currency">
+      <text>人民币CNY</text>
     </view>
-
-    <!-- 记账分类选择框 -->
-    <scroll-view class="bookkeep__category-box module" scroll-x>
-      <view
-        bindtap="selectCategory"
-        data-id="{{ item._id }}"
-        wx:for="{{ categoryList[bookkeep.type - 1] }}"
-        class="bookkeep__category {{ item._id === bookkeep.category ? 'selected' : '' }}"
-      >
-        <image src="{{ item.icon }}" mode="aspectFill"></image>
-        <text>{{ item.name }}</text>
+    <view class="bookkeep__amount">
+      <text class="bookkeep__amount-symbol">¥</text>
+      <view class="bookkeep__amount-num">
+        {{ num === 0 ? '' : num }}
       </view>
-      <view bindtap="toCategoryManage" class="bookkeep__category">
-        <image src="/images/setting/xitongguanli.png" mode="aspectFill"></image>
-        <text>自定义</text>
-      </view>
-    </scroll-view>
-
-    <!-- 备注栏 -->
-    <input bindinput="handleInputChange" placeholder="添加备注" maxlength="30" class="bookkeep__remark-input"></input>
+    </view>
     
     <!-- 自定义数字键盘 -->
     <view class="keyboard">

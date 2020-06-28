@@ -2,13 +2,9 @@
   height: 100vh;
   background: #F6F6F6;
   box-sizing: border-box;
+  padding: 30rpx;
 }
 
-.module {
-  background: #FFFFFF;
-  padding: 20rpx 30rpx;
-  margin-bottom: 20rpx;
-}
 
 /* 金额框 */
 .bookkeep__amount {
@@ -27,61 +23,6 @@
   padding: 0 8rpx;
 }
 
-.bookkeep__amount-date {
-  font-size: 14px;
-  background: #16c2c2;
-  color: #FFFFFF;
-  padding: 1px 10px;
-  border-radius: 20px;
-  height: 26px;
-  line-height: 26px;
-}
-
-/* 类型选择框 */
-.bookkeep__category-box {
-  height: 190rpx;
-  padding: 30rpx 0 30rpx 30rpx;
-  box-sizing: border-box;
-  /* background: blue; */
-  white-space: nowrap;
-  display: flex;
-}
-
-.bookkeep__category {
-  width: 112rpx;
-  height: 122rpx;
-  border: 4rpx solid transparent;
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.bookkeep__category.selected {
-  background: rgba(22, 194, 194, 0.6);
-  border: 4rpx solid #16c2c2;
-  border-radius: 5px;
-}
-
-
-.bookkeep__category image {
-  width: 60rpx;
-  height: 60rpx;
-  padding: 10rpx;
-  border-radius: 50%;
-}
-
-.bookkeep__category text{
-  font-size: 11px;
-  color: #999999;
-}
-
-/* 备注输入框 */
-.bookkeep__remark-input {
-  padding: 0 30rpx;
-  /* height: 28rpx; */
-} 
-
 
 /* 自定义数字键盘 */
 .keyboard{
@@ -94,6 +35,9 @@
   align-items: stretch;
   justify-content: space-between;
   text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
 
 .key {
