@@ -12,7 +12,7 @@
           nickName="{{ item.nickName }}"
           width="34px"
         ></avatar>
-        <image src="/images/tabBar/add.png" class="team-info__member-add" />
+        <image src="/images/index/add.png" class="team-info__member-add" />
         </view>
       </navigator>
     </view>
@@ -90,6 +90,6 @@
 </view>
 
 <navigator url="/pages/bookkeep/inputAmount/inputAmount" class="bookkeep-btn">
-  <image bindtap="showModal" src="/images/tabBar/add.png" />
+  <image bindtap="showModal" src="/images/index/add.png" />
 </navigator>
 <!-- <mp-tabbar style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{list}}" bindchange="tabChange"></mp-tabbar> -->

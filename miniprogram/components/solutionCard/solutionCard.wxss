@@ -56,9 +56,9 @@
 .solution__btn {
   padding: 2px 8px;
   font-size: 13px;
-  background: #16c2c2;
+  background: #3FB475;
   border-radius: 20px;
-  border: 1rpx solid #16c2c2;
+  border: 1rpx solid #3FB475;
 }
 
 .solution__btn + .solution__btn {

@@ -3,7 +3,7 @@
   height: 120rpx;
   line-height: 60rpx;
   padding-bottom: 40rpx;
-  background: #16c2c2;
+  background: #3FB475;
   color: #FFFFFF;
   position: fixed;
   bottom: 0;

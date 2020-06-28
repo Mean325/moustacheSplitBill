@@ -1,7 +1,7 @@
 .banner {
   height: 160rpx;
   padding: 60rpx;
-  background: #16c2c2;
+  background: #3FB475;
   color: #FFFFFF;
   display: flex;
   flex-direction: column;

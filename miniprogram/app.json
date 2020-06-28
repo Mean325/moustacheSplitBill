@@ -11,11 +11,13 @@
     "pages/bookkeep/inputAmount/inputAmount",
     "pages/bookkeep/selectPart/selectPart",
     "pages/bookkeep/selectPayer/selectPayer",
-    "pages/setting/setting"
+    "pages/setting/setting",
+    "pages/setting/admin/categoryManage/categoryManage",
+    "pages/setting/admin/categoryManage/addCategory/addCategory"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#16c2c2",
+    "navigationBarBackgroundColor": "#3FB475",
     "navigationBarTitleText": "",
     "navigationBarTextStyle": "white",
     "navigationStyle": "default",
@@ -25,7 +27,7 @@
     "custom": false,
     "backgroundColor": "#EDEDED",
     "color": "#AAAAAA",
-    "selectedColor": "#16c2c2",
+    "selectedColor": "#3FB475",
     "list": [
       {
         "pagePath": "pages/index/index",

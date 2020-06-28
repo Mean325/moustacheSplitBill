@@ -22,7 +22,7 @@
 				{{ bookkeep.num === 0 ? '' : bookkeep.num }}
 			</view>
 			<!-- 选择记账日期 -->
-			<picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+			<picker mode="date" value="{{date}}" start="2018-01-01" end="{{ today }}" bindchange="bindDateChange">
 				<view class="bookkeep__amount-date">今日</view>
 			</picker>
 

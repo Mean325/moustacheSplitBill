@@ -54,7 +54,8 @@ Page({
    * @hook 页面显示时
    */
   onShow() {
-    // this.getCategoryList();
+    // this.getCategoryList()
+    this.setDate();
     this.calcSplit();
   },
   /**
@@ -65,12 +66,9 @@ Page({
       categoryList
     } = app.globalData;
     console.log(categoryList);
-    let date = utils.getDate();
     this.setData({
       categoryList: categoryList,
-      'bookkeep.category': categoryList[0][0]._id,
-      'bookkeep.date': date,
-      today: date
+      'bookkeep.category': categoryList[0]._id
     })
   },
   /**
@@ -81,6 +79,16 @@ Page({
     this.setData({
       'bookkeep.category': _id
     });
+  },
+  /**
+   * @method 设置默认记账日期为今日,及日期选择器最大日期
+   */
+  setDate() {
+    let date = utils.getDate();
+    this.setData({
+      'bookkeep.date': date,
+      today: date
+    })
   },
   /**
    * 跳转到分类管理页面

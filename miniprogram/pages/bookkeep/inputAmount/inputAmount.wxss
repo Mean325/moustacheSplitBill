@@ -98,7 +98,7 @@
 }
 /* 确定按钮文字居中 */
 .submit {
-  background: #16C2C2;
+  background: #3FB475;
   color: #FFFFFF;
   line-height: 354rpx;
 }

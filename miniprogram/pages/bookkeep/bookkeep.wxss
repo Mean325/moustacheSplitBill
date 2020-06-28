@@ -29,7 +29,7 @@
 
 .bookkeep__amount-date {
   font-size: 14px;
-  background: #16c2c2;
+  background: #3FB475;
   color: #FFFFFF;
   padding: 1px 10px;
   border-radius: 20px;
@@ -59,7 +59,7 @@
 
 .bookkeep__category.selected {
   background: rgba(22, 194, 194, 0.6);
-  border: 4rpx solid #16c2c2;
+  border: 4rpx solid #3FB475;
   border-radius: 5px;
 }
 
@@ -169,7 +169,7 @@
 }
 /* 确定按钮文字居中 */
 .submit {
-  background: #16C2C2;
+  background: #3FB475;
   color: #FFFFFF;
   line-height: 354rpx;
 }

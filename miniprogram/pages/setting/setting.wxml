@@ -1,41 +1,36 @@
 <!-- 我的页面 -->
 <view class="container">
-  <!-- 用户信息 -->
-  <navigator url="/pages/setting/login/login" class="userinfo">
-    <avatar wx:if="{{ userInfo.avatarUrl }}" class="userinfo-avatar" avatarUrl="{{ userInfo.avatarUrl }}" nickName="{{ userInfo.nickName }}" width="80px"></avatar>
-    <avatar wx:else class="userinfo-avatar" avatarUrl="{{ unloginAvatar }}" width="80px"></avatar>
-    <text class="userinfo__nick-name">{{ userInfo.nickName || "立即登录" }}</text>
-    <text class="userinfo__team-name">{{ userInfo.nickName || " " }}</text>
-  </navigator>
-  <!-- 其余设置 -->
-  <view class="setting-cells">
-    <navigator url="/pages/setting/classManage/classManage" class="setting-cell" hover-class="weui-cell_active">
-      <image src="/images/setting/category.png" class="setting-cell__icon border"></image>
-      <text>分类管理</text>
-    </navigator>
-    <view bindtap="openSetting" class="setting-cell" hover-class="weui-cell_active" class="setting-cell">
-      <image src="/images/setting/authorize.png" class="setting-cell__icon"></image>
-      <text>授权管理</text>
-    </view>
-    <button
-      open-type='feedback'
-      style="width: calc(50% - 16rpx);text-align:left;font-weight: normal;"
-      class="setting-cell"
-      hover-class="weui-cell_active"
-    >
-      <image src="/images/setting/feedback.png" class="setting-cell__icon"></image>
-      <text>意见反馈</text>
-    </button>
-    <!-- 管理员设置 - 仅超级管理员显示 -->
-    <view wx:if="{{ userInfo.openid === 'ouGKR4pZmbV1WnrmRCwHP8_Aw7oA' }}" class="setting-cell">
-      <image src="/images/setting/jiekou.png" class="setting-cell__icon" hover-class="weui-cell_active"></image>
-      <text>小程序设置</text>
-    </view>
-    <navigator url="/pages/setting/about/about" class="setting-cell" hover-class="weui-cell_active">
-      <image src="/images/setting/about.png" class="setting-cell__icon"></image>
-      <text>关于</text>
-    </navigator>
-  </view>
-  <!-- 退出登录 -->
-  <!-- <a class="weui-btn_cell weui-btn_cell-default">退出登录</a> -->
+	<!-- 用户信息 -->
+	<navigator url="/pages/setting/login/login" class="userinfo">
+		<avatar wx:if="{{ userInfo.avatarUrl }}" class="userinfo-avatar" avatarUrl="{{ userInfo.avatarUrl }}" nickName="{{ userInfo.nickName }}" width="80px"></avatar>
+		<avatar wx:else class="userinfo-avatar" avatarUrl="{{ unloginAvatar }}" width="80px"></avatar>
+		<text class="userinfo__nick-name">{{ userInfo.nickName || "立即登录" }}</text>
+		<text class="userinfo__team-name">{{ userInfo.nickName || " " }}</text>
+	</navigator>
+	<!-- 其余设置 -->
+	<view class="setting-cells">
+		<navigator url="/pages/setting/classManage/classManage" class="setting-cell" hover-class="weui-cell_active">
+			<image src="/images/setting/category.png" class="setting-cell__icon border"></image>
+			<text>分类管理</text>
+		</navigator>
+		<view bindtap="openSetting" class="setting-cell" hover-class="weui-cell_active" class="setting-cell">
+			<image src="/images/setting/authorize.png" class="setting-cell__icon"></image>
+			<text>授权管理</text>
+		</view>
+		<button open-type='feedback' style="width: calc(50% - 16rpx);text-align:left;font-weight: normal;" class="setting-cell" hover-class="weui-cell_active">
+			<image src="/images/setting/feedback.png" class="setting-cell__icon"></image>
+			<text>意见反馈</text>
+		</button>
+		<!-- 管理员设置 - 仅超级管理员显示 -->
+		<navigator url="/pages/setting/admin/categoryManage/categoryManage" wx:if="{{ userInfo.openid === 'ouGKR4pZmbV1WnrmRCwHP8_Aw7oA' }}" class="setting-cell">
+			<image src="/images/setting/jiekou.png" class="setting-cell__icon" hover-class="weui-cell_active"></image>
+			<text>小程序设置</text>
+		</navigator>
+		<navigator url="/pages/setting/about/about" class="setting-cell" hover-class="weui-cell_active">
+			<image src="/images/setting/about.png" class="setting-cell__icon"></image>
+			<text>关于</text>
+		</navigator>
+	</view>
+	<!-- 退出登录 -->
+	<!-- <a class="weui-btn_cell weui-btn_cell-default">退出登录</a> -->
 </view>
