@@ -11,10 +11,9 @@ const _ = db.command
 exports.main = async (event, context) => {
   const { type, icon, name, _id } = event;
   if (_id) {
-    await db.collection('_classList').doc(_id).update({
+    await db.collection('category').doc(_id).update({
       data: {
         icon,
-        type,
         name
       },
       success: res => {
@@ -29,9 +28,8 @@ exports.main = async (event, context) => {
       }
     })
   } else {
-    await db.collection('_classList').add({
+    await db.collection('category').add({
       data: {
-        type,
         icon,
         name
       },

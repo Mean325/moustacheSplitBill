@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "用户默认分类添加",
-  "usingComponents": {
-    "drag": "../../components/drag/index"
-  },
-  "enablePullDownRefresh": false
-}

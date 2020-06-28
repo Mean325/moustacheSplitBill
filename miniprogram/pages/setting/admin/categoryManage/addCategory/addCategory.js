@@ -1,29 +1,25 @@
 let iconList = [
-  "/images/class/baomihua.png",
-  "/images/class/canyin.png",
-  "/images/class/dangao.png",
-  "/images/class/diannao.png",
-  "/images/class/dianying.png",
-  "/images/class/duanxiu.png",
-  "/images/class/hanbao.png",
-  "/images/class/huoguo.png",
-  "/images/class/jiandao.png",
-  "/images/class/jianshen.png",
-  "/images/class/kafei.png",
-  "/images/class/lifa.png",
-  "/images/class/qunzi.png",
-  "/images/class/shuben.png",
-  "/images/class/shutiao.png",
-  "/images/class/switch.png",
-  "/images/class/xuegao.png",
-  "/images/class/yaowan.png",
-  "/images/class/youxiji-1.png",
-  "/images/class/youxiji-2.png",
-  "/images/class/qiandai.png",
-  "/images/class/gongzi.png",
-  "/images/class/hongbao.png",
-  "/images/class/jianzhi.png",
-  "/images/class/tongqian.png",
+  "/images/category/chongwu.png",
+  "/images/category/dianying.png",
+  "/images/category/fangzu.png",
+  "/images/category/hongbao.png",
+  "/images/category/hunyinlianai.png",
+  "/images/category/jiaju.png",
+  "/images/category/jiaotong.png",
+  "/images/category/jiaoyu.png",
+  "/images/category/liwu.png",
+  "/images/category/lvyoudujia.png",
+  "/images/category/maicai.png",
+  "/images/category/qicheyongpin.png",
+  "/images/category/riyongpin.png",
+  "/images/category/yaopin.png",
+  "/images/category/yiban.png",
+  "/images/category/yinpin.png",
+  "/images/category/yiwu.png",
+  "/images/category/youxi.png",
+  "/images/category/yuer.png",
+  "/images/category/yule.png",
+  "/images/category/yundong.png"
 ];
 
 const utils = require("../../../../../utils/utils.js");
@@ -84,19 +80,8 @@ Page({
    * @method 底部添加分类事件
    */
   addClass: utils.throttle(function () {
-    let pages = getCurrentPages();
-    let { options } = pages.pop();
-    let type = Number(options.type);   // 获取路由参数type
-
     let { name, icon, _id } = this.data.activeClass;
     console.log(name);
-    if (!type) {
-      wx.showToast({
-        title: '出错啦,请返回上一页重新进入',
-        icon: 'none',
-      })
-      return;
-    }
     if (!name) {
       wx.showToast({
         title: '请输入分类名称',
@@ -114,10 +99,9 @@ Page({
     console.log("调用云函数");
     wx.cloud.callFunction({
       // 云函数名称
-      name: 'adminAddClass',
+      name: 'editCategory',
       // 传给云函数的参数
       data: {
-        type,
         name,
         icon,
         _id

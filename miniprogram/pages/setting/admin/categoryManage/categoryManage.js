@@ -24,17 +24,15 @@ Page({
       data: {}
     })
       .then(res => {
-        let datas = res.result.data;
-        console.log(datas);
-        datas.forEach(data => {
-          data.forEach(item => {
-            // item.dragId = `item${ index }`;
-            item.bookkeepNum = 0;
-            item.fixed = false;
-          })
+        let { data } = res.result;
+        console.log(data);
+        data.forEach(item => {
+          // item.dragId = `item${ index }`;
+          item.bookkeepNum = 0;
+          item.fixed = false;
         })
         this.setData({
-          listData: datas
+          listData: data
         });
 
         this.drag.init();   // 拖动列表初始化

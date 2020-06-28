@@ -18,7 +18,7 @@ Page({
 
     partnerList: [], // 参与人列表,仅用于显示
     payerList: [], // 付款人列表
-    classList: [], // 记账分类列表
+    categoryList: [], // 记账分类列表
     today: "", // 今日日期,用于限制日期选择器必须小于今日
   },
   computed: {
@@ -31,6 +31,9 @@ Page({
     this.setData({
       'bookkeep.num': num
     })
+
+    this.getCategoryList();
+
     if (_id) {
       let {
         activeAccountDetail
@@ -54,7 +57,6 @@ Page({
    * @hook 页面显示时
    */
   onShow() {
-    // this.getCategoryList()
     this.setDate();
     this.calcSplit();
   },
@@ -65,9 +67,8 @@ Page({
     let {
       categoryList
     } = app.globalData;
-    console.log(categoryList);
     this.setData({
-      categoryList: categoryList,
+      categoryList,
       'bookkeep.category': categoryList[0]._id
     })
   },

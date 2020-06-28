@@ -57,13 +57,6 @@
   align-items: center;
 }
 
-.bookkeep__category.selected {
-  background: rgba(22, 194, 194, 0.6);
-  border: 4rpx solid #3FB475;
-  border-radius: 5px;
-}
-
-
 .bookkeep__category image {
   width: 60rpx;
   height: 60rpx;
@@ -74,6 +67,9 @@
 .bookkeep__category text{
   font-size: 11px;
   color: #999999;
+}
+.bookkeep__category.selected text {
+  color: #3FB475;
 }
 
 /* 属性选择栏 */

@@ -51,6 +51,8 @@ App({
         _id: "baada3ac5ed5c850002d461406572115"
       }
     ],    // 团队成员
+
+    categoryList: []  // 分类列表
   },
   themeChanged(theme) {
     this.globalData.theme = theme;
@@ -92,4 +94,25 @@ App({
       }
     })
   },
+  getCategoryList() {
+    return new Promise((resolve, reject) => {
+      wx.cloud.callFunction({
+        name: 'getCategoryList',
+        data: {}
+      })
+        .then(res => {
+          let { data } = res.result;
+          if (data.length) {
+            data.forEach(item => {
+              item.activeIcon = item.icon.split(".png")[0] + "_active.png";
+            })    // 遍历数据, icon路径中添加_active用于选中时的样式
+            this.globalData.categoryList = data;
+            resolve(data);
+          } else {
+            reject(error);
+          }
+        })
+        .catch(console.error)
+    })
+  }
 })

@@ -2,7 +2,7 @@
 	"miniprogramRoot": "miniprogram/",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"enhance": true,
 		"postcss": true,
@@ -10,23 +10,27 @@
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
+		"nodeModules": true,
 		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
+		"uglifyFileName": false,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
 		"babelSetting": {
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
 		},
+		"useIsolateContext": true,
 		"useCompilerModule": true,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"appid": "wx25f0a48d14b3d7c7",
-	"projectname": "moustacheAA",
-	"libVersion": "2.8.1",
+	"projectname": "splitBill",
+	"libVersion": "2.11.2",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
@@ -120,6 +124,13 @@
 					"id": -1,
 					"name": "分类管理",
 					"pathName": "pages/setting/admin/categoryManage/categoryManage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "添加分类",
+					"pathName": "pages/setting/admin/categoryManage/addCategory/addCategory",
 					"query": "",
 					"scene": null
 				}

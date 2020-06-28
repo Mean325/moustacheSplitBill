@@ -40,15 +40,15 @@
 }
 
 .icon-selected {
-  background: rgba(22, 194, 194, 0.6);
-  border: 4rpx solid #16c2c2;
+  background: rgba(63, 180, 117, 0.6);
+  border: 4rpx solid #3FB475;
   border-radius: 5px;
 }
 
 /* 添加分类按钮 */
 .add-class-btn {
   height: 100rpx;
-  background: #16c2c2;
+  background: #3FB475;
   /* background-image: linear-gradient(270deg, #FEC830 0%, #FFDE37 100%); */
   border-radius: 60rpx;
   font-size: 18px;

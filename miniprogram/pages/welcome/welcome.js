@@ -9,10 +9,9 @@ Page({
   },
   onLoad(options) {
     // this.getWelcomeConfig();
-    // this.getSetting();
-    // this.getCategoryList();   // 获取用户分类列表
+    this.getSetting();
+    this.getCategoryList();   // 获取分类列表
 
-    this.getOpenid();
   },
   /**
    * 调用云函数getWelcomeConfig获取
@@ -33,6 +32,7 @@ Page({
       .catch(console.error)
   },
   /**
+   * 成功后跳转到首页
    * @method 获取分类列表
    */
   getCategoryList() {

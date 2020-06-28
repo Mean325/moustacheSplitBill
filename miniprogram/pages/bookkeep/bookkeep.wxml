@@ -30,14 +30,15 @@
 
 		<!-- 记账分类选择框 -->
 		<scroll-view class="bookkeep__category-box module" scroll-x>
-			<view bindtap="selectCategory" data-id="{{ item._id }}" wx:for="{{ categoryList[bookkeep.type - 1] }}" class="bookkeep__category {{ item._id === bookkeep.category ? 'selected' : '' }}">
-				<image src="{{ item.icon }}" mode="aspectFill"></image>
+			<view bindtap="selectCategory" data-id="{{ item._id }}" wx:for="{{ categoryList }}" class="bookkeep__category {{ item._id === bookkeep.category ? 'selected' : '' }}">
+				<image src="{{ item._id === bookkeep.category ? item.activeIcon : item.icon }}" mode="aspectFill"></image>
 				<text>{{ item.name }}</text>
 			</view>
-			<view bindtap="toCategoryManage" class="bookkeep__category">
+			<!-- 暂未启用自定义分类 -->
+			<!-- <view bindtap="toCategoryManage" class="bookkeep__category">
 				<image src="/images/setting/xitongguanli.png" mode="aspectFill"></image>
 				<text>自定义</text>
-			</view>
+			</view> -->
 		</scroll-view>
 
 		<!-- 记账属性选择 -->

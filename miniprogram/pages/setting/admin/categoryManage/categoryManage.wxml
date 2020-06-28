@@ -1,6 +1,6 @@
 <!-- 分类管理 - 超级管理员 -->
 <view class="container">
-  <image bindtap="addClass" class="slot-image" src="/images/icon/add.png" mode="aspectFit"></image>
+  <!-- <image bindtap="addClass" class="slot-image" src="/images/icon/add.png" mode="aspectFit"></image> -->
   <drag
     id="drag"
     bind:click="itemClick"
@@ -8,7 +8,7 @@
     bind:sortend="sortEnd"
     bind:scroll="scroll"
     bind:del="handleDel"
-    list-data="{{ listData[activeType - 1] }}"
+    list-data="{{ listData }}"
     columns="1"
     scroll-top="{{ scrollTop }}"
     top-size="110"
