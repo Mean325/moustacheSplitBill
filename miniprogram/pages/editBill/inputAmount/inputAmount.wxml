@@ -19,7 +19,7 @@
         <view class='key two' hover-class="weui-cell_active" data-key='2' bindtap='tapKey'>2</view>
         <view class='key three' hover-class="weui-cell_active" data-key='3' bindtap='tapKey'>3</view>
         <view class='key del' hover-class="weui-cell_active" bindtap='tapDel' bindlongpress="longpressDel" bindtouchend="clearDelInterval">
-          <image src="/images/bookkeep/del.png" mode="aspectFill"></image>
+          <image src="/images/editBill/del.png" mode="aspectFill"></image>
         </view>
       </view>
       <view class="keyboard-bottom3">

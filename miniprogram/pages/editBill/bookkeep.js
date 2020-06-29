@@ -150,18 +150,8 @@ Page({
       }
     })
       .then(res => {
-        let { data, code, message } = res.result;
+        let { data } = res.result;
         console.log(data);
-        if (code === 200) {
-          wx.navigateBack({
-            delta: 2,
-            success: res => {
-              wx.showToast({
-                title: '记账成功',
-              })
-            }
-          });
-        }
       })
       .catch(console.error)
   },

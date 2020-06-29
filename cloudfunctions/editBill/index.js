@@ -14,36 +14,52 @@ const _ = db.command
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext();
-  let { _id, teamId, num, categoryId, remark, date, partner, payer, splitType } = event;
+  let {
+    _id,
+    teamId,
+    num,
+    categoryId,
+    remark,
+    date,
+    partner,
+    payer,
+    splitType
+  } = event;
   const updateTime = db.serverDate();
 
   let result;
-  if (_id) {    // 含_id时,更新数据库该条数据
+  if (_id) { // 含_id时,更新数据库该条数据
     await db.collection('bill').doc(_id).update({
-      data: {
-        openid: wxContext.OPENID,
-        teamId,
-        num,
-        categoryId,
-        remark,
-        date,
-        partner,
-        payer,
-        splitType,
-        updateTime
-      },
-      success: res => {
-        onsole.log('更改成功', res)
-        return {
-          message: "更改成功",
-          res
+        data: {
+          openid: wxContext.OPENID,
+          teamId,
+          num,
+          categoryId,
+          remark,
+          date,
+          partner,
+          payer,
+          splitType,
+          updateTime
         }
-      },
-      fail: err => {
-        message: "更改失败"
-      }
-    })
-  } else {    // 不含_id时,新增该条数据
+      })
+      .then(res => {
+        console.log('更改成功', res)
+        result = {
+          message: "更改成功",
+          code: 200,
+          data: res._id
+        }
+      })
+      .catch(err => {
+        console.error(err)
+        result = {
+          message: "更改失败",
+          code: 400,
+          err
+        }
+      })
+  } else { // 不含_id时,新增该条数据
     // let res = await cloud.callFunction({
     //   name: 'hexMD5',
     //   data: {
@@ -54,33 +70,35 @@ exports.main = async (event, context) => {
 
     // console.log(_id);
     await db.collection('bill').add({
-      data: {
-        openid: wxContext.OPENID,
-        teamId,
-        num,
-        categoryId,
-        remark,
-        date,
-        partner,
-        payer,
-        splitType,
-        updateTime
-      },
-      success: res => {   // 成功打印消息
-        console.log('记账成功', res);
+        data: {
+          openid: wxContext.OPENID,
+          teamId,
+          num,
+          categoryId,
+          remark,
+          date,
+          partner,
+          payer,
+          splitType,
+          updateTime
+        }
+      })
+      .then(res => {
+        console.log('记账成功', res)
         result = {
           message: "记账成功",
-          code: 200
+          code: 200,
+          data: res._id
         }
-      },
-      fail: res => {    // 存入数据库失败
-        console.log('记账失败', res);
+      })
+      .catch(err => {
+        console.error(err)
         result = {
-          message: "记账失败",
-          code: 400
+          message: "更改失败",
+          code: 400,
+          err
         }
-      }
-    })
+      })
   }
   return result;
 }

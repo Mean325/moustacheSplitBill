@@ -69,7 +69,7 @@ Page({
       return;
     }
     wx.navigateTo({
-      url: `/pages/bookkeep/bookkeep?num=${ num }`,
+      url: `/pages/editBill/editBill?num=${ num }`,
     })
   },
   /**
