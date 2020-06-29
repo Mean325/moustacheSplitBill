@@ -79,11 +79,9 @@ Page({
             bill: data.list,
             amount: data.amount
           })
+          wx.stopPullDownRefresh();
         }
       })
       .catch(console.error)
-      .finally(res => {
-        wx.stopPullDownRefresh();
-      })
   },
 })
