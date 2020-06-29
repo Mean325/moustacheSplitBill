@@ -60,6 +60,11 @@ Page({
     this.setDate();
     this.calcSplit();
   },
+  toInputAmount() {
+    wx.navigateTo({
+      url: `/pages/editBill/inputAmount/inputAmount?num=${ this.data.bookkeep.num }`,
+    })
+  },
   /**
    * @method 从全局变量中获取分类列表数据
    */
@@ -143,18 +148,19 @@ Page({
    * @method 添加账单
    */
   editBill() {
+    const { activeTeamId } = app.globalData;
     wx.cloud.callFunction({
       name: 'editBill',
       data: {
+        teamId: activeTeamId,
         ...this.data.bookkeep
       }
     })
       .then(res => {
-        let { data, code, message } = res.result;
+        const { data, code, message } = res.result;
         console.log(data);
         if (code === 200) {
           wx.navigateBack({
-            delta: 2,
             success: res => {
               wx.showToast({
                 title: '记账成功',

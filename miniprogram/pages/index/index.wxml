@@ -22,38 +22,43 @@
     </view>
   </view>
   <view class="bill">
-    <view class="bill__title">
-      <text>4月29日</text>
-      <text>¥51.00</text>
+    <view wx:for="{{ bill }}">
+      <view class="bill__title">
+        <!-- <text>4月29日</text> -->
+        <text>{{ item._id }}</text>
+        <text>¥{{ item.count }}</text>
+      </view>
+      <mp-cells>
+        <mp-slideview
+          bindtap="toDetail"
+          wx:for="{{ item.bill }}"
+          wx:for-item="data"
+          buttons="{{ slideButtons }}"
+          bindbuttontap="delAccount"
+        >
+          <mp-cell>
+            <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+            <view>一般 - Mean 付款</view>
+            <view slot="footer">
+              ¥{{ data.num }}
+            </view>
+          </mp-cell>
+        </mp-slideview>
+        <mp-slideview
+          bindtap="toDetail"
+          buttons="{{ slideButtons }}"
+          bindbuttontap="delAccount"
+        >
+          <mp-cell>
+            <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+            <view>一般 - Mean 付款</view>
+            <view slot="footer">
+              ¥24.00
+            </view>
+          </mp-cell>
+        </mp-slideview>
+      </mp-cells>
     </view>
-    <mp-cells>
-      <mp-slideview
-        bindtap="toDetail"
-        buttons="{{ slideButtons }}"
-        bindbuttontap="delAccount"
-      >
-        <mp-cell>
-          <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
-          <view>一般 - Mean 付款</view>
-          <view slot="footer">
-            ¥24.00
-          </view>
-        </mp-cell>
-      </mp-slideview>
-      <mp-slideview
-        bindtap="toDetail"
-        buttons="{{ slideButtons }}"
-        bindbuttontap="delAccount"
-      >
-        <mp-cell>
-          <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
-          <view>一般 - Mean 付款</view>
-          <view slot="footer">
-            ¥24.00
-          </view>
-        </mp-cell>
-      </mp-slideview>
-    </mp-cells>
     <view class="bill__title">
       <text>4月29日</text>
       <text>¥51.00</text>

@@ -9,5 +9,5 @@
     "mp-tabbar": "/components/tabbar/tabbar",
     "avatar": "/components/avatar/avatar"
   },
-  "enablePullDownRefresh": false
+  "enablePullDownRefresh": true
 }

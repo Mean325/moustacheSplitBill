@@ -68,7 +68,7 @@ Page({
       })
       return;
     }
-    wx.navigateTo({
+    wx.redirectTo({
       url: `/pages/editBill/editBill?num=${ num }`,
     })
   },

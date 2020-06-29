@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    teamData: {},  // 团队信息  
+    teamData: {},  // 团队信息
+    bill: [],   // 账单信息
 
     slideButtons: [{
       type: 'warn',
@@ -31,9 +32,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    wx.startPullDownRefresh();
+  },
+  onPullDownRefresh() {
     const { activeTeamId } = app.globalData;
     console.log(activeTeamId);
     this.getTeamData(activeTeamId);
+    this.getBill(activeTeamId);
   },
   /**
    * @method 根据Id获取团队信息
@@ -55,5 +60,28 @@ Page({
         })
       })
       .catch(console.error)
+  },
+  /**
+   * @method 根据Id获取团队信息
+   */
+  getBill(teamId) {
+    wx.cloud.callFunction({
+      name: 'getBill',
+      data: {
+        teamId
+      }
+    })
+      .then(res => {
+        const { data, code, message } = res.result;
+        if (code === 200) {
+          this.setData({
+            bill: data
+          })
+        }
+      })
+      .catch(console.error)
+      .finally(res => {
+        wx.stopPullDownRefresh();
+      })
   },
 })

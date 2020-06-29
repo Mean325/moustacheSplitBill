@@ -18,7 +18,7 @@
 		<!-- 记账金额输入框 -->
 		<view class="bookkeep__amount module">
 			<text class="bookkeep__amount-currency">¥</text>
-			<view class="bookkeep__amount-num">
+			<view bindtap="toInputAmount" class="bookkeep__amount-num">
 				{{ bookkeep.num === 0 ? '' : bookkeep.num }}
 			</view>
 			<!-- 选择记账日期 -->
