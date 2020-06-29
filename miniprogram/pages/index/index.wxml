@@ -44,19 +44,6 @@
             </view>
           </mp-cell>
         </mp-slideview>
-        <mp-slideview
-          bindtap="toDetail"
-          buttons="{{ slideButtons }}"
-          bindbuttontap="delAccount"
-        >
-          <mp-cell>
-            <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
-            <view>一般 - Mean 付款</view>
-            <view slot="footer">
-              ¥24.00
-            </view>
-          </mp-cell>
-        </mp-slideview>
       </mp-cells>
     </view>
     <view class="bill__title">

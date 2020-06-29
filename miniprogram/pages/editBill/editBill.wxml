@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-	<view class="bookkeep">
+	<view class="bill">
 		<!-- 账本分类类别 -->
 		<!-- <bookkeep-type-bar bind:changeType="handleTypeChange">
       <picker
@@ -16,33 +16,34 @@
     </bookkeep-type-bar> -->
 
 		<!-- 记账金额输入框 -->
-		<view class="bookkeep__amount module">
-			<text class="bookkeep__amount-currency">¥</text>
-			<view bindtap="toInputAmount" class="bookkeep__amount-num">
-				{{ bookkeep.num === 0 ? '' : bookkeep.num }}
+		<view class="bill__amount module">
+			<text class="bill__amount-currency">¥</text>
+			<view bindtap="toInputAmount" class="bill__amount-num">
+				{{ bill.num === 0 ? '' : bill.num }}
 			</view>
 			<!-- 选择记账日期 -->
-			<picker mode="date" value="{{date}}" start="2018-01-01" end="{{ today }}" bindchange="bindDateChange">
-				<view class="bookkeep__amount-date">今日</view>
+			<picker mode="date" value="{{ date }}" start="2018-01-01" end="{{ today }}" bindchange="bindDateChange">
+				<view wx:if="{{ bill.date === today }}" class="bill__amount-date">今日</view>
+				<view wx:else class="bill__amount-date">{{ bill.date }}</view>
 			</picker>
 
 		</view>
 
 		<!-- 记账分类选择框 -->
-		<scroll-view class="bookkeep__category-box module" scroll-x>
-			<view bindtap="selectCategory" data-id="{{ item._id }}" wx:for="{{ categoryList }}" class="bookkeep__category {{ item._id === bookkeep.categoryId ? 'selected' : '' }}">
-				<image src="{{ item._id === bookkeep.categoryId ? item.activeIcon : item.icon }}" mode="aspectFill"></image>
+		<scroll-view class="bill__category-box module" scroll-x>
+			<view bindtap="selectCategory" data-id="{{ item._id }}" wx:for="{{ categoryList }}" class="bill__category {{ item._id === bill.categoryId ? 'selected' : '' }}">
+				<image src="{{ item._id === bill.categoryId ? item.activeIcon : item.icon }}" mode="aspectFill"></image>
 				<text>{{ item.name }}</text>
 			</view>
 			<!-- 暂未启用自定义分类 -->
-			<!-- <view bindtap="toCategoryManage" class="bookkeep__category">
+			<!-- <view bindtap="toCategoryManage" class="bill__category">
 				<image src="/images/setting/xitongguanli.png" mode="aspectFill"></image>
 				<text>自定义</text>
 			</view> -->
 		</scroll-view>
 
 		<!-- 记账属性选择 -->
-		<view class="bookkeep__attr-box module">
+		<view class="bill__attr-box module">
 			<mp-cells>
 				<!-- 选择参与人 -->
 				<mp-cell bindtap="selectPart" link>
@@ -62,14 +63,14 @@
 				<mp-cell bindtap="addUser">
 					<view class="flex__cell">
 						分账
-						平分{{ partnerList.length > 0 ? bookkeep.num / (partnerList.length) : '' }}/人
+						平分{{ partnerList.length > 0 ? bill.num / (partnerList.length) : '' }}/人
 						<!-- 具体 -->
 					</view>
 				</mp-cell>
 				<mp-cell bindtap="addUser">
 					<view class="flex__cell">
 						备注
-						<input bindinput="handleInputChange" placeholder="添加备注" maxlength="30" class="bookkeep__remark-input"></input>
+						<input bindinput="handleInputChange" placeholder="添加备注" maxlength="30" class="bill__remark-input"></input>
 					</view>
 				</mp-cell>
 			</mp-cells>
@@ -77,7 +78,7 @@
 
 		<!-- 备注栏 -->
 		<!-- <view class="module">
-			<input bindinput="handleInputChange" placeholder="添加备注" maxlength="30" class="bookkeep__remark-input"></input>
+			<input bindinput="handleInputChange" placeholder="添加备注" maxlength="30" class="bill__remark-input"></input>
 		</view> -->
 
 		<bottom-button bindtap="editBill" value="添加"></bottom-button>

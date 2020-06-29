@@ -6,7 +6,7 @@ const app = getApp();
 Page({
   behaviors: [computedBehavior],
   data: {
-    bookkeep: {
+    bill: {
       num: 45, // 金额
       categoryId: "", // 账目分类id
       remark: "", // 备注
@@ -23,16 +23,17 @@ Page({
   },
   computed: {
     // activeDay(data) {
-    //   return data.bookkeep.date.split("-")[2] || "1";
+    //   return data.bill.date.split("-")[2] || "1";
     // },    // 当前选中的日期,用于右上角小日历显示
   },
   onLoad(options) {
     let { _id, num } = options;
     this.setData({
-      'bookkeep.num': num
-    })
+      'bill.num': num
+    })    // 获取上一页所输入的金额值
 
-    this.getCategoryList();
+    this.setDate();   // 设置日期为今天
+    this.getCategoryList();   // 获取分类列表
 
     if (_id) {
       let {
@@ -46,7 +47,7 @@ Page({
       } = activeAccountDetail;
       console.log(_id);
       this.setData({
-        bookkeep: {
+        bill: {
           ...data
         }
       })
@@ -57,12 +58,11 @@ Page({
    * @hook 页面显示时
    */
   onShow() {
-    this.setDate();
     this.calcSplit();
   },
   toInputAmount() {
     wx.navigateTo({
-      url: `/pages/editBill/inputAmount/inputAmount?num=${ this.data.bookkeep.num }`,
+      url: `/pages/editBill/inputAmount/inputAmount?num=${ this.data.bill.num }`,
     })
   },
   /**
@@ -74,7 +74,7 @@ Page({
     } = app.globalData;
     this.setData({
       categoryList,
-      'bookkeep.categoryId': categoryList[0]._id
+      'bill.categoryId': categoryList[0]._id
     })
   },
   /**
@@ -83,7 +83,7 @@ Page({
   selectCategory(e) {
     let _id = e.currentTarget.dataset.id;
     this.setData({
-      'bookkeep.categoryId': _id
+      'bill.categoryId': _id
     });
   },
   /**
@@ -92,7 +92,7 @@ Page({
   setDate() {
     let date = utils.getDate();
     this.setData({
-      'bookkeep.date': date,
+      'bill.date': date,
       today: date
     })
   },
@@ -119,7 +119,7 @@ Page({
   },
   //  计算分账 
   calcSplit() {
-    if (this.data.bookkeep.splitType === 1) {   // 分账类型为均分时
+    if (this.data.bill.splitType === 1) {   // 分账类型为均分时
       
     }
   },
@@ -129,7 +129,7 @@ Page({
   bindDateChange(e) {
     let date = e.detail.value;
     this.setData({
-      'bookkeep.date': date
+      'bill.date': date
     })
   },
   /**
@@ -139,7 +139,7 @@ Page({
   handleInputChange(e) {
     setTimeout(() => {
       this.setData({
-        'bookkeep.remark': e.detail.value
+        'bill.remark': e.detail.value
       })
     }, 200);
   },
@@ -153,7 +153,7 @@ Page({
       name: 'editBill',
       data: {
         teamId: activeTeamId,
-        ...this.data.bookkeep
+        ...this.data.bill
       }
     })
       .then(res => {
