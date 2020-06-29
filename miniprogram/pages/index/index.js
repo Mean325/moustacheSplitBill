@@ -6,6 +6,7 @@ Page({
    */
   data: {
     teamData: {},  // 团队信息
+    amount: 0,    // 团队总消费
     bill: [],   // 账单信息
 
     slideButtons: [{
@@ -75,7 +76,8 @@ Page({
         const { data, code, message } = res.result;
         if (code === 200) {
           this.setData({
-            bill: data
+            bill: data.list,
+            amount: data.amount
           })
         }
       })

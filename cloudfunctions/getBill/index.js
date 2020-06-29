@@ -57,12 +57,24 @@ exports.main = async (event, context) => {
       updateTime: '$updateTime',
     })
   })
+  .sort({
+    _id: -1
+  })
   .end()
   console.log(res);
+
+  let list = res.list,
+      amount = 0;
+  list.forEach(item => {
+    amount += item.count;
+  })   // 计算总金额
 
   return {
     message: "获取成功",
     code: 200,
-    data: res.list
+    data: {
+      list,
+      amount 
+    }
   }
 }
