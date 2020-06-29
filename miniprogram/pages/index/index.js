@@ -31,30 +31,29 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    console.log(app.globalData.activeTeamId);
-    this.getTeamData();
-  },
-  // 获取团队信息
-  getTeamData() {
     const { activeTeamId } = app.globalData;
+    console.log(activeTeamId);
+    this.getTeamData(activeTeamId);
+  },
+  /**
+   * @method 根据Id获取团队信息
+   */
+  getTeamData(teamId) {
     wx.cloud.callFunction({
       name: 'getTeamById',
       data: {
-        teamId: activeTeamId
+        teamId
       }
     })
       .then(res => {
         const team = res.result.list[0];
-        team.members = team.members.slice(0, 3);
+        const { members } = team;
+        app.globalData.teamMembers = members;
+        team.members = members.slice(0, 3);
         this.setData({
           teamData: team
         })
       })
       .catch(console.error)
   },
-  toSetting() {
-    wx.navigateTo({
-      url: '/pages/setting/setting',
-    })
-  }
 })

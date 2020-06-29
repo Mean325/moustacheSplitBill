@@ -17,7 +17,7 @@
       </navigator>
     </view>
     <view class="team-amount">
-      <text bindlongpress="toSetting" class="team-amount__num">¥ {{ teamData.amount }}</text>
+      <text class="team-amount__num">¥ {{ teamData.amount }}</text>
       <text class="team-amount__title">团队总消费 CNY</text>
     </view>
   </view>
