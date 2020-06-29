@@ -7,10 +7,12 @@ App({
     userInfo: {
       openid: "ouGKR4pZmbV1WnrmRCwHP8_Aw7oA"
     },   // 用户信息
+    categoryList: [],  // 分类列表
+
     theme: 'dark', // 主题颜色: light/dark
     deviceInfo: {},   // 设备信息
 
-    activeTeamId: "e1422f825ed082ea006506d73940f5f5",   // 当前active的团队Id
+    activeTeamId: "",   // 当前active的团队Id
     teamMembers: [
       {
         avatarUrl: "https://wx.qlogo.cn/mmopen/vi_32/y4Hxkkub7R6RtbBej5wJkhJg5kYaNEplmCeL4SvguX8fTVSpJ3lshfJhtwcXSY1SVIMicPZMeBaknbr5ZrpuBSQ/132",
@@ -51,8 +53,6 @@ App({
         _id: "baada3ac5ed5c850002d461406572115"
       }
     ],    // 团队成员
-
-    categoryList: []  // 分类列表
   },
   themeChanged(theme) {
     this.globalData.theme = theme;
@@ -94,6 +94,9 @@ App({
       }
     })
   },
+  /**
+   * @method 获取分类列表
+   */
   getCategoryList() {
     return new Promise((resolve, reject) => {
       wx.cloud.callFunction({
@@ -114,5 +117,43 @@ App({
         })
         .catch(console.error)
     })
-  }
+  },
+  editConfig(params) {
+    console.log(params);
+    return new Promise((resolve, reject) => {
+      wx.cloud.callFunction({
+        name: 'editConfig',
+        data: params
+      })
+        .then(res => {
+          let { data } = res.result;
+          console.log(data);
+          resolve(data);
+        })
+        .catch(console.error)
+    })
+  },
+  /**
+   * 上一次操作的团队
+   * @method 获取用户配置
+   */
+  getConfig() {
+    return new Promise((resolve, reject) => {
+      wx.cloud.callFunction({
+        name: 'getConfig',
+        data: {}
+      })
+        .then(res => {
+          let { data } = res.result;
+          console.log(data);
+          if (data) {
+            this.globalData.activeTeamId = data.activeTeamId;
+            resolve(data);
+          } else {
+            reject(error);
+          }
+        })
+        .catch(console.error)
+    })
+  },
 })

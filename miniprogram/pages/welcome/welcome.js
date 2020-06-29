@@ -10,6 +10,7 @@ Page({
   onLoad(options) {
     // this.getWelcomeConfig();
     this.getSetting();
+    this.getConfig();
     this.getCategoryList();   // 获取分类列表
 
   },
@@ -42,6 +43,15 @@ Page({
           url: '/pages/index/index',
         })
       })
+  },
+  /**
+   * @method 获取用户配置
+   */ 
+  getConfig() {
+    app.getConfig({})
+    .then(res => {
+      console.log(res);
+    })
   },
   /**
    * 当userInfo可以被获取时,保存到userInfo

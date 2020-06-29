@@ -50,11 +50,19 @@ Page({
       })
       .catch(console.error)
   },
-  // 切换当前active的团队
+  /**
+   * 调用云函数更新用户当前active的团队
+   * @hook 团队点击事件
+   */ 
   switchTeam(e) {
-    const { teamId } = e.currentTarget.dataset;
-    app.globalData.activeTeamId = teamId;
-    wx.navigateBack();
+    const { teamid } = e.currentTarget.dataset;
+    app.editConfig({
+      activeTeamId: teamid
+    })
+    .then(res => {
+      app.globalData.activeTeamId = teamid;
+      wx.navigateBack();
+    })
   },
   showModal() {
     this.setData({
