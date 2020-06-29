@@ -7,7 +7,7 @@ Page({
   behaviors: [computedBehavior],
   data: {
     bill: {
-      num: 45, // 金额
+      num: 0, // 金额
       categoryId: "", // 账目分类id
       remark: "", // 备注
       date: "", // 日期
@@ -29,7 +29,7 @@ Page({
   onLoad(options) {
     let { _id, num } = options;
     this.setData({
-      'bill.num': num
+      'bill.num': parseFloat(num)
     })    // 获取上一页所输入的金额值
 
     this.setDate();   // 设置日期为今天
