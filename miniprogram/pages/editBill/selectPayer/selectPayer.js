@@ -35,7 +35,7 @@ Page({
     const pages = getCurrentPages();
     const prevPage = pages[pages.length - 2]; //上一页
     prevPage.setData({
-      'bookkeep.payer': selectedMember,
+      'bookkeep.payer': Array.from(selectedMember),
       payerList: teamMembers.filter(n => selectedMember.has(n.openid))
     })
   },

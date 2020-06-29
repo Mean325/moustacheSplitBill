@@ -30,8 +30,8 @@
 
 		<!-- 记账分类选择框 -->
 		<scroll-view class="bookkeep__category-box module" scroll-x>
-			<view bindtap="selectCategory" data-id="{{ item._id }}" wx:for="{{ categoryList }}" class="bookkeep__category {{ item._id === bookkeep.category ? 'selected' : '' }}">
-				<image src="{{ item._id === bookkeep.category ? item.activeIcon : item.icon }}" mode="aspectFill"></image>
+			<view bindtap="selectCategory" data-id="{{ item._id }}" wx:for="{{ categoryList }}" class="bookkeep__category {{ item._id === bookkeep.categoryId ? 'selected' : '' }}">
+				<image src="{{ item._id === bookkeep.categoryId ? item.activeIcon : item.icon }}" mode="aspectFill"></image>
 				<text>{{ item.name }}</text>
 			</view>
 			<!-- 暂未启用自定义分类 -->
@@ -80,6 +80,6 @@
 			<input bindinput="handleInputChange" placeholder="添加备注" maxlength="30" class="bookkeep__remark-input"></input>
 		</view> -->
 
-		<bottom-button value="添加"></bottom-button>
+		<bottom-button bindtap="editBill" value="添加"></bottom-button>
 	</view>
 </view>

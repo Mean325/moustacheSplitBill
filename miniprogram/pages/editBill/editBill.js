@@ -8,7 +8,7 @@ Page({
   data: {
     bookkeep: {
       num: 45, // 金额
-      category: "", // 账目分类id
+      categoryId: "", // 账目分类id
       remark: "", // 备注
       date: "", // 日期
       partner: [], // 参与者Id
@@ -69,7 +69,7 @@ Page({
     } = app.globalData;
     this.setData({
       categoryList,
-      'bookkeep.category': categoryList[0]._id
+      'bookkeep.categoryId': categoryList[0]._id
     })
   },
   /**
@@ -78,7 +78,7 @@ Page({
   selectCategory(e) {
     let _id = e.currentTarget.dataset.id;
     this.setData({
-      'bookkeep.category': _id
+      'bookkeep.categoryId': _id
     });
   },
   /**
@@ -137,5 +137,22 @@ Page({
         'bookkeep.remark': e.detail.value
       })
     }, 200);
+  },
+  /**
+   * 调用云函数
+   * @method 添加账单
+   */
+  editBill() {
+    wx.cloud.callFunction({
+      name: 'editBill',
+      data: {
+        ...this.data.bookkeep
+      }
+    })
+      .then(res => {
+        let { data } = res.result;
+        console.log(data);
+      })
+      .catch(console.error)
   },
 })
