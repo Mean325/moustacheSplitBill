@@ -35,7 +35,7 @@ Page({
     const pages = getCurrentPages();
     const prevPage = pages[pages.length - 2]; //上一页
     prevPage.setData({
-      'bookkeep.partner': Array.from(selectedMember),
+      'bill.partner': Array.from(selectedMember),
       partnerList: teamMembers.filter(n => selectedMember.has(n.openid))
     })
   },
