@@ -18,37 +18,39 @@ exports.main = async (event, context) => {
   let { teamId } = event;
 
   const res = await db.collection('bill')
-//   .where({
-//     teamId: teamId,
-//     partner: _.elemMatch(_.eq(wxContext.OPENID))
-//   })
-//   .get()
-//   .then(res => {
-//     result = {
-//       message: "获取成功",
-//       code: 200,
-//       data: res.data
-//     }
-//   })
-//   .catch(err => {
-//     console.error(err)
-//     result = {
-//       message: "获取失败",
-//       code: 400,
-//       err
-//     }
-//   })
-//   return result;
   .aggregate()
+  .match({
+    teamId: _.eq(teamId),
+    // partner: _.elemMatch(_.eq(wxContext.OPENID))
+  })
+  .lookup({
+    from: 'user',
+    localField: 'partner',
+    foreignField: 'openid',
+    as: 'partner',
+  })
+  .lookup({
+    from: 'user',
+    localField: 'payer',
+    foreignField: 'openid',
+    as: 'payer',
+  })
+  .lookup({
+    from: 'category',
+    localField: 'categoryId',
+    foreignField: '_id',
+    as: 'category',
+  })
   .group({
     _id: '$date',
     count: $.sum('$num'),
     bill: $.addToSet({
       _id: '$_id',
       categoryId: '$categoryId',
+      category: $.arrayElemAt(['$category', 0]),
       date: '$date',
       num: '$num',
-      openid: '$openid',
+      creator: '$creator',
       partner: '$partner',
       payer: '$payer',
       remark: '$remark',

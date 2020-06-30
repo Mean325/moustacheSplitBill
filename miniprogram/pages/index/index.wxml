@@ -37,8 +37,8 @@
           bindbuttontap="delAccount"
         >
           <mp-cell>
-            <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
-            <view>一般 - Mean 付款</view>
+            <image slot="icon" class="cell__icon" src="{{ data.payer[0].avatarUrl }}"></image>
+            <view>{{ data.category.name }} - {{ data.payer[0].nickName }} 付款</view>
             <view slot="footer">
               ¥{{ data.num }}
             </view>

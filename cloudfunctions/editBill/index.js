@@ -31,7 +31,7 @@ exports.main = async (event, context) => {
   if (_id) { // 含_id时,更新数据库该条数据
     await db.collection('bill').doc(_id).update({
         data: {
-          openid: wxContext.OPENID,
+          creator: wxContext.OPENID,
           teamId,
           num,
           categoryId,
@@ -71,7 +71,7 @@ exports.main = async (event, context) => {
     // console.log(_id);
     await db.collection('bill').add({
         data: {
-          openid: wxContext.OPENID,
+          creator: wxContext.OPENID,
           teamId,
           num,
           categoryId,

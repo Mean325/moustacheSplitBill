@@ -3,6 +3,7 @@
   box-sizing: border-box;
   background: #ededed;
   /* padding: 30rpx; */
+  overflow-y: auto;
 }
 
 /* 顶部团队信息banner */
