@@ -61,7 +61,8 @@ exports.main = async (event, context) => {
     newRoot: $.mergeObjects([ '$_id', '$$ROOT' ])
   })
   .project({
-    _id: 0
+    _id: 0,
+    // count: $.add(['$payCount', '$costCount'])
   })
   .end()
   console.log(res);

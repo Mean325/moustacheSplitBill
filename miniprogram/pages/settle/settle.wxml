@@ -7,7 +7,14 @@
   </mp-cells>
   <mp-cells>
     <mp-cell wx:for="{{ list }}">
-      <image src="{{ item.avatarUrl }}" slot="icon" class="cell__icon"></image>
+      <!-- <image src="{{ item.avatarUrl }}" slot="icon" class="cell__icon"></image> -->
+      <avatar
+        slot="icon" 
+        class="cell__icon"
+        avatarUrl="{{ item.avatarUrl }}"
+        nickName="{{ item.nickName }}"
+        width="40px"
+      ></avatar>
       <view>{{ item.nickName }}</view>
       <view class="cell-footer" slot="footer">
         <text>应付</text>
