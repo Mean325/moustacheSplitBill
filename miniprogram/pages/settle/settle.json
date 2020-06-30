@@ -7,5 +7,5 @@
     "mp-cell": "/components/weui/cell/cell",
     "mp-tabbar": "/components/tabbar/tabbar"
   },
-  "enablePullDownRefresh": false
+  "enablePullDownRefresh": true
 }
