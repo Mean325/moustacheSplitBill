@@ -22,67 +22,31 @@ exports.main = async (event, context) => {
   .match({
     _teamId: _.eq(teamId)
   })
-  // .lookup({
-  //   from: 'user',
-  //   localField: '_openid',
-  //   foreignField: 'openid',
-  //   as: 'user'
-  // })
+  .lookup({
+    from: 'user',
+    localField: '_openid',
+    foreignField: 'openid',
+    as: 'user'
+  })
   .lookup({
     from: 'bill',
     localField: '_openid',
     foreignField: 'payer',
     as: 'payerData',
   })
-  .replaceRoot({
-    newRoot: $.mergeObjects([ $.arrayElemAt(['$payerData', 0]), '$$ROOT' ])
-  })
-  .project({
-    _id: '$_id',
-    user: $.arrayElemAt(['$user', 0]),
-    num: '$num',
-    payerNum: $.cond({
-      if: '$num',
-      then: $.size('$payer'),
-      else: 1
-    }),
-  })
-  .group({
-    _id: '$user',
-    payCount: $.sum($.divide(['$num', '$payerNum'])),
-  })
-
   .lookup({
     from: 'bill',
     localField: '_openid',
     foreignField: 'partner',
     as: 'partnerData',
   })
-  .replaceRoot({
-    newRoot: $.mergeObjects([ $.arrayElemAt(['$partnerData', 0]), '$$ROOT' ])
-  })
   .project({
-    _id: '$_id',
-    user: $.arrayElemAt(['$user', 0]),
-    num: '$num',
-    partnerNum: $.cond({
-      if: '$num',
-      then: $.size('$partner'),
-      else: 1
-    })
-  })
-  .group({
-    _id: '$user',
-    payCount: $.sum($.divide(['$num', '$payerNum'])),
-    costCount: $.sum($.divide(['$num', '$partnerNum'])),
-  })
-
-  .replaceRoot({
-    newRoot: $.mergeObjects([ '$_id', '$$ROOT' ])
-  })
-  .project({
-    _id: 0,
-    // count: $.add(['$payCount', '$costCount'])
+    // _id: 0,
+    // _openid: 0,
+    // _teamId: 0,
+    payerData: 1,
+    partnerData: 1,
+    user: $.arrayElemAt(['$user', 0])
   })
   .end()
   console.log(res);
