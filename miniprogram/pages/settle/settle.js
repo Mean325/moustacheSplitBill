@@ -15,7 +15,6 @@ Page({
   },
   onPullDownRefresh() {
     const { activeTeamId } = app.globalData;
-    console.log(activeTeamId);
     this.getSettle(activeTeamId);
   },
   /**

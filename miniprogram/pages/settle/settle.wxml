@@ -11,14 +11,14 @@
       <avatar
         slot="icon" 
         class="cell__icon"
-        avatarUrl="{{ item.avatarUrl }}"
-        nickName="{{ item.nickName }}"
+        avatarUrl="{{ item.user.avatarUrl }}"
+        nickName="{{ item.user.nickName }}"
         width="40px"
       ></avatar>
-      <view>{{ item.nickName }}</view>
-      <view class="cell-footer" slot="footer">
-        <text>应付</text>
-        <text>¥{{ item.payCount - item.costCount }}</text>
+      <view>{{ item.user.nickName }}</view>
+      <view class="cell-footer {{ item.num > 0 ? 'collect' : 'pay' }}" slot="footer">
+        <text>{{ item.num > 0 ? '应收' : '应付' }}</text>
+        <text>¥{{ item.num > 0 ? item.num : -item.num }}</text>
       </view>
     </mp-cell>
   </mp-cells>

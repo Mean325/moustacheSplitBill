@@ -16,3 +16,11 @@
   display: flex;
   flex-direction: column;
 }
+/* 付款样式 */
+.cell-footer.pay {
+  color: #FA5151;
+}
+/* 收款样式 */
+.cell-footer.collect {
+  color: #3FB475;
+}
