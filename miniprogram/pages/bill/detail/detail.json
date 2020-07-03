@@ -1,0 +1,11 @@
+{
+  "backgroundColorTop": "#3FB475",
+  "navigationBarTitleText": "订单详情",
+  "usingComponents": {
+    "mp-cells": "/components/weui/cells/cells",
+    "mp-cell": "/components/weui/cell/cell",
+    "avatar": "/components/avatar/avatar",
+    "bottom-button": "/components/bottomButton/bottomButton"
+  },
+  "enablePullDownRefresh": true
+}

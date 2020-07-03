@@ -1,0 +1,96 @@
+.container {
+  height: 100vh;
+  background: #F6F6F6;
+  box-sizing: border-box;
+}
+
+.module {
+  background: #FFFFFF;
+  margin-bottom: 20rpx;
+}
+
+/* 信息栏 */
+.info {
+  padding: 20rpx 30rpx;
+}
+.bill__info {
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bill__category-icon {
+  width: 70rpx;
+  height: 70rpx;
+  margin-right: 30rpx;
+}
+.bill__category-name {
+  flex: 1;
+}
+
+.bill__info-date {
+  font-size: 14px;
+  color: rgba(0,0,0,.3);
+  padding: 1px 10px;
+  border-radius: 20px;
+  height: 26px;
+  line-height: 26px;
+}
+/* 金额 */
+.bill__amount {
+  font-size: 74rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bill__amount-num {
+  flex: 1;
+  height: 100rpx;
+  letter-spacing: 4rpx;
+  padding: 0 8rpx;
+}
+/* 付款人 */
+.bill__payer {
+
+}
+.bill__payer-label {
+  margin-right: 20rpx;
+}
+
+/* 属性选择栏 */
+.bill__attr-box {
+  padding: 0;
+}
+
+.flex__cell {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  line-height: 34px;
+}
+
+.avatar {
+  margin-right: 10rpx;
+}
+
+/* 备注 */
+.bill__remark-input {
+  padding: 0 30rpx;
+  /* height: 28rpx; */
+} 
+
+/* 创建者 */
+.bill__creater {
+  padding: 0 32px;
+}
+
+/* 确定按钮文字居中 */
+.submit {
+  background: #3FB475;
+  color: #FFFFFF;
+  line-height: 354rpx;
+}

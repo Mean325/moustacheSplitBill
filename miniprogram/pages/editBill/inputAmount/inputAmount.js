@@ -6,10 +6,10 @@ const app = getApp();
 Page({
   behaviors: [computedBehavior],
   data: {
-    num: 0,   // 金额
+    num: 0, // 金额
 
-    hasDot: false,    // 是否有小数点,防止用户多次输入小数点
-    interval: null,   // 定时器,暂未使用
+    hasDot: false, // 是否有小数点,防止用户多次输入小数点
+    interval: null, // 定时器,暂未使用
   },
   computed: {
     // activeDay(data) {
@@ -19,11 +19,20 @@ Page({
   onLoad(options) {
     let _id = options._id;
     if (_id) {
-      let { activeAccountDetail } = app.globalData;
-      let { categoryName, openid, categoryIcon, ...data } = activeAccountDetail;
+      let {
+        activeAccountDetail
+      } = app.globalData;
+      let {
+        categoryName,
+        openid,
+        categoryIcon,
+        ...data
+      } = activeAccountDetail;
       console.log(_id);
       this.setData({
-        bookkeep: { ...data }
+        bookkeep: {
+          ...data
+        }
       })
     }
   },
@@ -33,7 +42,10 @@ Page({
    */
   tapKey(e) {
     var key = e.currentTarget.dataset.key;
-    let { num, hasDot } = this.data;
+    let {
+      num,
+      hasDot
+    } = this.data;
     let newNum = parseFloat(num + key);
     if (newNum > 10000000) {
       wx.showToast({
@@ -56,23 +68,6 @@ Page({
     })
   },
   /**
-   * 调用云函数添加当前交易
-   * @method 自定义数字键盘确认按钮点击事件
-   */
-  tapSubmit() {
-    let { num } = this.data;
-    if (!num) {
-      wx.showToast({
-        title: '金额不能为空或者0',
-        icon: 'none',
-      })
-      return;
-    }
-    wx.redirectTo({
-      url: `/pages/editBill/editBill?num=${ num }`,
-    })
-  },
-  /**
    * @method 删除按钮点击事件
    */
   tapDel() {
@@ -83,7 +78,7 @@ Page({
         hasDot: false
       })
     }
-    
+
     this.setData({
       'num': num.length == 1 ? '0' : num.substring(0, num.length - 1)
     })
@@ -92,7 +87,7 @@ Page({
    * @method 删除按钮长按事件
    */
   longpressDel() {
-    this.tapDel();    // 立即触发一次
+    this.tapDel(); // 立即触发一次
     this.setData({
       interval: setInterval(() => {
         this.tapDel()
@@ -113,5 +108,24 @@ Page({
       'bookkeep.num': '0',
       hasDot: false
     })
-  }
+  },
+  /**
+   * 调用云函数添加当前交易
+   * @method 自定义数字键盘确认按钮点击事件
+   */
+  tapSubmit() {
+    let {
+      num
+    } = this.data;
+    if (!num) {
+      wx.showToast({
+        title: '金额不能为空或者0',
+        icon: 'none',
+      })
+      return;
+    }
+    wx.redirectTo({
+      url: `/pages/editBill/editBill?num=${ num }`,
+    })
+  },
 })

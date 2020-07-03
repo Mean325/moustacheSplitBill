@@ -1,0 +1,60 @@
+<view class="container">
+	<view class="bill">
+		<!-- 账单信息框 -->
+		<view class="module info">
+      <!-- 账单信息 -->
+      <view class="bill__info"> 
+        <image src="/images/category/hongbao_active.png" mode="aspectFill" class="bill__category-icon"></image>
+        <view class="bill__category-name">
+          餐饮
+        </view>
+        <view class="bill__info-date">9月2日</view>
+      </view>
+      <view class="bill__amount">
+        <text class="bill__amount-currency">¥</text>
+        <view class="bill__amount-num">99</view>
+      </view>
+      <view class="bill__payer">
+        <text class="bill__payer-label">付款人:</text>
+        <text class="bill__payer-value">王AA¥20.00/王AA¥20.00</text>
+      </view>
+		</view>
+
+		<!-- 记账属性选择 -->
+		<view class="bill__attr-box module">
+      <mp-cell>
+					<view class="flex__cell">
+						参与人
+					</view>
+				</mp-cell>
+			<mp-cells>
+				<!-- 选择参与人 -->
+				<mp-cell>
+					<view class="flex__cell">
+            <avatar wx:for="{{ partnerList }}" avatarUrl="{{ item.avatarUrl }}" nickName="{{ item.nickName }}" width="34px" marginLeft="20rpx"></avatar>
+						我阿吓死你
+					</view>
+          <text slot="footer">¥15</text>
+				</mp-cell>
+			</mp-cells>
+		</view>
+
+		<!-- 备注 -->
+		<view class="module">
+			<mp-cell>
+        <view class="flex__cell">
+          备注
+          <input maxlength="30" class="bill__remark-input"></input>
+        </view>
+      </mp-cell>
+		</view>
+    
+    <!-- 备注 -->
+    <view class="bill__creater">
+      由Mean.记录
+    </view>
+
+    <!-- 底部按钮 -->
+		<bottom-button bindtap="editBill" value="编辑"></bottom-button>
+	</view>
+</view>

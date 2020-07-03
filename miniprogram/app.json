@@ -7,6 +7,7 @@
     "pages/invite/invite",
     "pages/settle/settle",
     "pages/solution/solution",
+    "pages/bill/detail/detail",
     "pages/editBill/editBill",
     "pages/editBill/inputAmount/inputAmount",
     "pages/editBill/selectPart/selectPart",

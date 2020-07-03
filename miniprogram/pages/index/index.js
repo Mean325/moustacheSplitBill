@@ -84,4 +84,11 @@ Page({
       })
       .catch(console.error)
   },
+  toDetail(e) {
+    console.log(e);
+    const { id } = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: `/pages/bill/detail/detail?id=${ id }`,
+    })
+  }
 })

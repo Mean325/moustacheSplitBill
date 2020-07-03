@@ -133,6 +133,12 @@
 					"pathName": "pages/setting/admin/categoryManage/addCategory/addCategory",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/bill/detail/detail",
+					"scene": null
 				}
 			]
 		}

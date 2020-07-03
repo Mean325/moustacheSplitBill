@@ -32,6 +32,7 @@
       <mp-cells>
         <mp-slideview
           bindtap="toDetail"
+          data-id="{{ data._id }}"
           wx:for="{{ item.bill }}"
           wx:for-item="data"
           buttons="{{ slideButtons }}"
