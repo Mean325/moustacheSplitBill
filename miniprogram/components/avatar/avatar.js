@@ -16,7 +16,8 @@ Component({
       type: String,
       value: "40px"
     },    // 头像宽高
-    marginLeft: String
+    marginLeft: String,
+    marginRight: String,
   },
   /**
    * 组件的初始数据

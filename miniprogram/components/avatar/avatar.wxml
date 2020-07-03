@@ -1,7 +1,7 @@
 <!--components/avatar/avatar.wxml-->
 <view
 	class="avatar"
-	style="width: {{ width }};height: {{ width }};line-height: {{ width }};margin-left: {{ marginLeft }}"
+	style="width: {{ width }};height: {{ width }};line-height: {{ width }};margin-left: {{ marginLeft }};margin-right: {{ marginRight }};"
 >
 	<image
 		wx:if="{{ avatarUrl }}"

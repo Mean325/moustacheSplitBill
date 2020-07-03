@@ -4,19 +4,24 @@
 		<view class="module info">
       <!-- 账单信息 -->
       <view class="bill__info"> 
-        <image src="/images/category/hongbao_active.png" mode="aspectFill" class="bill__category-icon"></image>
+        <image src="{{ bill.category[0].icon }}" mode="aspectFill" class="bill__category-icon"></image>
         <view class="bill__category-name">
-          餐饮
+          {{ bill.category[0].name }}
         </view>
-        <view class="bill__info-date">9月2日</view>
+        <view class="bill__info-date">{{ bill.date }}</view>
       </view>
       <view class="bill__amount">
         <text class="bill__amount-currency">¥</text>
-        <view class="bill__amount-num">99</view>
+        <view class="bill__amount-num">{{ bill.num }}</view>
       </view>
       <view class="bill__payer">
         <text class="bill__payer-label">付款人:</text>
-        <text class="bill__payer-value">王AA¥20.00/王AA¥20.00</text>
+        <text class="bill__payer-value">
+          <text wx:for="{{ bill.payer }}">
+            <text wx:if="{{ index !== 0 }}">/</text>
+            {{ item.nickName }}¥{{ bill.num }}
+          </text>
+        </text>
       </view>
 		</view>
 
@@ -29,12 +34,12 @@
 				</mp-cell>
 			<mp-cells>
 				<!-- 选择参与人 -->
-				<mp-cell>
+				<mp-cell wx:for="{{ bill.partner }}">
 					<view class="flex__cell">
-            <avatar wx:for="{{ partnerList }}" avatarUrl="{{ item.avatarUrl }}" nickName="{{ item.nickName }}" width="34px" marginLeft="20rpx"></avatar>
-						我阿吓死你
+            <avatar avatarUrl="{{ item.avatarUrl }}" nickName="{{ item.nickName }}" width="40px" marginRight="20rpx"></avatar>
+						{{ item.nickName }}
 					</view>
-          <text slot="footer">¥15</text>
+          <text slot="footer">¥{{ ( bill.num / bill.partner.length ) }}</text>
 				</mp-cell>
 			</mp-cells>
 		</view>
@@ -44,14 +49,14 @@
 			<mp-cell>
         <view class="flex__cell">
           备注
-          <input maxlength="30" class="bill__remark-input"></input>
+          <input disabled value="{{ bill.remark }}" maxlength="30" class="bill__remark-input"></input>
         </view>
       </mp-cell>
 		</view>
     
     <!-- 备注 -->
     <view class="bill__creater">
-      由Mean.记录
+      由{{ bill.creator[0].nickName }}记录
     </view>
 
     <!-- 底部按钮 -->

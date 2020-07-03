@@ -135,9 +135,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 11,
 					"name": "订单详情",
 					"pathName": "pages/bill/detail/detail",
+					"query": "id=bb83ad495efed35a0041f21a294e8a39",
 					"scene": null
 				}
 			]
