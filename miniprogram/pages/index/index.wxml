@@ -37,7 +37,14 @@
           bindbuttontap="delAccount"
         >
           <mp-cell>
-            <image slot="icon" class="cell__icon" src="{{ data.payer[0].avatarUrl }}"></image>
+            <avatar
+              slot="icon" 
+              class="cell__icon"
+              avatarUrl="{{ data.payer[0].avatarUrl }}"
+              nickName="{{data.payer[0].nickName }}"
+              width="40px"
+            ></avatar>
+            <!-- <image slot="icon" class="cell__icon" src="{{ data.payer[0].avatarUrl }}"></image> -->
             <view>{{ data.category.name }} - {{ data.payer[0].nickName }} 付款</view>
             <view slot="footer">
               ¥{{ data.num }}
