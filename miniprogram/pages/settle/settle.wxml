@@ -1,4 +1,5 @@
-<!-- 群组列表管理 -->
+<wxs module="amountFilter" src="../../filter/amount.wxs"></wxs>
+<!-- 账单结算 -->
 <view class="container">
   <mp-cells class="solution">
     <mp-cell bindtap="toSolution" link value="查看全员结算方案">
@@ -18,7 +19,7 @@
       <view>{{ item.user.nickName }}</view>
       <view class="cell-footer {{ item.num > 0 ? 'collect' : 'pay' }}" slot="footer">
         <text>{{ item.num > 0 ? '应收' : '应付' }}</text>
-        <text>¥{{ item.num > 0 ? item.num : -item.num }}</text>
+        <text>¥{{ amountFilter.format( item.num > 0 ? item.num : -item.num ) }}</text>
       </view>
     </mp-cell>
   </mp-cells>

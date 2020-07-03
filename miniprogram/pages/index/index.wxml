@@ -1,4 +1,5 @@
-<!-- 群组列表管理 -->
+<wxs module="amountFilter" src="../../filter/amount.wxs"></wxs>
+<!-- 首页 -->
 <view class="container">
   <view class="banner">
     <view class="team-info">
@@ -26,7 +27,7 @@
       <view class="bill__title">
         <!-- <text>4月29日</text> -->
         <text>{{ item._id }}</text>
-        <text>¥{{ item.count }}</text>
+        <text>¥{{ amountFilter.format(item.count) }}</text>
       </view>
       <mp-cells>
         <mp-slideview
@@ -47,7 +48,7 @@
             <!-- <image slot="icon" class="cell__icon" src="{{ data.payer[0].avatarUrl }}"></image> -->
             <view>{{ data.category.name }} - {{ data.payer[0].nickName }} 付款</view>
             <view slot="footer">
-              ¥{{ data.num }}
+              ¥{{ amountFilter.format(data.num) }}
             </view>
           </mp-cell>
         </mp-slideview>
