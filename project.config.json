@@ -30,7 +30,7 @@
 	},
 	"appid": "wx25f0a48d14b3d7c7",
 	"projectname": "splitBill",
-	"libVersion": "2.11.2",
+	"libVersion": "2.11.3",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",

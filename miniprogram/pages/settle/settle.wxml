@@ -7,7 +7,7 @@
     </mp-cell>
   </mp-cells>
   <mp-cells>
-    <mp-cell wx:for="{{ list }}">
+    <mp-cell wx:for="{{ list }}" link>
       <!-- <image src="{{ item.avatarUrl }}" slot="icon" class="cell__icon"></image> -->
       <avatar
         slot="icon" 
@@ -17,10 +17,14 @@
         width="40px"
       ></avatar>
       <view>{{ item.user.nickName }}</view>
-      <view class="cell-footer {{ item.num > 0 ? 'collect' : 'pay' }}" slot="footer">
-        <text>{{ item.num > 0 ? '应收' : '应付' }}</text>
-        <text>¥{{ amountFilter.format( item.num > 0 ? item.num : -item.num ) }}</text>
-      </view>
+        <!-- <view slot="footer" class="cell-footer {{ item.num > 0 ? 'collect' : 'pay' }}">
+          <text>{{ item.num > 0 ? '应收' : '应付' }}</text>
+          <text>¥{{ amountFilter.format( item.num > 0 ? item.num : -item.num ) }}</text>
+        </view> -->
+        <view slot="footer" class="cell-footer {{ item.num > 0 ? 'collect' : 'pay' }}">
+          <text>{{ item.num > 0 ? '应收' : '应付' }}</text>
+          <text>¥{{ amountFilter.format( item.num > 0 ? item.num : -item.num ) }}</text>
+        </view>
     </mp-cell>
   </mp-cells>
 </view>

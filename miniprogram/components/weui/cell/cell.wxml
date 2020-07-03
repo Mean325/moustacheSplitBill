@@ -64,9 +64,10 @@
         </view>
         <view wx:if="{{hasFooter}}" class="weui-cell__ft {{footerClass}}">
             <block wx:if="{{footer}}">{{footer}}</block>
-            <block wx:else>
+            <view wx:else>
+                1
                 <slot name="footer"></slot>
-            </block>
+            </view>
             <icon wx:if="{{showError && error}}" type="warn" size="23" color="#E64340"></icon>
         </view>
     </view>

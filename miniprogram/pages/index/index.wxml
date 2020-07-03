@@ -46,9 +46,8 @@
               nickName="{{data.payer[0].nickName }}"
               width="40px"
             ></avatar>
-            <!-- <image slot="icon" class="cell__icon" src="{{ data.payer[0].avatarUrl }}"></image> -->
             <view>{{ data.category.name }} - {{ data.payer[0].nickName }} 付款</view>
-            <view slot="footer">
+            <view class="cell-footer" slot="footer">
               ¥{{ amountFilter.format(data.num) }}
             </view>
           </mp-cell>
