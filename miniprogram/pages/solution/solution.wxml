@@ -1,7 +1,4 @@
 <!-- 群组列表管理 -->
 <view class="container">
-  <solution-card></solution-card>
-  <solution-card></solution-card>
-  <solution-card></solution-card>
-  <solution-card></solution-card>
+  <solution-card data="{{ item }}" wx:for="{{ solutionList }}"></solution-card>
 </view>

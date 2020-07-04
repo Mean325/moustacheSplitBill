@@ -1,0 +1,36 @@
+<view class="solution-card">
+  <view class="solution">
+    <view class="solution-part">
+      <avatar
+        slot="icon" 
+        class="solution__avatar"
+        avatarUrl="{{ data.payer.avatarUrl }}"
+        nickName="{{ data.payer.nickName }}"
+        width="40px"
+      ></avatar>
+      <text class="weui-tabbar__label">{{ data.payer.nickName }}</text>
+    </view>
+    <view class="solution-part pay">
+      <image slot="icon" class="solution__avatar" src="/images/right.png"></image>
+    <text class="weui-tabbar__label">需付给</text>
+    </view>
+    <view class="solution-part">
+      <avatar
+        slot="icon" 
+        class="solution__avatar"
+        avatarUrl="{{ data.collecter.avatarUrl }}"
+        nickName="{{ data.collecter.nickName }}"
+        width="40px"
+      ></avatar>
+      <text class="weui-tabbar__label">{{ data.collecter.nickName }}</text>
+    </view>
+  </view>
+  <view class="solution-card__ft">
+    <text class="solution__amount">¥{{ data.num }}</text>
+    <view class="solution__btns">
+      <!-- <view class="solution__btn remind">提醒还款</view>
+      <view class="solution__btn">确认结清</view>
+      <view class="solution__btn paid">已结清</view> -->
+    </view>
+  </view>
+</view>

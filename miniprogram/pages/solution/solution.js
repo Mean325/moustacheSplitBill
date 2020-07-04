@@ -1,66 +1,42 @@
-// miniprogram/pages/solution/solution.js
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    solutionList: []
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow() {
+    wx.startPullDownRefresh();
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  onPullDownRefresh() {
+    const { activeTeamId } = app.globalData;
+    this.getSolution(activeTeamId);
   },
-
   /**
-   * 生命周期函数--监听页面卸载
+   * @method 根据Id获取团队信息
    */
-  onUnload: function () {
-
+  getSolution(teamId) {
+    wx.cloud.callFunction({
+      name: 'getSolution',
+      data: {
+        teamId
+      }
+    })
+      .then(res => {
+        const { data, code, message } = res.result;
+        if (code === 200) {
+          this.setData({
+            solutionList: data
+          })
+        }
+        wx.stopPullDownRefresh();
+      })
+      .catch(console.error)
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

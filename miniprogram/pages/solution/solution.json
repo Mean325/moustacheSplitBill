@@ -3,7 +3,7 @@
   "navigationBarTextStyle": "white",
   "navigationBarTitleText": "结算方案",
   "usingComponents": {
-    "solution-card": "/components/solutionCard/solutionCard"
+    "solution-card": "./components/solutionCard/solutionCard"
   },
-  "enablePullDownRefresh": false
+  "enablePullDownRefresh": true
 }
