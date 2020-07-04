@@ -3,8 +3,8 @@
 <view class="container">
   <view class="banner">
     <view class="team-info">
-      <navigator url="/pages/team/team" class="team-info__name">我的团队 ▶</navigator>
-      <navigator url="/pages/member/member" class="team-info__member">
+      <navigator url="/pages/team/team" class="team-info__name" hover-class="none">我的团队 ▶</navigator>
+      <navigator url="/pages/member/member" class="team-info__member" hover-class="none">
         <view style="font-size: 0;">
         <avatar
           wx:for="{{ teamData.members }}"
@@ -57,7 +57,7 @@
   </view>
 </view>
 
-<navigator url="/pages/editBill/inputAmount/inputAmount" class="bookkeep-btn">
+<navigator url="/pages/editBill/inputAmount/inputAmount" class="bookkeep-btn" hover-class="none">
   <image bindtap="showModal" src="/images/index/add.png" />
 </navigator>
 <!-- <mp-tabbar style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{list}}" bindchange="tabChange"></mp-tabbar> -->
