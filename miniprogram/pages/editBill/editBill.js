@@ -27,7 +27,7 @@ Page({
     // },    // 当前选中的日期,用于右上角小日历显示
   },
   onLoad(options) {
-    let { _id, num } = options;
+    let { id, num } = options;
     this.setData({
       'bill.num': parseFloat(num)
     })    // 获取上一页所输入的金额值
@@ -35,23 +35,7 @@ Page({
     this.setDate();   // 设置日期为今天
     this.getCategoryList();   // 获取分类列表
 
-    if (_id) {
-      let {
-        activeAccountDetail
-      } = app.globalData;
-      let {
-        categoryName,
-        openid,
-        categoryIcon,
-        ...data
-      } = activeAccountDetail;
-      console.log(_id);
-      this.setData({
-        bill: {
-          ...data
-        }
-      })
-    }
+    if(id) this.getBillDetail(id);   // 当路由中带有id时,为编辑,获取账单详情
   },
   /**
    * 页面显示时,重新计算分账
@@ -62,7 +46,7 @@ Page({
   },
   toInputAmount() {
     wx.navigateTo({
-      url: `/pages/editBill/inputAmount/inputAmount?num=${ this.data.bill.num }`,
+      url: `/pages/editBill/inputAmount/inputAmount?num=${ this.data.bill.num }&type=edit`,
     })
   },
   /**
@@ -142,6 +126,32 @@ Page({
         'bill.remark': e.detail.value
       })
     }, 200);
+  },
+  /**
+   * 调用云函数
+   * @method 在编辑时获取账单详情
+   */
+  getBillDetail(id) {
+    console.log(id);
+    wx.cloud.callFunction({
+      name: 'getBillById',
+      data: { id }
+    })
+      .then(res => {
+        const { data, code, message } = res.result;
+        if (code === 200) {
+          const payerList = data.payer;
+          const partnerList = data.partner;
+          data.payer = data.payer.map(n => n.openid);
+          data.partner = data.partner.map(n => n.openid);
+          this.setData({
+            payerList,
+            partnerList,
+            bill: data
+          })
+        }
+      })
+      .catch(console.error)
   },
   /**
    * 调用云函数

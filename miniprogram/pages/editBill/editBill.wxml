@@ -70,7 +70,7 @@
 				<mp-cell bindtap="addUser">
 					<view class="flex__cell">
 						备注
-						<input bindinput="handleInputChange" placeholder="添加备注" maxlength="30" class="bill__remark-input"></input>
+						<input bindinput="handleInputChange" value="{{ bill.remark }}" placeholder="添加备注" maxlength="30" class="bill__remark-input"></input>
 					</view>
 				</mp-cell>
 			</mp-cells>

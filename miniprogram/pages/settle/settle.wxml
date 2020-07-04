@@ -7,7 +7,7 @@
     </mp-cell>
   </mp-cells>
   <mp-cells>
-    <mp-cell wx:for="{{ list }}" link>
+    <mp-cell wx:for="{{ list }}">
       <!-- <image src="{{ item.avatarUrl }}" slot="icon" class="cell__icon"></image> -->
       <avatar
         slot="icon" 

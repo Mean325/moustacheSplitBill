@@ -14,7 +14,7 @@ Page({
   onLoad(options) {
     const { id } = options;
     if(id) {
-      this.getOrderDetail(id);
+      this.getBillDetail(id);
     } else {
       wx.navigateTo({
         url: '/pages/index/index',
@@ -28,9 +28,13 @@ Page({
     const pages = getCurrentPages();
     const { options } = pages.pop();
     const { id } = options;
-    this.getOrderDetail(id);
+    this.getBillDetail(id);
   },
-  getOrderDetail(id) {
+  /**
+   * 调用云函数
+   * @method 获取账单详情
+   */
+  getBillDetail(id) {
     console.log(id);
     wx.cloud.callFunction({
       name: 'getBillById',

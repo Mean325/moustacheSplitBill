@@ -17,22 +17,10 @@ Page({
     // },    // 当前选中的日期,用于右上角小日历显示
   },
   onLoad(options) {
-    let _id = options._id;
-    if (_id) {
-      let {
-        activeAccountDetail
-      } = app.globalData;
-      let {
-        categoryName,
-        openid,
-        categoryIcon,
-        ...data
-      } = activeAccountDetail;
-      console.log(_id);
+    let { num } = options;
+    if (num) {
       this.setData({
-        bookkeep: {
-          ...data
-        }
+        num
       })
     }
   },
@@ -114,9 +102,12 @@ Page({
    * @method 自定义数字键盘确认按钮点击事件
    */
   tapSubmit() {
-    let {
-      num
-    } = this.data;
+    const pages = getCurrentPages();
+    const { options } = pages.pop();
+    const { type } = options;   // 获取路由参数
+    let { num } = this.data;
+    num = Number(num);
+    
     if (!num) {
       wx.showToast({
         title: '金额不能为空或者0',
@@ -124,8 +115,17 @@ Page({
       })
       return;
     }
+    if (type === 'edit') {    // 当为编辑时,将数据返回到上一页
+      const pages = getCurrentPages();
+      const prevPage = pages[pages.length - 2]; //上一页
+      prevPage.setData({
+        'bill.num': num
+      })
+      wx.navigateBack();
+    } else {    // 当为新增时,跳转到账单编辑页
     wx.redirectTo({
       url: `/pages/editBill/editBill?num=${ num }`,
-    })
+      })
+    }
   },
 })
