@@ -14,6 +14,9 @@ Page({
       this.getTeamById(code);
     } else {
       console.log("找不到当前code,返回首页")
+      wx.navigateTo({
+        url: '/pages/welcome/welcome',
+      })
     }
   },
   /**
@@ -126,6 +129,10 @@ Page({
       }
     })
   },
+  /**
+   * 调用云函数login
+   * @method 获取用户openid
+   */
   getOpenid() {
     // 调用云函数login
     wx.cloud.callFunction({
