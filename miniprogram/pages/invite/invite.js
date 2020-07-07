@@ -123,10 +123,33 @@ Page({
         wx.showToast({
           title: '加入团队成功',
         })
+        this.editConfig()
       },
       fail: err => {
         console.error(err)
       }
+    })
+  },
+  /**
+   * 讲新加入的团队设置为当前active
+   * @method 保存用户配置
+   */ 
+  editConfig(e) {
+    const { teamid, teamname } = e.currentTarget.dataset;
+    console.log(teamid);
+    app.editConfig({
+      activeTeamId: teamid
+    })
+    .then(res => {
+      app.globalData.activeTeamId = teamid;
+      wx.navigateBack({
+        success: (res) => {
+          wx.showToast({
+            icon: 'none',
+            title: `切换到团队'${ teamname }'`,
+          })
+        },
+      })
     })
   },
   /**
