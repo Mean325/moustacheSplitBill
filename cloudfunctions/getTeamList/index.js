@@ -13,46 +13,51 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext();
   const $ = db.command.aggregate;
 
-  return db.collection('user_team')
+  const res = await db.collection('user_team')
   .aggregate()
-  .lookup({
-    from: 'user',
-    localField: '_openid',
-    foreignField: 'openid',
-    as: 'member',
-  })
-  .project({
-    _teamId: 1,
-    _openid: 1,
-    member: $.arrayElemAt(['$member', 0])
-  })
   .group({
     _id: '$_teamId',
-    _teamId: $.first('$_teamId'),
-    _openid: $.first('$_openid'),
-    members: $.addToSet('$member')
+    members: $.addToSet('$_openid')
+  })
+  .match({
+    members: _.elemMatch(_.eq(wxContext.OPENID))
+  })
+  .lookup({
+    from: 'user',
+    localField: 'members',
+    foreignField: 'openid',
+    as: 'members',
+  })
+  .lookup({
+    from: 'bill',
+    localField: '_id',
+    foreignField: 'teamId',
+    as: 'billData',
   })
   .lookup({
     from: 'team',
-    localField: '_teamId',
+    localField: '_id',
     foreignField: '_id',
     as: 'teamData',
-  })
-  .match({
-    _openid: wxContext.OPENID
   })
   .replaceRoot({
     newRoot: $.mergeObjects([ $.arrayElemAt(['$teamData', 0]), '$$ROOT' ])
   })
-  .project({
-    teamData: 0,
-    _id: 0,
-    _openid: 0
-  })
   .end()
-  .then(res => {
-    console.log(res);
-    return res;
-   })
-  .catch(err => console.error(err))
+  console.log(res);
+
+  let list = res.list;
+  for(let item of list) {
+    item.amount = 0;
+    if (item.billData.length === 0) continue;
+    item.billData.forEach(bill => {
+      item.amount += bill.num;
+    })
+  }   // 计算总金额
+
+  return {
+    message: "获取成功",
+    code: 200,
+    data: list
+  }
 }

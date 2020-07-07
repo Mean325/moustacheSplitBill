@@ -4,5 +4,5 @@
     "mp-dialog": "weui-miniprogram/dialog/dialog",
     "avatar": "/components/avatar/avatar"
   },
-  "enablePullDownRefresh": false
+  "enablePullDownRefresh": true
 }

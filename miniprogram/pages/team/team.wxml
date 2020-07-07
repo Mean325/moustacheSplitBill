@@ -1,6 +1,13 @@
 <!-- 群组列表管理 -->
 <view class="container">
-  <view bindtap="switchTeam" data-teamId="{{ item._teamId }}" wx:for="{{ teamList }}" wx:key="_teamId" class="team">
+  <view
+    bindtap="switchTeam"
+    data-teamId="{{ item._teamId }}"
+    data-teamName="{{ item.name }}"
+    wx:for="{{ teamList }}"
+    wx:key="_teamId"
+    class="team"
+  >
     <view class="team-title">
       <text>{{ item.name }}</text>
       <text class="team-title__date">{{ item.time }}</text>

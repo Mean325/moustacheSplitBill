@@ -13,25 +13,13 @@ Page({
       name: ''
     }
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    wx.startPullDownRefresh();
+  },
+  onPullDownRefresh() {
     this.getTeamList();
   },
   getTeamList() {
@@ -40,13 +28,18 @@ Page({
       data: {}
     })
       .then(res => {
-        let teamList = res.result.list;
-        console.log(teamList);
-        teamList.forEach(n => {
-          n.members = n.members.slice(0, 4);
-          n.time = moment(n.createTime).format("YYYY年MM月DD日")
-        });
-        this.setData({ teamList });
+        let { data, code, message } = res.result;
+        if (code === 200) {
+          console.log(data);
+          data.forEach(n => {
+            n.members = n.members.slice(0, 4);
+            n.time = moment(n.createTime).format("YYYY年MM月DD日")
+          });
+          this.setData({
+            teamList: data
+          });
+        }
+        wx.stopPullDownRefresh();
       })
       .catch(console.error)
   },
@@ -55,13 +48,20 @@ Page({
    * @hook 团队点击事件
    */ 
   switchTeam(e) {
-    const { teamid } = e.currentTarget.dataset;
+    const { teamid, teamname } = e.currentTarget.dataset;
     app.editConfig({
       activeTeamId: teamid
     })
     .then(res => {
       app.globalData.activeTeamId = teamid;
-      wx.navigateBack();
+      wx.navigateBack({
+        success: (res) => {
+          wx.showToast({
+            icon: 'none',
+            title: `切换到团队'${ teamname }'`,
+          })
+        },
+      })
     })
   },
   showModal() {
@@ -72,7 +72,6 @@ Page({
   tapDialogButton(e) {
     console.log(e);
     if (e.detail.index === 1) {   // 当用户点击确定时
-      console.log("创建");
       this.addItem();
     }
     this.setData({
