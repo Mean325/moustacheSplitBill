@@ -1,5 +1,5 @@
 const computedBehavior = require('miniprogram-computed');
-const utils = require("../../../utils/utils.js");
+const utils = require("../../../../utils/utils.js");
 
 const app = getApp();
 
@@ -124,7 +124,7 @@ Page({
       wx.navigateBack();
     } else {    // 当为新增时,跳转到账单编辑页
     wx.redirectTo({
-      url: `/pages/editBill/editBill?num=${ num }`,
+      url: `/pages/bill/edit/edit?num=${ num }`,
       })
     }
   },

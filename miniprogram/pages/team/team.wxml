@@ -22,7 +22,7 @@
       <text>¥ {{ item.amount }}</text>
     </view>
   </view>
-  <image bindtap="showModal" class="add-team-btn" src="/images/tabBar/add.png" />
+  <image bindtap="showModal" class="add-team-btn" src="/images/index/add.png" />
 
   <mp-dialog title="新建团队" show="{{ isDialogShow }}" bindbuttontap="tapDialogButton" buttons="{{[{text: '取消'}, {text: '创建'}]}}">
     <input bindinput="handleInputChange" class="dialog-input"></input>

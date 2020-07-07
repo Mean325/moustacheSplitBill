@@ -151,5 +151,13 @@ Page({
         this.getTeamData();   // 重新获取团队信息
       })
       .catch(console.error)
-  }, 1000)
+  }, 1000),
+  /**
+   * @method 跳转到记账页面
+   */
+  toEditBill() {
+    wx.navigateTo({
+      url: '/pages/bill/edit/inputAmount/inputAmount',
+    })
+  }
 })

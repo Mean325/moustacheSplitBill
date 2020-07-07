@@ -56,7 +56,7 @@ Page({
     const { options } = pages.pop();
     const { id } = options;
     wx.redirectTo({
-      url: `/pages/editBill/editBill?id=${ id }`,
+      url: `/pages/bill/edit/edit?id=${ id }`,
     })
   }
 }) 

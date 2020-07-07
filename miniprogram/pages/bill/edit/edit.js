@@ -1,5 +1,5 @@
 const computedBehavior = require('miniprogram-computed');
-const utils = require("../../utils/utils.js");
+const utils = require("../../../utils/utils.js");
 
 const app = getApp();
 
@@ -46,7 +46,7 @@ Page({
   },
   toInputAmount() {
     wx.navigateTo({
-      url: `/pages/editBill/inputAmount/inputAmount?num=${ this.data.bill.num }&type=edit`,
+      url: `/pages/bill/edit/inputAmount/inputAmount?num=${ this.data.bill.num }&type=edit`,
     })
   },
   /**
@@ -92,13 +92,13 @@ Page({
   // 选择参与人
   selectPart() {
     wx.navigateTo({
-      url: '/pages/editBill/selectPart/selectPart',
+      url: '/pages/bill/edit/selectPart/selectPart',
     })
   },
   // 选择付款人
   selectPayer() {
     wx.navigateTo({
-      url: '/pages/editBill/selectPayer/selectPayer',
+      url: '/pages/bill/edit/selectPayer/selectPayer',
     })
   },
   //  计算分账 

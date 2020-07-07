@@ -27,7 +27,7 @@
 				</mp-cell>
 			</mp-cells>
 
-			<bottom-button value="开始记账"></bottom-button>
+			<bottom-button bindtap="toEditBill" value="开始记账"></bottom-button>
 			
 			<view wx:if="{{ showActionsheet }}" class="fadeIn" bindtap="close">
 				<view class="weui-mask"></view>

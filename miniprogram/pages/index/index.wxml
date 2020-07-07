@@ -57,7 +57,7 @@
   </view>
 </view>
 
-<navigator url="/pages/editBill/inputAmount/inputAmount" class="bookkeep-btn" hover-class="none">
+<navigator url="/pages/bill/edit/inputAmount/inputAmount" class="bookkeep-btn" hover-class="none">
   <image bindtap="showModal" src="/images/index/add.png" />
 </navigator>
 <!-- <mp-tabbar style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{list}}" bindchange="tabChange"></mp-tabbar> -->
