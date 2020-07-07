@@ -49,6 +49,7 @@ Page({
    */ 
   switchTeam(e) {
     const { teamid, teamname } = e.currentTarget.dataset;
+    console.log(teamid);
     app.editConfig({
       activeTeamId: teamid
     })

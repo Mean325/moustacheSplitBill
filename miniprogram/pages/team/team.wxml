@@ -2,7 +2,7 @@
 <view class="container">
   <view
     bindtap="switchTeam"
-    data-teamId="{{ item._teamId }}"
+    data-teamId="{{ item._id }}"
     data-teamName="{{ item.name }}"
     wx:for="{{ teamList }}"
     wx:key="_teamId"
