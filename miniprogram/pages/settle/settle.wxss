@@ -12,6 +12,21 @@
   margin-bottom: 8px;
 }
 
+.solution-icon {
+  width: 40px;
+  height: 40px;
+  background: #3FB475;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.solution-icon image {
+  width: 30px;
+  height: 30px;
+}
+
 .cell-footer {
   display: inline-flex;
   flex-direction: column;

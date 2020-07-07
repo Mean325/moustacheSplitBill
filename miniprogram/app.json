@@ -6,7 +6,7 @@
     "pages/member/member",
     "pages/invite/invite",
     "pages/settle/settle",
-    "pages/solution/solution",
+    "pages/settle/solution/solution",
     "pages/bill/detail/detail",
     "pages/bill/edit/edit",
     "pages/bill/edit/inputAmount/inputAmount",

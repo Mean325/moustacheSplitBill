@@ -40,7 +40,7 @@ Page({
   },
   toSolution() {
     wx.navigateTo({
-      url: '/pages/solution/solution',
+      url: '/pages/settle/solution/solution',
     })
   }
 })

@@ -2,7 +2,7 @@
   min-height: 100vh;
   padding: 32rpx;
   box-sizing: border-box;
-  background: #F2F2F7;
+  background: #EDEDED;
 }
 
 /* 用户信息 */

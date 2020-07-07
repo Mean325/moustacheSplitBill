@@ -3,7 +3,9 @@
 <view class="container">
   <mp-cells class="solution">
     <mp-cell bindtap="toSolution" link value="查看全员结算方案">
-      <image slot="icon" class="cell__icon" src="https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo46M9mv1t2cib4qj2s1qZqoNwrj7hMEzKxAmn0E9vHsxubRv8Hfcr6Zkq4GLSCAh2W9NwNURHeYZQ/132"></image>
+      <view slot="icon" class="solution-icon">
+        <image class="cell__icon" src="../../images/settle/calc.png"></image>
+      </view>
     </mp-cell>
   </mp-cells>
   <mp-cells>
