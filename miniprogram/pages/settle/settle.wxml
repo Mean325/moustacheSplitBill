@@ -2,7 +2,7 @@
 <!-- 账单结算 -->
 <view class="container">
   <mp-cells class="solution">
-    <mp-cell bindtap="toSolution" link value="查看全员结算方案">
+    <mp-cell bindtap="toSolution" link value="查看全员结算方案">
       <view slot="icon" class="solution-icon">
         <image class="cell__icon" src="../../images/settle/calc.png"></image>
       </view>

@@ -1,11 +1,18 @@
 <view class="container" data-weui-theme="dark">
   <block wx:if="{{ canIUse }}">
-    <image class="avatar" src="/images/welcome/user-unlogin.png"></image>
+    <image class="avatar" src="/images/logo.png"></image>
     <text style="text-align: center;">小胡子AA记账</text>
     <view class="line"></view>
     <view class="h">你的好友邀请您加入团队"{{ teamData.name }}"</view>
     <text class="p">需要授权获得您的公开信息(昵称,头像等)</text>
-    <button class="login-btn" type="primary" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo" style="width: 100%;">授权并加入</button>
+    <button
+      class="login-btn"
+      type="primary"
+      open-type="getUserInfo"
+      lang="zh_CN"
+      bindgetuserinfo="bindGetUserInfo"
+      style="width: 100%;"
+    >授权并加入</button>
   </block>
   <view wx:else>请升级微信版本</view>
 </view>

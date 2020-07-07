@@ -14,47 +14,39 @@ exports.main = async (event, context) => {
   const $ = db.command.aggregate;
   const { teamId } = event;
 
-  return db.collection('user_team')
+  let res = await db.collection('user_team')
   .aggregate()
-  .lookup({
-    from: 'user',
-    localField: '_openid',
-    foreignField: 'openid',
-    as: 'member',
-  })
-  .project({
-    _teamId: 1,
-    _openid: 1,
-    member: $.arrayElemAt(['$member', 0])
+  .match({
+    _teamId: teamId
   })
   .group({
     _id: '$_teamId',
-    _teamId: $.first('$_teamId'),
-    _openid: $.first('$_openid'),
-    members: $.addToSet('$member')
+    members: $.addToSet('$_openid')
+  })
+  .lookup({
+    from: 'user',
+    localField: 'members',
+    foreignField: 'openid',
+    as: 'members',
   })
   .lookup({
     from: 'team',
-    localField: '_teamId',
+    localField: '_id',
     foreignField: '_id',
     as: 'teamData',
-  })
-  .match({
-    _openid: wxContext.OPENID,
-    _id: teamId
   })
   .replaceRoot({
     newRoot: $.mergeObjects([ $.arrayElemAt(['$teamData', 0]), '$$ROOT' ])
   })
   .project({
-    teamData: 0,
-    _id: 0,
-    _openid: 0
+    teamData: 0
   })
   .end()
-  .then(res => {
-    console.log(res);
-    return res;
-   })
-  .catch(err => console.error(err))
+  console.log(res);
+
+  return {
+    message: "获取成功",
+    code: 200,
+    data: res.list[0]
+  }
 }

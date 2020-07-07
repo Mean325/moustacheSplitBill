@@ -11,7 +11,7 @@ Page({
     console.log(options);
     const { code } = options;
     if (code) {
-      this.getTeamById(code);
+      this.getTeamById(code);   // 根据code获取团队信息
     } else {
       console.log("找不到当前code,返回首页")
       wx.navigateTo({
@@ -45,9 +45,12 @@ Page({
       data: { teamId }
     })
     .then(res => {
-      this.setData({
-        teamData: res.result.data
-      })
+      const { data, code, message } = res.result;
+      if (code === 200) {
+        this.setData({
+          teamData: data
+        })
+      }
     })
     .catch(console.error)
   },
@@ -74,32 +77,16 @@ Page({
     });
   },
   /**
-   * @method 添加用户信息
-   */
-  saveUser(data) {
-    wx.cloud.callFunction({
-      name: 'editUser',
-      data: data,
-      success: res => {
-        console.log('[云函数] [login] user openid: ', res.result.openid)
-      },
-      fail: err => {
-        console.error('[云函数] [login] 调用失败', err)
-      }
-    })
-  },
-  /**
    * @method 授权登录按钮点击事件
    */
   bindGetUserInfo(e) {
-    if (e.detail.userInfo) {    // 用户按了允许授权按钮
-      console.log("用户的信息如下：");
-      console.log(e.detail.userInfo);
+    const { userInfo } = e.detail;
+    if (userInfo) {    // 用户按了允许授权按钮
       this.setData({
-        userInfo: e.detail.userInfo
+        userInfo
       })
-      console.log(this.data.teamData._teamId);
-      this.joinTeam(this.data.teamData._teamId);
+      const { _id } = this.data.teamData;
+      this.joinTeam(_id);
       this.getOpenid();
     } else {    // 用户按了拒绝按钮
       wx.showModal({
@@ -120,9 +107,12 @@ Page({
       name: 'joinTeam',
       data: { teamId },
       success: res => {
-        wx.showToast({
-          title: '加入团队成功',
-        })
+        const { data, code, message } = res.result;
+        if (code === 200) {
+          wx.showToast({
+            title: message,
+          })
+        }
         this.editConfig()
       },
       fail: err => {
@@ -142,14 +132,6 @@ Page({
     })
     .then(res => {
       app.globalData.activeTeamId = teamid;
-      wx.navigateBack({
-        success: (res) => {
-          wx.showToast({
-            icon: 'none',
-            title: `切换到团队'${ teamname }'`,
-          })
-        },
-      })
     })
   },
   /**
@@ -167,16 +149,29 @@ Page({
         })
         this.saveUser(this.data.userInfo);
         app.globalData.userInfo = this.data.userInfo;
-        // wx.navigateBack({
-        //   success: res => {
-        //   }
-        // });
       },
       fail: err => {
         wx.showToast({
           title: '加入团队失败',
           icon: 'none'
         })
+      }
+    })
+  },
+    /**
+   * @method 添加用户信息
+   */
+  saveUser(data) {
+    wx.cloud.callFunction({
+      name: 'editUser',
+      data: data,
+      success: res => {
+        wx.navigateTo({
+          url: '/pages/welcome/welcome',
+        })
+      },
+      fail: err => {
+        console.error(err)
       }
     })
   },
