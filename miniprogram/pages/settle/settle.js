@@ -11,7 +11,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    wx.startPullDownRefresh();
+    const { activeTeamId } = app.globalData;
+    this.getSettle(activeTeamId);
   },
   onPullDownRefresh() {
     const { activeTeamId } = app.globalData;

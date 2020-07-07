@@ -33,11 +33,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    wx.startPullDownRefresh();
+    const { activeTeamId } = app.globalData;
+    this.getTeamData(activeTeamId);
+    this.getBill(activeTeamId);
   },
   onPullDownRefresh() {
     const { activeTeamId } = app.globalData;
-    console.log(activeTeamId);
     this.getTeamData(activeTeamId);
     this.getBill(activeTeamId);
   },
