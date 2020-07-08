@@ -17,8 +17,9 @@ exports.main = async (event, context) => {
   try {
     // 查询有没用户数据
     const user = await db.collection('user').where({
-      _openid: OPENID
+      openid: OPENID
     }).get()
+    console.log(user);
 
     // 如果有数据，则只是更新用户数据，如果没数据则添加该用户
     if (user.data.length) {

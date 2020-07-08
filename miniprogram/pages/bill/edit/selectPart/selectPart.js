@@ -17,6 +17,7 @@ Page({
     const {
       teamMembers
     } = app.globalData;
+    console.log(teamMembers);
     const list = this.formatList(teamMembers);
     this.setData({
       list

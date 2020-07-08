@@ -53,13 +53,15 @@ Page({
       }
     })
       .then(res => {
-        const team = res.result.list[0];
-        const { members } = team;
-        app.globalData.teamMembers = members;
-        team.members = members.slice(0, 3);
-        this.setData({
-          teamData: team
-        })
+        const { data, code, message } = res.result;
+        if (code === 200) {
+          const { members } = data;
+          app.globalData.teamMembers = members;
+          team.members = members.slice(0, 3);
+          this.setData({
+            teamData: team
+          })
+        }
       })
       .catch(console.error)
   },
