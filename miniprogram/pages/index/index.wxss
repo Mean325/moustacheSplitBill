@@ -1,7 +1,6 @@
 .container {
   height: 100vh;
   box-sizing: border-box;
-  background: #ededed;
   /* padding: 30rpx; */
   overflow-y: auto;
 }
@@ -78,8 +77,9 @@
 .bill__title {
   height: 60rpx;
   line-height: 60rpx;
-  background: #DDDDDD;
+  background: var(--weui-BG-5);
   color: #999999;
+  /* color: var(--weui-FG-1); */
   padding: 0 30rpx;
   display: flex;
   justify-content: space-between;

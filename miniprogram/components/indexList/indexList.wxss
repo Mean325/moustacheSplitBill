@@ -26,6 +26,9 @@
   transform: scaleY(0.5);
   z-index: 2;
 }
+.page-select-index {
+  color: var(--weui-FG-0);
+}
 
 .index-group__title {
   padding: 24rpx 24rpx 12rpx;

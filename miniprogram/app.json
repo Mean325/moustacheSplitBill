@@ -20,13 +20,13 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#3FB475",
     "navigationBarTitleText": "",
-    "navigationBarTextStyle": "white",
+    "navigationBarTextStyle": "@navTextStyle",
     "navigationStyle": "default",
     "backgroundColor": "@backgroundColor"
   },
   "tabBar": {
     "custom": false,
-    "backgroundColor": "#EDEDED",
+    "backgroundColor": "@tabBarBackgroundColor",
     "color": "#AAAAAA",
     "selectedColor": "#3FB475",
     "list": [

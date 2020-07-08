@@ -2,7 +2,8 @@ const app = getApp()
 
 Page({
   data: {
-    userInfo: {},
+    userInfo: {}, // 用户信息
+    teamInfo: {}, // 当前团队信息
     
     unloginAvatar: '/images/welcome/user-unlogin.png',
     logged: false,
@@ -11,7 +12,8 @@ Page({
   },
   onShow() {
     this.setData({
-      userInfo: app.globalData.userInfo
+      userInfo: app.globalData.userInfo,
+      teamInfo: app.globalData.userInfo
     });
   },
   /**

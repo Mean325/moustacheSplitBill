@@ -2,7 +2,6 @@
   width: 100vw;
   padding: 30rpx;
   box-sizing: border-box;
-  background: #F6F6F6;
   display: flex;
   flex-direction: column;
   align-items: stretch;

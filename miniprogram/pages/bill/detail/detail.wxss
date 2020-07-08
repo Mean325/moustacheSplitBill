@@ -1,6 +1,5 @@
 .container {
   height: 100vh;
-  background: #F6F6F6;
   box-sizing: border-box;
 }
 

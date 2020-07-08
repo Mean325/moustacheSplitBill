@@ -2,7 +2,6 @@
   min-height: 100vh;
   padding: 32rpx;
   box-sizing: border-box;
-  background: #EDEDED;
 }
 
 /* 用户信息 */
@@ -34,7 +33,7 @@
 
 .setting-cell {
   width: calc(50% - 17rpx);
-  background: #FFFFFF;
+  background: var(--weui-BG-2);
   height: 220rpx;
   box-sizing: border-box;
   padding: 32rpx;

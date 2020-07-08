@@ -1,7 +1,6 @@
 .container {
   height: 100vh;
   box-sizing: border-box;
-  background: #ededed;
   padding: 0 0 60px 0;
   overflow-y: auto;
 }
@@ -27,11 +26,6 @@
   height: 30px;
 }
 
-.cell-footer {
-  display: inline-flex;
-  flex-direction: column;
-  font-size: 17px;
-}
 /* 付款样式 */
 .cell-footer.pay {
   color: #FA5151;

@@ -2,11 +2,13 @@
   "light": {
     "navBackgroundColor": "#ffffff",
     "navTextStyle": "black",
-    "backgroundColor": "#EDEDED"
+    "backgroundColor": "#EDEDED",
+    "tabBarBackgroundColor": "#EDEDED"
   },
   "dark": {
     "navBackgroundColor": "#000000",
     "navTextStyle": "white",
-    "backgroundColor": "#191919"
+    "backgroundColor": "#191919",
+    "tabBarBackgroundColor": "#232323"
   }
 }

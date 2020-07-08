@@ -26,6 +26,13 @@ button::after{
   height: 40px;
 }
 
+.cell-footer {
+  display: inline-flex;
+  flex-direction: column;
+  font-size: 17px;
+  color: var(--weui-FG-HALF);
+}
+
 @media (prefers-color-scheme: light) {
   page {
     --weui-BG-0: #ededed;
@@ -33,7 +40,7 @@ button::after{
     --weui-BG-2: #fff;
     --weui-BG-3: #f7f7f7;
     --weui-BG-4: #4c4c4c;
-    --weui-BG-5: #fff;
+    --weui-BG-5: #DDDDDD;
     --weui-FG-0: rgba(0,0,0,.9);
     --weui-FG-HALF: rgba(0,0,0,.9);
     --weui-FG-1: rgba(0,0,0,.5);
@@ -103,6 +110,7 @@ button::after{
 }
 
 .container {
+  height: 100vh;
   background: var(--weui-BG-0);
 }
 

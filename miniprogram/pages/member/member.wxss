@@ -1,3 +1,7 @@
+.container {
+  padding-bottom: 120rpx;
+}
+
 .banner {
   height: 160rpx;
   padding: 60rpx;
@@ -12,6 +16,10 @@
   font-size: 22px;
 }
 
+.weui-cells__group {
+  padding-bottom: 120rpx;
+}
+
 .member-list__title {
   padding: 16px;
 }
@@ -23,6 +31,7 @@
   border-radius: 20px;
 }
 
+/* 邀请好友按钮 */
 .invite-btn {
   width: 100%;
   text-align: left;

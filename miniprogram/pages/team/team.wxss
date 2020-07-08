@@ -2,11 +2,10 @@
   height: 100vh;
   box-sizing: border-box;
   padding: 30rpx;
-  background: #F6F6F6;
 }
 
 .team {
-  background: #FFFFFF;
+  background: var(--weui-BG-2);
   padding: 40rpx;
   border-radius: 10px;
 }

@@ -35,17 +35,17 @@ Page({
    */
   onShareAppMessage(e) {
     console.log(e);
-    const { _teamId } = this.data.teamData;
-    if (_teamId) {
+    const { _id } = this.data.teamData;
+    // if (_id) {
       // const aa = await this.createInvite(_teamId);
       // console.log(aa);
       // const { _id } = res.result;
       // console.log(`/pages/invite/invite?code=${ _id }`);
       return {
         title: '我在小胡子AA记账邀请您',
-        path: `/pages/invite/invite?code=${ _teamId }`
+        path: `/pages/invite/invite?code=${ _id }`
       }
-    }
+    // }
   },
   // 创建邀请     暂未使用
   createInvite(teamId) {
