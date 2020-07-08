@@ -36,7 +36,7 @@
           wx:for="{{ item.bill }}"
           wx:for-item="data"
           buttons="{{ slideButtons }}"
-          bindbuttontap="delAccount"
+          bindbuttontap="deleteBill"
         >
           <mp-cell>
             <avatar

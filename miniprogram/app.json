@@ -50,6 +50,8 @@
       }
     ]
   },
+  "darkmode": true,
+  "themeLocation": "theme.json",
   "usingComponents": {},
   "permission": {
     "scope.userLocation": {

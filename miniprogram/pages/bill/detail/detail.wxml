@@ -1,12 +1,15 @@
+
+<wxs module="amountFilter" src="../../../filter/amount.wxs"></wxs>
+
 <view class="container">
 	<view class="bill">
 		<!-- 账单信息框 -->
 		<view class="module info">
       <!-- 账单信息 -->
       <view class="bill__info"> 
-        <image src="{{ bill.category[0].icon }}" mode="aspectFill" class="bill__category-icon"></image>
+        <image src="{{ bill.category.activeIcon }}" mode="aspectFill" class="bill__category-icon"></image>
         <view class="bill__category-name">
-          {{ bill.category[0].name }}
+          {{ bill.category.name }}
         </view>
         <view class="bill__info-date">{{ bill.date }}</view>
       </view>
@@ -39,7 +42,7 @@
             <avatar avatarUrl="{{ item.avatarUrl }}" nickName="{{ item.nickName }}" width="40px" marginRight="20rpx"></avatar>
 						{{ item.nickName }}
 					</view>
-          <text slot="footer">¥{{ ( bill.num / bill.partner.length ) }}</text>
+          <text slot="footer">¥{{ amountFilter.format( bill.num / bill.partner.length ) }}</text>
 				</mp-cell>
 			</mp-cells>
 		</view>

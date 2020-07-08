@@ -2,7 +2,6 @@ const utils = require("../../utils/utils.js");
 const app = getApp();
 
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -16,7 +15,6 @@ Page({
       nickName: ""
     }
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -25,14 +23,6 @@ Page({
       userInfo: app.globalData.userInfo
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */
@@ -76,10 +66,12 @@ Page({
       }
     })
       .then(res => {
-        console.log(res.result.list[0].members);
-        this.setData({
-          teamData: res.result.list[0]
-        })
+        const { data, code, message } = res.result;
+        if (code === 200) {
+          this.setData({
+            teamData: data
+          })
+        }
       })
       .catch(console.error)
   },
@@ -89,7 +81,7 @@ Page({
       showActionsheet: true
     })
   },
-  close: function () {
+  close() {
     this.setData({
       showActionsheet: false
     })

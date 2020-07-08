@@ -2,7 +2,7 @@
   "navigationBarBackgroundColor": "#3FB475",
   "navigationBarTextStyle": "white",
   "backgroundColorTop": "#3FB475",
-  "navigationBarTitleText": "团队成员",
+  "navigationBarTitleText": " ",
   "usingComponents": {
     "mp-cells": "/components/weui/cells/cells",
     "mp-cell": "/components/weui/cell/cell",

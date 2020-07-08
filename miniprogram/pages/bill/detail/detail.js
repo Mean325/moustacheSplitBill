@@ -44,6 +44,9 @@ Page({
         const { data, code, message } = res.result;
         console.log(data);
         if (code === 200) {
+          let category = data.category[0];
+          category.activeIcon = category.icon.split(".png")[0] + "_active.png";
+          data.category = category;
           this.setData({
             bill: data
           })
