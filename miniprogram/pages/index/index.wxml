@@ -35,6 +35,7 @@
           data-id="{{ data._id }}"
           wx:for="{{ item.bill }}"
           wx:for-item="data"
+          wx:key="_id"
           buttons="{{ slideButtons }}"
           bindbuttontap="deleteBill"
         >

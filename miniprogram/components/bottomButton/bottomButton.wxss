@@ -3,13 +3,8 @@
   height: 120rpx;
   line-height: 60rpx;
   padding-bottom: 40rpx;
-  background: #3FB475;
   color: #FFFFFF;
   position: fixed;
   bottom: 0;
   border-radius: 0;
-}
-
-.bottom-button_active {
-  background: #129b9b;
 }

@@ -1,18 +1,28 @@
 const app = getApp()
 
 Page({
-  mixins: [require('../../libs/Mixins.js')],
+  // mixins: [require('../../mixin/themeChanged')],    // 主题mixins
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),    // 判断小程序的API，回调，参数，组件等是否在当前版本可用
     config: {},   // 启动页配置
     statusBarHeight: getApp().globalData.deviceInfo.statusBarHeight,   // 获取全局变量的导航栏高度
+
+    theme: '',
   },
   onLoad(options) {
     // this.getWelcomeConfig();
     this.getSetting();
     this.getConfig();
     this.getCategoryList();   // 获取分类列表
-
+  },
+  /**
+   * @hook 监听系统主题改变事件
+   */
+  onThemeChange() {
+    console.log(e);
+    this.setData({
+      theme: app.globalData.theme
+    });
   },
   /**
    * 调用云函数getWelcomeConfig获取

@@ -22,7 +22,7 @@
     "navigationBarTitleText": "",
     "navigationBarTextStyle": "white",
     "navigationStyle": "default",
-    "backgroundColor": "#EDEDED"
+    "backgroundColor": "@backgroundColor"
   },
   "tabBar": {
     "custom": false,

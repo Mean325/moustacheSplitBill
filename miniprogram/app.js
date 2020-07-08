@@ -1,6 +1,6 @@
-require('./libs/Mixins.js');
+// require('./libs/Mixins.js');
 
-const themeListeners = [];
+// const themeListeners = [];
 
 App({
   globalData: {
@@ -9,29 +9,29 @@ App({
     },   // 用户信息
     categoryList: [],  // 分类列表
 
-    theme: 'dark', // 主题颜色: light/dark
+    // theme: 'light', // 主题颜色: light/dark
     deviceInfo: {},   // 设备信息
 
     activeTeamId: "",   // 当前active的团队Id
     teamMembers: [],    // 团队成员
   },
-  themeChanged(theme) {
-    this.globalData.theme = theme;
-    themeListeners.forEach((listener) => {
-      listener(theme);
-    });
-  },
-  watchThemeChange(listener) {
-    if (themeListeners.indexOf(listener) < 0) {
-      themeListeners.push(listener);
-    }
-  },
-  unWatchThemeChange(listener) {
-    const index = themeListeners.indexOf(listener);
-    if (index > -1) {
-      themeListeners.splice(index, 1);
-    }
-  },
+  // themeChanged(theme) {
+  //   this.globalData.theme = theme;
+  //   themeListeners.forEach((listener) => {
+  //     listener(theme);
+  //   });
+  // },
+  // watchThemeChange(listener) {
+  //   if (themeListeners.indexOf(listener) < 0) {
+  //     themeListeners.push(listener);
+  //   }
+  // },
+  // unWatchThemeChange(listener) {
+  //   const index = themeListeners.indexOf(listener);
+  //   if (index > -1) {
+  //     themeListeners.splice(index, 1);
+  //   }
+  // },
   onLaunch() {
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
@@ -51,9 +51,20 @@ App({
   getDeviceInfo() {
     wx.getSystemInfo({
       success: res => {
+        console.log(res);
         this.globalData.deviceInfo = res;
       }
     })
+  },
+  /**
+   * @hook 监听系统主题改变事件
+   */
+  onThemeChange(result) {
+    // if (!result) return;
+    // var value = wx.getStorageSync('theme')
+    // if (value === "light" || value === "dark") return;
+    // this.globalData.theme = result.theme;
+    // console.log(result.theme);
   },
   /**
    * @method 获取分类列表

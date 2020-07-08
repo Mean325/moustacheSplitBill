@@ -1,4 +1,4 @@
-<view class="container" data-weui-theme="dark">
+<view class="container">
   <block wx:if="{{ canIUse }}">
     <view wx:if="{{ config.showWeather }}" class="weather">
       <image class="weather-icon" src="/images/weather/duoyun.png"></image>

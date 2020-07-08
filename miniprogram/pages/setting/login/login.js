@@ -1,7 +1,7 @@
 const app = getApp()
 
 Page({
-  mixins: [require('../../../libs/Mixins.js')],
+  // mixins: [require('../../mixin/themeChanged')],    // 主题mixins
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),    // 判断小程序的API，回调，参数，组件等是否在当前版本可用
     userInfo: {},    // 用户信息,在获取到openid后,保存到全局变量

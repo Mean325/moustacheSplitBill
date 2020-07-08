@@ -1,7 +1,8 @@
 {
   "light": {
     "navBackgroundColor": "#ffffff",
-    "navTextStyle": "black"
+    "navTextStyle": "black",
+    "backgroundColor": "#EDEDED"
   },
   "dark": {
     "navBackgroundColor": "#000000",
