@@ -1,3 +1,4 @@
+<wxs module="amountFilter" src="../../filter/amount.wxs"></wxs>
 <!-- 群组列表管理 -->
 <view class="container">
   <view
@@ -23,10 +24,10 @@
         nickName="{{ item.nickName }}"
         width="40px"
       ></avatar>
-      <text>等{{ item.members.length }}个人</text>
+      <text>等{{ item.memberNum }}个人</text>
     </view>
     <view class="team-amount">
-      <text>¥ {{ item.amount }}</text>
+      <text>¥ {{ amountFilter.format(item.amount) }}</text>
     </view>
   </view>
   <image bindtap="showModal" class="add-team-btn" src="/images/index/add.png" />

@@ -80,23 +80,31 @@ Page({
       today: date
     })
   },
+  // /**
+  //  * 跳转到分类管理页面
+  //  * @method 自定义按钮点击事件
+  //  */
+  // toCategoryManage() {
+  //   wx.navigateTo({
+  //     url: '/pages/setting/classManage/classManage',
+  //   })
+  // },
   /**
-   * 跳转到分类管理页面
-   * @method 自定义按钮点击事件
+   * 跳转到选择参与人页面
+   * @method 参与人cell点击事件
    */
-  toCategoryManage() {
-    wx.navigateTo({
-      url: '/pages/setting/classManage/classManage',
-    })
-  },
-  // 选择参与人
   selectPart() {
+    app.globalData.selectedMembers = this.data.bill.partner;
     wx.navigateTo({
       url: '/pages/bill/edit/selectPart/selectPart',
     })
   },
-  // 选择付款人
+  /**
+   * 跳转到选择付款人页面
+   * @method 付款人cell点击事件
+   */
   selectPayer() {
+    app.globalData.selectedMembers = this.data.bill.payer;
     wx.navigateTo({
       url: '/pages/bill/edit/selectPayer/selectPayer',
     })

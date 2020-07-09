@@ -1,20 +1,6 @@
 <!--index.wxml-->
 <view class="container">
 	<view class="bill">
-		<!-- 账本分类类别 -->
-		<!-- <bookkeep-type-bar bind:changeType="handleTypeChange">
-      <picker
-        bindchange="bindDateChange"
-        value="{{ date }}"
-        mode="date"
-        end="{{ today }}"
-        slot="right"
-      >
-        <image class="slot-image" src="/images/icon/rili{{ activeDay }}.png" mode="aspectFit"></image>
-      </picker>
-      
-    </bookkeep-type-bar> -->
-
 		<!-- 记账金额输入框 -->
 		<view class="bill__amount module">
 			<text class="bill__amount-currency">¥</text>
@@ -48,8 +34,9 @@
 				<!-- 选择参与人 -->
 				<mp-cell bindtap="selectPart" link>
 					<view class="flex__cell">
-						参与
+						<text class="cell-label">参与</text>
 						<avatar wx:for="{{ partnerList }}" avatarUrl="{{ item.avatarUrl }}" nickName="{{ item.nickName }}" width="34px" marginLeft="20rpx"></avatar>
+						<text wx:if="{{ bill.partner.length > 4 }}" class="cell-value">等{{ bill.partner.length }}个人</text>
 					</view>
 				</mp-cell>
 				<!-- 选择付款人 -->

@@ -7,7 +7,7 @@ Page({
    */
   data: {
     list: [], // 成员列表
-    selectedMember: [], // 选中的成员openId列表
+    selectedMembers: [], // 选中的成员openId列表
   },
 
   /**
@@ -15,11 +15,13 @@ Page({
    */
   onLoad(options) {
     const {
-      teamMembers
+      teamMembers,
+      // selectedMembers
     } = app.globalData;
     const list = this.formatList(teamMembers);
     this.setData({
-      list
+      list,
+      // selectedMembers
     })
   },
   /**
@@ -29,14 +31,14 @@ Page({
     const {
       teamMembers
     } = app.globalData,
-    selectedMember = new Set(this.data.selectedMember);
+    selectedMembers = new Set(this.data.selectedMembers);
 
     // 将选中的数据返回到上一页
     const pages = getCurrentPages();
     const prevPage = pages[pages.length - 2]; //上一页
     prevPage.setData({
-      'bill.payer': Array.from(selectedMember),
-      payerList: teamMembers.filter(n => selectedMember.has(n.openid))
+      'bill.payer': Array.from(selectedMembers),
+      payerList: teamMembers.filter(n => selectedMembers.has(n.openid))
     })
   },
   // 根据首字母排序
@@ -89,15 +91,15 @@ Page({
       {
         openid
       } = item,
-      selectedMember = new Set(this.data.selectedMember);
-    if (selectedMember.has(openid)) { // 当已有该openid时,则删除
-      selectedMember.delete(openid);
+      selectedMembers = new Set(this.data.selectedMembers);
+    if (selectedMembers.has(openid)) { // 当已有该openid时,则删除
+      selectedMembers.delete(openid);
     } else { // 当没有该openid时,则添加
-      selectedMember.add(openid);
+      selectedMembers.add(openid);
     }
-    console.log(selectedMember);
+    console.log(selectedMembers);
     this.setData({
-      selectedMember: Array.from(selectedMember)
+      selectedMembers: Array.from(selectedMembers)
     })
 
     wx.navigateBack();

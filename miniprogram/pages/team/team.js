@@ -32,6 +32,7 @@ Page({
         if (code === 200) {
           console.log(data);
           data.forEach(n => {
+            n.memberNum = n.members.length;
             n.members = n.members.slice(0, 4);
             n.time = moment(n.createTime).format("YYYY年MM月DD日")
           });

@@ -14,6 +14,7 @@ App({
 
     activeTeamId: "",   // 当前active的团队Id
     teamMembers: [],    // 团队成员
+    selectedMembers: [],  // 选中的成员id列表,用于记账时选择参与人和付款人
   },
   // themeChanged(theme) {
   //   this.globalData.theme = theme;

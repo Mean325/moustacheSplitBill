@@ -82,6 +82,13 @@
   line-height: 34px;
 }
 
+.cell-label {
+  flex-shrink: 0;
+}
+.cell-value {
+  margin-left: 20rpx;
+}
+
 .avatar {
   margin-left: 10rpx;
 }
