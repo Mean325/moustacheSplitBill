@@ -3,6 +3,7 @@
   box-sizing: border-box;
   /* padding: 30rpx; */
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;    /* 惯性滚动 */
 }
 
 /* 顶部团队信息banner */
@@ -72,6 +73,7 @@
   margin: -60rpx 30rpx 30rpx;
   border-radius: 10px;
   overflow: hidden;
+  min-height: calc(100vh - 364rpx);
 }
 
 .bill__title {

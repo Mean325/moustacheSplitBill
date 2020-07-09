@@ -1,4 +1,5 @@
-// components/bottomButton/bottomButton.js
+const app = getApp();
+
 Component({
   options: {
     addGlobalClass: true
@@ -9,16 +10,17 @@ Component({
       value: ""
     },    // 按钮文字
   },
-  /**
-   * 组件的初始数据
-   */
   data: {
-
+    isIphoneX: false,   // iPhone X系列安全区域处理
   },
-
-  /**
-   * 组件的方法列表
-   */
+  attached() {
+    const { deviceInfo } = app.globalData;
+    const { isIphoneX } = deviceInfo;
+    console.log("isIphoneX:" + isIphoneX);
+    this.setData({
+      isIphoneX
+    })
+  },
   methods: {
 
   }

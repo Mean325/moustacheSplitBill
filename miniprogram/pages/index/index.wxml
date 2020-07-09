@@ -22,7 +22,7 @@
       <text class="team-amount__title">团队总消费 CNY</text>
     </view>
   </view>
-  <view class="bill">
+  <view wx:if="{{ teamData._id }}" class="bill">
     <view wx:for="{{ bill }}">
       <view class="bill__title">
         <!-- <text>4月29日</text> -->
@@ -54,6 +54,12 @@
           </mp-cell>
         </mp-slideview>
       </mp-cells>
+    </view>
+  </view>
+  <view wx:else class="bill">
+    <view class="no-content">
+      <view>目前还没有团队哦,</view>
+      <view>点击左上角添加或选择团队</view>
     </view>
   </view>
 </view>

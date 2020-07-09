@@ -85,9 +85,10 @@ Page({
    * @hook 顶部分类名称input输入事件
    */
   handleInputChange(e) {
-    this.setData({
-      'form.name': e.detail.value
-    })
+    this.data.form.name = e.detail.value;
+    // this.setData({
+    //   'form.name': e.detail.value
+    // })
   },
   /**
    * 调用云函数AA_addItem新增用户默认分类

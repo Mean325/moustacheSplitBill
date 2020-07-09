@@ -52,6 +52,9 @@ App({
   getDeviceInfo() {
     wx.getSystemInfo({
       success: res => {
+        if (res.model.search('iPhone X') != -1) {
+          res.isIphoneX = true;
+        }
         this.globalData.deviceInfo = res;
       }
     })

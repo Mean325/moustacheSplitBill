@@ -123,3 +123,9 @@ button::after{
 .primary-btn_active {
   background-color: var(--weui-TAG-TEXT-GREEN);
 }
+
+.no-content {
+  color: var(--weui-FG-1);
+  margin-top: 18vh;
+  text-align: center;  
+}

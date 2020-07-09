@@ -2,7 +2,7 @@
 <button
   class="bottom-button primary-btn"
   hover-class="primary-btn_active"
-  style="width: 100%;"
+  style="width: 100%;padding-bottom: {{ isIphoneX ? '84rpx' : '16rpx' }};"
 >
 {{ value }}
 </button>
