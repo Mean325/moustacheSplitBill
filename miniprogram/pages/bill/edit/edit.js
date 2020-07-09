@@ -167,6 +167,20 @@ Page({
    */
   editBill() {
     const { activeTeamId } = app.globalData;
+    const { partner, payer } = this.data.bill;
+    if (partner.length === 0) {
+      wx.showToast({
+        title: '请选择参与人',
+        icon: 'none',
+      })
+      return;
+    } else if (payer.length === 0) {
+      wx.showToast({
+        title: '请选择付款人',
+        icon: 'none',
+      })
+      return;
+    }
     wx.cloud.callFunction({
       name: 'editBill',
       data: {
