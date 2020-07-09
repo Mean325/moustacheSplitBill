@@ -1,6 +1,8 @@
 {
-	"miniprogramRoot": "miniprogram/",
-	"cloudfunctionRoot": "cloudfunctions/",
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
 	"setting": {
 		"urlCheck": false,
 		"es6": true,
@@ -18,22 +20,30 @@
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
 		"babelSetting": {
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useCompilerModule": true,
-		"userConfirmedUseCompilerModuleSwitch": false,
-		"compileHotReLoad": false,
-		"useIsolateContext": true
+		"useIsolateContext": true,
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
+	"compileType": "miniprogram",
+	"libVersion": "2.11.3",
 	"appid": "wx25f0a48d14b3d7c7",
 	"projectname": "splitBill",
-	"libVersion": "2.11.3",
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+	"watchOptions": {
+		"ignore": []
+	},
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -48,6 +58,7 @@
 			"list": []
 		},
 		"game": {
+			"current": -1,
 			"list": []
 		},
 		"gamePlugin": {
@@ -143,15 +154,9 @@
 				},
 				{
 					"id": -1,
-					"name": "关于",
-					"pathName": "pages/setting/about/about",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "版本列表",
+					"name": "更新记录",
 					"pathName": "pages/setting/about/version/version",
+					"query": "code=e1422f825ed082ea006506d73940f5f5",
 					"scene": null
 				}
 			]

@@ -2,7 +2,7 @@
   <view class="app-info">
     <image class="app-logo" src="/images/logo.png"></image>
     <view class="app-name">小胡子账本</view>
-    <view class="app-version">Version 1.0.0</view>
+    <view class="app-version">Version 1.0.3</view>
   </view>
   <view class="line"></view>
     <mp-cells>

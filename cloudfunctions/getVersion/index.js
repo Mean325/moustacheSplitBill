@@ -18,17 +18,21 @@ exports.main = async (event, context) => {
 
   let res;
   try {
-    res = await db.collection('version').get();
+    res = await db.collection('version').aggregate()
+      .sort({
+        version: -1
+      })
+      .end();
     console.log(res);
   } catch (e) {
     return {
       message: e.message,
       code: -1,
     }
-  } 
+  }
   return {
     message: "获取成功",
-    data: res.data,
+    data: res.list,
     code: 200
   }
 }
