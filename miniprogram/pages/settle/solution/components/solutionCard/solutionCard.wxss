@@ -1,5 +1,5 @@
 .solution-card {
-  background: #FFFFFF;
+  background: var(--weui-BG-2);
   border-radius: 10px;
   margin-bottom: 30rpx;
 }
@@ -7,7 +7,7 @@
 /* 结算方案卡片 - 上部信息栏 */
 .solution {
   padding: 60rpx 0;
-  border-bottom: 2rpx solid #EDEDED;
+  border-bottom: 2rpx solid var(--weui-BG-0);
   display: flex;
   flex-direction: row;
 }

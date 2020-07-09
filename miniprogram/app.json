@@ -24,6 +24,7 @@
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "",
     "navigationStyle": "default",
+    "backgroundTextStyle": "@backgroundTextStyle",
     "backgroundColor": "@backgroundColor"
   },
   "tabBar": {

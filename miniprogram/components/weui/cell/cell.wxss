@@ -73,7 +73,7 @@
 }
 
 .weui-cell_active {
-  background-color: #ECECEC
+  background-color: var(--weui-BG-COLOR-ACTIVE);
 }
 
 .weui-cell_primary {

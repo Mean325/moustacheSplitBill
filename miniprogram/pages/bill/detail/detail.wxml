@@ -42,7 +42,7 @@
             <avatar avatarUrl="{{ item.avatarUrl }}" nickName="{{ item.nickName }}" width="40px" marginRight="20rpx"></avatar>
 						{{ item.nickName }}
 					</view>
-          <text slot="footer">¥{{ amountFilter.format( bill.num / bill.partner.length ) }}</text>
+          <text slot="footer" class="cell-footer">¥{{ amountFilter.format( bill.num / bill.partner.length ) }}</text>
 				</mp-cell>
 			</mp-cells>
 		</view>

@@ -23,7 +23,7 @@
 		</button>
 		<!-- 管理员设置 - 仅超级管理员显示 -->
 		<navigator url="/pages/setting/admin/categoryManage/categoryManage" wx:if="{{ userInfo.openid === 'ouGKR4pZmbV1WnrmRCwHP8_Aw7oA' }}" class="setting-cell">
-			<image src="/images/setting/jiekou.png" class="setting-cell__icon" hover-class="weui-cell_active"></image>
+			<image src="/images/setting/jiekou.png" class="setting-cell__icon"></image>
 			<text>小程序设置</text>
 		</navigator>
 		<navigator url="/pages/setting/about/about" class="setting-cell" hover-class="weui-cell_active">
