@@ -9,7 +9,7 @@
 .banner {
   height: 274rpx;
   padding: 30rpx 30rpx 90rpx;
-  background: #3FB475;
+  background: var(--weui-BRAND);
   color: #FFFFFF;
   display: flex;
   flex-direction: column;
@@ -38,7 +38,7 @@
 .team-info__member-avatar {
   width: 34px;
   height: 34px;
-  border: 3px solid #3FB475;
+  border: 3px solid var(--weui-BRAND);
   border-radius: 50%;
   display: inline-block;
   vertical-align: bottom;

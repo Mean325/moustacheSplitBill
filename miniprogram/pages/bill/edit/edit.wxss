@@ -28,7 +28,7 @@
 
 .bill__amount-date {
   font-size: 14px;
-  background: #3FB475;
+  background: var(--weui-BRAND);
   color: #FFFFFF;
   padding: 1px 10px;
   border-radius: 20px;
@@ -68,7 +68,7 @@
   color: #999999;
 }
 .bill__category.selected text {
-  color: #3FB475;
+  color: var(--weui-BRAND);
 }
 
 /* 属性选择栏 */

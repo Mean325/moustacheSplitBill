@@ -51,7 +51,7 @@ button::after{
     --weui-YELLOW: #ffc300;
     --weui-GREEN: #91d300;
     --weui-LIGHTGREEN: #95ec69;
-    --weui-BRAND: #07c160;
+    --weui-BRAND: #3FB475;
     --weui-BLUE: #10aeff;
     --weui-INDIGO: #1485ee;
     --weui-PURPLE: #6467f0;
@@ -62,7 +62,7 @@ button::after{
     --weui-BG: #fff;
     --weui-TAG-TEXT-ORANGE: #fa9d3b;
     --weui-TAG-BACKGROUND-ORANGE: rgba(250,157,59,.1);
-    --weui-TAG-TEXT-GREEN: #06ae56;
+    --weui-TAG-TEXT-GREEN: #2F8758;
     --weui-TAG-BACKGROUND-GREEN: rgba(6,174,86,.1);
     --weui-TAG-TEXT-BLUE: #10aeff;
     --weui-TAG-BACKGROUND-BLUE: rgba(16,174,255,.1);
@@ -89,7 +89,7 @@ button::after{
     --weui-YELLOW: #cc9c00;
     --weui-GREEN: #74a800;
     --weui-LIGHTGREEN: #28b561;
-    --weui-BRAND: #07c160;
+    --weui-BRAND: #2F8758;
     --weui-BLUE: #10aeff;
     --weui-INDIGO: #1196ff;
     --weui-PURPLE: #8183ff;
@@ -101,6 +101,7 @@ button::after{
     --weui-TAG-TEXT-ORANGE: rgba(250,157,59,.6);
     --weui-TAG-BACKGROUND-ORANGE: rgba(250,157,59,.1);
     --weui-TAG-TEXT-GREEN: rgba(6,174,86,.6);
+    /* #2A7A4F */
     --weui-TAG-BACKGROUND-GREEN: rgba(6,174,86,.1);
     --weui-TAG-TEXT-BLUE: rgba(16,174,255,.6);
     --weui-TAG-BACKGROUND-BLUE: rgba(16,174,255,.1);

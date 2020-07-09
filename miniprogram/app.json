@@ -17,10 +17,9 @@
     "pages/setting/admin/categoryManage/addCategory/addCategory"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#3FB475",
+    "navigationBarBackgroundColor": "@navBgColor",
+    "navigationBarTextStyle": "white",
     "navigationBarTitleText": "",
-    "navigationBarTextStyle": "@navTextStyle",
     "navigationStyle": "default",
     "backgroundColor": "@backgroundColor"
   },
