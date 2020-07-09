@@ -9,30 +9,12 @@ App({
     },   // 用户信息
     categoryList: [],  // 分类列表
 
-    // theme: 'light', // 主题颜色: light/dark
     deviceInfo: {},   // 设备信息
 
     activeTeamId: "",   // 当前active的团队Id
     teamMembers: [],    // 团队成员
     selectedMembers: [],  // 选中的成员id列表,用于记账时选择参与人和付款人
   },
-  // themeChanged(theme) {
-  //   this.globalData.theme = theme;
-  //   themeListeners.forEach((listener) => {
-  //     listener(theme);
-  //   });
-  // },
-  // watchThemeChange(listener) {
-  //   if (themeListeners.indexOf(listener) < 0) {
-  //     themeListeners.push(listener);
-  //   }
-  // },
-  // unWatchThemeChange(listener) {
-  //   const index = themeListeners.indexOf(listener);
-  //   if (index > -1) {
-  //     themeListeners.splice(index, 1);
-  //   }
-  // },
   onLaunch() {
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')

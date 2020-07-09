@@ -1,18 +1,13 @@
-<view class="container" data-weui-theme="{{ theme }}">
+<view class="container">
   <view class="app-info">
     <image class="app-logo" src="/images/logo.png"></image>
     <view class="app-name">小胡子账本</view>
     <view class="app-version">Version 1.0.0</view>
   </view>
   <view class="line"></view>
-  <view class="weui-cells weui-cells_after-title">
-    <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__bd">版本更新记录</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </navigator>
-    <!-- <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__bd">意见反馈</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </navigator> -->
-  </view>
+    <mp-cells>
+      <mp-cell bindtap="toVersion" link class="about-cell">
+        <view>更新记录</view>
+      </mp-cell>
+    </mp-cells>
 </view>

@@ -30,3 +30,7 @@
   background: #CCCCCC;
   margin: 80rpx 0;
 } */
+
+.weui-cells, .weui-cell{
+  background: transparent;
+}

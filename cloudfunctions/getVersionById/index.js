@@ -1,5 +1,5 @@
 /**
- * @method 获取用户配置
+ * @method 根据Id获取更新介绍
  */
 
 // 云函数入口文件
@@ -15,10 +15,11 @@ const _ = db.command
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext();
+  const { id } = event;
 
   let res;
   try {
-    res = await db.collection('config').doc(wxContext.OPENID).get();
+    res = await db.collection('version').doc(id).get();
     console.log(res);
   } catch (e) {
     return {

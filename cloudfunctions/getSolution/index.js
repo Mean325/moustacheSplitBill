@@ -114,6 +114,9 @@ exports.main = async (event, context) => {
   }
   console.log(solution);
 
+  solution = solution.filter(n => n.num !== 0)
+  console.log(solution);
+
   return {
     message: "获取成功",
     code: 200,

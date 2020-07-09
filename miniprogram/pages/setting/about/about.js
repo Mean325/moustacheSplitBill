@@ -1,9 +1,13 @@
 const app = getApp()
 
 Page({
-  // mixins: [require('../../../mixin/themeChanged')],    // 主题mixins
   data: {
   },
   onLoad(options) {
   },
+  toVersion() {
+    wx.navigateTo({
+      url: '/pages/setting/about/version/version',
+    })
+  }
 })

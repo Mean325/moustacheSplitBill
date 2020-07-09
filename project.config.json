@@ -23,7 +23,7 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useCompilerModule": false,
+		"useCompilerModule": true,
 		"userConfirmedUseCompilerModuleSwitch": false,
 		"compileHotReLoad": false,
 		"useIsolateContext": true
@@ -139,6 +139,19 @@
 					"name": "订单详情",
 					"pathName": "pages/bill/detail/detail",
 					"query": "id=bb83ad495efed35a0041f21a294e8a39",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "关于",
+					"pathName": "pages/setting/about/about",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "版本列表",
+					"pathName": "pages/setting/about/version/version",
 					"scene": null
 				}
 			]

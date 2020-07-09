@@ -71,6 +71,8 @@ Page({
           this.setData({
             teamData: data
           })
+
+          app.globalData.teamMembers = data.members;
         }
       })
       .catch(console.error)
@@ -140,6 +142,9 @@ Page({
         wx.showToast({
           title: '创建成功'
         })
+        this.setData({
+          'form.nickName': ""
+        })    // 清空表单数据
         this.getTeamData();   // 重新获取团队信息
       })
       .catch(console.error)
