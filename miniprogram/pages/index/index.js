@@ -38,8 +38,10 @@ Page({
    */
   refresh() {
     const { activeTeamId } = app.globalData;
-    this.getTeamData(activeTeamId);
-    this.getBill(activeTeamId);
+    if (activeTeamId) {
+      this.getTeamData(activeTeamId);
+      this.getBill(activeTeamId);
+    }
   },
   /**
    * @method 根据Id获取团队信息

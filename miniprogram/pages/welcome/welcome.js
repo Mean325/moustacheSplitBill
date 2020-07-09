@@ -1,90 +1,51 @@
 const app = getApp()
 
 Page({
-  // mixins: [require('../../mixin/themeChanged')],    // 主题mixins
   data: {
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),    // 判断小程序的API，回调，参数，组件等是否在当前版本可用
-    config: {},   // 启动页配置
-    statusBarHeight: getApp().globalData.deviceInfo.statusBarHeight,   // 获取全局变量的导航栏高度
-
-    theme: '',
+    canIUse: wx.canIUse('button.open-type.getUserInfo'), // 判断小程序的API，回调，参数，组件等是否在当前版本可用
+    config: {}, // 启动页配置
+    statusBarHeight: getApp().globalData.deviceInfo.statusBarHeight, // 获取全局变量的导航栏高度
   },
   onLoad(options) {
     // this.getWelcomeConfig();
-    this.getSetting();
-    this.getConfig();
-    this.getCategoryList();   // 获取分类列表
+    this.getUserInfo();   // 获取用户数据
+    this.initData();    // 初始化数据
   },
-  /**
-   * @hook 监听系统主题改变事件
-   */
-  onThemeChange() {
-    console.log(e);
-    this.setData({
-      theme: app.globalData.theme
-    });
-  },
-  /**
-   * 调用云函数getWelcomeConfig获取
-   * @method 获取启动页配置
-   */
-  getWelcomeConfig() {
-    wx.cloud.callFunction({
-      name: 'getWelcomeConfig',
-      data: {}
-    })
-      .then(res => {
-        let data = res.result.data;
-        console.log(res);
-        this.setData({
-          config: data
-        });
-      })
-      .catch(console.error)
-  },
-  /**
-   * 成功后跳转到首页
-   * @method 获取分类列表
-   */
-  getCategoryList() {
-    app.getCategoryList()
-      .then(res => {
-        wx.switchTab({
-          url: '/pages/index/index',
-        })
-      })
-  },
-  /**
-   * @method 获取用户配置
-   */ 
-  getConfig() {
-    app.getConfig({})
-    .then(res => {
-      console.log(res);
-    })
-  },
+  // /**
+  //  * 调用云函数getWelcomeConfig获取
+  //  * @method 获取启动页配置
+  //  */
+  // getWelcomeConfig() {
+  //   wx.cloud.callFunction({
+  //     name: 'getWelcomeConfig',
+  //     data: {}
+  //   })
+  //     .then(res => {
+  //       let data = res.result.data;
+  //       console.log(res);
+  //       this.setData({
+  //         config: data
+  //       });
+  //     })
+  //     .catch(console.error)
+  // },
   /**
    * 当userInfo可以被获取时,保存到userInfo
-   * @method 获取用户设置
+   * @method 获取用户数据
    */
-  getSetting() {
+  getUserInfo() {
     wx.getSetting({
       success: res => {
-        if (res.authSetting['scope.userInfo']) {    // 用户已授权
+        if (res.authSetting['scope.userInfo']) { // 用户已授权
           wx.getUserInfo({
             success: res => {
-              console.log(res)
               this.setData({
                 userInfo: res.userInfo
               })
-            },
-            complete: res => {
-              this.getOpenid();
             }
           });
-        } else {
-          this.getOpenid();
         }
+        this.getOpenid();
       }
     });
   },
@@ -97,6 +58,7 @@ Page({
       name: 'login',
       data: {},
       success: res => {
+        console.log(res);
         this.setData({
           'userInfo.openid': res.result.openid
         })
@@ -109,5 +71,20 @@ Page({
         })
       }
     })
+  },
+  /**
+   * 1.获取用户配置,如上次active的团队等
+   * 2.调用全局获取分类列表方法
+   * @method 初始化数据
+   */
+  initData() {
+    Promise.all([app.getConfig(), app.getCategoryList()])
+      .then(res => {
+        console.log(res)
+        wx.switchTab({
+          url: '/pages/index/index',
+        })
+      })
+      .catch(e => console.log(e))
   },
 })

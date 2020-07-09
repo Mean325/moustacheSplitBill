@@ -52,7 +52,6 @@ App({
   getDeviceInfo() {
     wx.getSystemInfo({
       success: res => {
-        console.log(res);
         this.globalData.deviceInfo = res;
       }
     })
@@ -117,13 +116,13 @@ App({
         data: {}
       })
         .then(res => {
-          let { data } = res.result;
+          let { data, code, message } = res.result;
           console.log(data);
-          if (data) {
-            this.globalData.activeTeamId = data.activeTeamId;
+          if (code === 200) {
+            if (data) this.globalData.activeTeamId = data.activeTeamId;
             resolve(data);
           } else {
-            reject(error);
+            reject(message);
           }
         })
         .catch(console.error)

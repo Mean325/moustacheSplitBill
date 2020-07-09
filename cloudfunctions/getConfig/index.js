@@ -16,5 +16,19 @@ const _ = db.command
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext();
 
-  return await db.collection('config').doc(wxContext.OPENID).get();
+  let res
+  try {
+    res = await db.collection('config').doc(wxContext.OPENID).get();
+    console.log(res);
+  } catch (e) {
+    return {
+      message: e.message,
+      code: -1,
+    }
+  } 
+  return {
+    message: "获取成功",
+    data: res.data,
+    code: 200
+  }
 }
