@@ -62,7 +62,7 @@
   height: 32px;
 }
 
-.setting-cell__icon.border {
+/* .setting-cell__icon.border {
   border: 1rpx solid #CCCCCC;
   border-radius: 6px;
-}
+} */

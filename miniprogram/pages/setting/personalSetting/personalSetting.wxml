@@ -1,18 +1,27 @@
-<view class="page" data-weui-theme="{{theme}}">
-  <view class="weui-cells weui-cells_after-title">
-    <view class="weui-cell weui-cell_active weui-cell_switch">
-      <view class="weui-cell__bd">每日提醒</view>
-      <view class="weui-cell__ft">
-        <label class="weui-switch-cp">
-          <switch bindchange="switchRemind" checked="{{ config.remind }}" />
-        </label>
+<view class="container">
+  <mp-cells>
+    <mp-cell link>
+      <view>深色模式</view>
+      <view class="cell-footer" slot="footer">
+        跟随系统
       </view>
-    </view>
-    <picker wx:if="{{ config.remind }}" mode="time" value="{{ config.remindTime }}" bindchange="handleRemindTimeChange">
-      <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-        <view class="weui-cell__bd">提醒时间</view>
-        <view class="weui-cell__ft weui-cell__ft_in-access">{{ config.remindTime }}</view>
+    </mp-cell>
+  </mp-cells>
+
+  <mp-cells>
+    <mp-cell>
+      <view>记账提醒</view>
+      <view class="cell-footer" slot="footer">
+        <switch bindchange="switchRemind" checked="{{ config.remind }}" disabled/>
       </view>
-    </picker>
-  </view>
+    </mp-cell>
+    <mp-cell wx:if="{{ config.remind }}" link>
+      <view>提醒时间</view>
+      <view class="cell-footer" slot="footer">
+        <picker wx:if="{{ config.remind }}" mode="time" value="{{ config.remindTime }}" bindchange="handleRemindTimeChange">
+          {{ config.remindTime }}
+        </picker>
+      </view>
+    </mp-cell>
+  </mp-cells>
 </view>

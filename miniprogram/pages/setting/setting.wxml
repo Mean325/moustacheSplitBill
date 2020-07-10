@@ -12,10 +12,10 @@
 	</navigator>
 	<!-- 其余设置 -->
 	<view class="setting-cells">
-		<!-- <navigator url="/pages/setting/classManage/classManage" class="setting-cell" hover-class="weui-cell_active">
-			<image src="/images/setting/category.png" class="setting-cell__icon border"></image>
-			<text>分类管理</text>
-		</navigator> -->
+		<navigator url="/pages/setting/personalSetting/personalSetting" class="setting-cell" hover-class="weui-cell_active">
+			<image src="/images/setting/setting.png" class="setting-cell__icon border"></image>
+			<text>设置</text>
+		</navigator>
 		<view bindtap="openSetting" class="setting-cell" hover-class="weui-cell_active" class="setting-cell">
 			<image src="/images/setting/authorize.png" class="setting-cell__icon"></image>
 			<text>授权管理</text>

@@ -25,7 +25,6 @@ App({
       })
     }
 
-    // this.globalData = {};
     this.getDeviceInfo();   // 获取设备信息
   },
   /**

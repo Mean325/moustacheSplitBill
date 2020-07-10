@@ -13,6 +13,7 @@
     "pages/bill/edit/selectPart/selectPart",
     "pages/bill/edit/selectPayer/selectPayer",
     "pages/setting/setting",
+    "pages/setting/personalSetting/personalSetting",
     "pages/setting/about/about",
     "pages/setting/about/version/version",
     "pages/setting/about/version/detail/detail",

@@ -160,6 +160,12 @@
 					"pathName": "pages/setting/about/version/version",
 					"query": "code=e1422f825ed082ea006506d73940f5f5",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "设置",
+					"pathName": "pages/setting/personalSetting/personalSetting",
+					"scene": null
 				}
 			]
 		}
