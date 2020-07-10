@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "小程序设置",
+  "navigationBarTitleText": "更新记录",
   "usingComponents": {
     "mp-cells": "weui-miniprogram/cells/cells",
     "mp-cell": "weui-miniprogram/cell/cell"

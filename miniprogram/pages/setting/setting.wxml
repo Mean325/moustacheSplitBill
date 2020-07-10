@@ -25,7 +25,7 @@
 			<text>意见反馈</text>
 		</button>
 		<!-- 管理员设置 - 仅超级管理员显示 -->
-		<navigator url="/pages/setting/admin/categoryManage/categoryManage" wx:if="{{ userInfo.openid === 'ouGKR4pZmbV1WnrmRCwHP8_Aw7oA' }}" class="setting-cell">
+		<navigator url="/pages/setting/admin/index/index" wx:if="{{ userInfo.openid === 'ouGKR4pZmbV1WnrmRCwHP8_Aw7oA' }}" class="setting-cell">
 			<image src="/images/setting/jiekou.png" class="setting-cell__icon"></image>
 			<text>小程序设置</text>
 		</navigator>

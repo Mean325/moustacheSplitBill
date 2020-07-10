@@ -165,6 +165,20 @@
 					"id": -1,
 					"name": "设置",
 					"pathName": "pages/setting/personalSetting/personalSetting",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "小程序设置 - 超级管理员",
+					"pathName": "pages/setting/admin/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "编辑版本介绍 - 超级管理员",
+					"pathName": "pages/setting/admin/version/edit/edit",
 					"scene": null
 				}
 			]

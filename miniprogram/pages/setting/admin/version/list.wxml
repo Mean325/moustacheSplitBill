@@ -1,0 +1,15 @@
+<view class="container">
+  <mp-cells>
+    <mp-cell bindtap="toEdit" link>
+      <view>新增更新介绍</view>
+    </mp-cell>
+    <mp-cell
+      bindtap="toDetail"
+      data-id="{{ item._id }}"
+      wx:for="{{ list }}"
+      link
+    >
+      <view>版本{{ item.version }}更新介绍</view>
+    </mp-cell>
+  </mp-cells>
+</view>

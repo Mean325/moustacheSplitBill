@@ -1,40 +1,24 @@
 <!-- 超级管理员界面 -->
 <view class="container">
   <!-- 小程序设置 -->
-  <view class="weui-cells weui-cells_after-title">
-    <navigator url="/pages/setting/admin/classManage/classManage" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__hd">
-        <image src="{{icon}}" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
-      </view>
-      <view class="weui-cell__bd">默认分类管理</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </navigator>
-    <navigator url="/pages/setting/admin/upload/upload" class="weui-cell weui-cell_example weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__hd">
-        <image src="{{icon}}" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
-      </view>
-      <view class="weui-cell__bd">图片上传</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </navigator>
-  </view>
+  <mp-cells>
+    <mp-cell bindtap="linkTo" data-url="/pages/setting/admin/categoryManage/categoryManage" link>
+      <view>默认分类管理</view>
+    </mp-cell>
+  </mp-cells>
+
   <!-- 启动页面设置 -->
-  <view class="weui-cells weui-cells_after-title">
-    <navigator url="/pages/setting/admin/setWelcome/setWelcome" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__hd">
-        <image src="{{icon}}" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
-      </view>
-      <view class="weui-cell__bd">设置启动页</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </navigator>
-  </view>
+  <mp-cells>
+    <mp-cell bindtap="linkTo" data-url="/pages/setting/admin/setWelcome/setWelcome" link>
+      <view>设置启动页</view>
+    </mp-cell>
+  </mp-cells>
+
   <!-- 关于 -->
-  <view class="weui-cells weui-cells_after-title">
-    <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__hd">
-        <image src="{{icon}}" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
-      </view>
-      <view class="weui-cell__bd">关于</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </navigator>
-  </view>
+  <mp-cells>
+    <mp-cell bindtap="linkTo" data-url="/pages/setting/admin/version/list" link>
+      <view>编辑更新记录</view>
+    </mp-cell>
+  </mp-cells>
+
 </view>

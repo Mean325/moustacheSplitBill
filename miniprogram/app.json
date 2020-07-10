@@ -17,8 +17,11 @@
     "pages/setting/about/about",
     "pages/setting/about/version/version",
     "pages/setting/about/version/detail/detail",
+    "pages/setting/admin/index/index",
     "pages/setting/admin/categoryManage/categoryManage",
-    "pages/setting/admin/categoryManage/addCategory/addCategory"
+    "pages/setting/admin/categoryManage/addCategory/addCategory",
+    "pages/setting/admin/version/list",
+    "pages/setting/admin/version/edit/edit"
   ],
   "window": {
     "navigationBarBackgroundColor": "@navBgColor",

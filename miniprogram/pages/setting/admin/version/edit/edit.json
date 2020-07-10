@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "编辑版本介绍",
+  "usingComponents": {
+    "bottom-button": "/components/bottomButton/bottomButton"
+  },
+  "enablePullDownRefresh": false,
+  "disableScroll": true
+}
