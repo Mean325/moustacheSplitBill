@@ -1,4 +1,5 @@
 const utils = require("../../utils/utils.js");
+const moment = require('../../utils/moment.min.js');
 const app = getApp();
 
 Page({
@@ -68,6 +69,7 @@ Page({
       .then(res => {
         const { data, code, message } = res.result;
         if (code === 200) {
+          data.time = moment(data.createTime).format("YYYY年MM月DD日");
           this.setData({
             teamData: data
           })
@@ -83,6 +85,7 @@ Page({
       showActionsheet: true
     })
   },
+  // 关闭邀请好友操作栏
   close() {
     this.setData({
       showActionsheet: false
@@ -94,6 +97,7 @@ Page({
       showDialog: true
     })
   },
+  // 添加虚拟好友时点击事件
   tapDialogButton(e) {
     console.log(e);
     if (e.detail.index === 1) {   // 当用户点击确定时
@@ -149,6 +153,40 @@ Page({
       })
       .catch(console.error)
   }, 1000),
+  /**
+   * @method 退出团队按钮
+   */
+  quitTeam() {
+    const { activeTeamId } = app.globalData;
+
+    wx.showModal({
+      title: '提示',
+      content: '你确定要退出该团队吗',
+      success: res => {
+        if (res.confirm) {
+          wx.cloud.callFunction({
+            name: 'quitTeam',
+            data: {
+              teamId: activeTeamId
+            }
+          })
+            .then(res => {
+              const { data, code, message } = res.result;
+              if (code === 200) {
+                wx.redirectTo({
+                  url: '/pages/team/team',
+                  success: res => {
+                    wx.showToast({
+                      title: message
+                    })
+                  },
+                })
+              }
+            })
+        }
+      }
+    })
+  },
   /**
    * @method 跳转到记账页面
    */

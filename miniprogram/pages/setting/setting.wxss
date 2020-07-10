@@ -15,6 +15,13 @@
   align-items: center;
 }
 
+.userinfo-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
 .userinfo__nick-name {
   font-size: 22px;
   line-height: 50px;

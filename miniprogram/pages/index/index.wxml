@@ -23,37 +23,43 @@
     </view>
   </view>
   <view wx:if="{{ teamData._id }}" class="bill">
-    <view wx:for="{{ bill }}">
-      <view class="bill__title">
-        <!-- <text>4月29日</text> -->
-        <text>{{ item._id }}</text>
-        <text>¥{{ amountFilter.format(item.count) }}</text>
+    <block wx:if="{{ bill.length > 0 }}">
+      <view wx:for="{{ bill }}">
+        <view class="bill__title">
+          <!-- <text>4月29日</text> -->
+          <text>{{ item._id }}</text>
+          <text>¥{{ amountFilter.format(item.count) }}</text>
+        </view>
+        <mp-cells>
+          <mp-slideview
+            bindtap="toDetail"
+            data-id="{{ data._id }}"
+            wx:for="{{ item.bill }}"
+            wx:for-item="data"
+            wx:key="_id"
+            buttons="{{ slideButtons }}"
+            bindbuttontap="deleteBill"
+          >
+            <mp-cell>
+              <avatar
+                slot="icon" 
+                class="cell__icon"
+                avatarUrl="{{ data.payer[0].avatarUrl }}"
+                nickName="{{data.payer[0].nickName }}"
+                width="40px"
+              ></avatar>
+              <view>{{ data.category.name }} - {{ data.payer[0].nickName }} 付款</view>
+              <view class="cell-footer" slot="footer">
+                ¥{{ amountFilter.format(data.num) }}
+              </view>
+            </mp-cell>
+          </mp-slideview>
+        </mp-cells>
       </view>
-      <mp-cells>
-        <mp-slideview
-          bindtap="toDetail"
-          data-id="{{ data._id }}"
-          wx:for="{{ item.bill }}"
-          wx:for-item="data"
-          wx:key="_id"
-          buttons="{{ slideButtons }}"
-          bindbuttontap="deleteBill"
-        >
-          <mp-cell>
-            <avatar
-              slot="icon" 
-              class="cell__icon"
-              avatarUrl="{{ data.payer[0].avatarUrl }}"
-              nickName="{{data.payer[0].nickName }}"
-              width="40px"
-            ></avatar>
-            <view>{{ data.category.name }} - {{ data.payer[0].nickName }} 付款</view>
-            <view class="cell-footer" slot="footer">
-              ¥{{ amountFilter.format(data.num) }}
-            </view>
-          </mp-cell>
-        </mp-slideview>
-      </mp-cells>
+    </block>
+    <view wx:else class="no-content">
+      <view>目前还没有一笔账单哦,</view>
+      <view>点击右上角开始记账吧</view>
     </view>
   </view>
   <view wx:else class="bill">

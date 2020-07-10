@@ -16,7 +16,7 @@
 					{{ item.nickName }}
 					<text wx:if="{{ item.openid === teamData.adminId }}">(管理员)</text>
 				</view>
-				<view wx:if="{{ item.openid === userInfo.openid }}" class="cell-footer" slot="footer">
+				<view bindtap="quitTeam" wx:if="{{ item.openid === userInfo.openid }}" class="cell-footer" slot="footer">
 					<view class="quit-btn">退出</view>
 				</view>
 			</mp-cell>
@@ -53,8 +53,8 @@
 			</view>
 		</view>
 
-		<mp-dialog title="输入好友名称" show="{{ showDialog  }}" bindbuttontap="tapDialogButton" buttons="{{[{text: '取消'}, {text: '添加'}]}}">
-			<input bindinput="handleInputChange" class="dialog-input"></input>
+		<mp-dialog title="输入好友名称" show="{{ showDialog }}" bindbuttontap="tapDialogButton" buttons="{{[{text: '取消'}, {text: '添加'}]}}">
+			<input bindinput="handleInputChange" class="dialog-input" focus="{{ showDialog }}"></input>
 		</mp-dialog>
 
 	</view>

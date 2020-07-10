@@ -6,6 +6,9 @@
 		<avatar wx:else class="userinfo-avatar" avatarUrl="{{ unloginAvatar }}" width="80px"></avatar>
 		<text class="userinfo__nick-name">{{ userInfo.nickName || "立即登录" }}</text>
 		<text class="userinfo__team-name">{{ userInfo.nickName || " " }}</text>
+		<!-- <open-data type="userAvatarUrl" default-avatar="{{ unloginAvatar }}" class="userinfo-avatar"></open-data>
+		<open-data type="userNickName" class="userinfo__nick-name"></open-data>
+		<text class="userinfo__team-name">{{ userInfo.nickName || " " }}</text> -->
 	</navigator>
 	<!-- 其余设置 -->
 	<view class="setting-cells">

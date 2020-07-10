@@ -8,6 +8,7 @@
     wx:for="{{ teamList }}"
     wx:key="_teamId"
     class="team"
+    hover-class="weui-cell_active"
   >
     <view class="team-title">
       <text>{{ item.name }}</text>
@@ -33,6 +34,6 @@
   <image bindtap="showModal" class="add-team-btn" src="/images/index/add.png" />
 
   <mp-dialog title="新建团队" show="{{ isDialogShow }}" bindbuttontap="tapDialogButton" buttons="{{[{text: '取消'}, {text: '创建'}]}}">
-    <input bindinput="handleInputChange" class="dialog-input"></input>
+    <input bindinput="handleInputChange" bindconfirm="addItem" class="dialog-input" focus="{{ isDialogShow }}" adjust-position="{{ true }}"></input>
   </mp-dialog>
 </view>

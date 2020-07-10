@@ -100,6 +100,11 @@ Page({
     let type = Number(options.type);   // 获取路由参数type
 
     let { name } = this.data.form;
+
+    this.setData({
+      isDialogShow: false
+    })    // 隐藏dialog弹窗
+
     if (!name) {
       wx.showToast({
         title: '请输入团队名称',

@@ -35,7 +35,7 @@ button::after {
 
 /* 弹窗 - input */
 .dialog-input {
-  background: --weui-BG-5;
+  background: var(--weui-BG-5);
   height: 80rpx;
   line-height: 1;
 }
@@ -124,6 +124,7 @@ button::after {
 .container {
   height: 100vh;
   background: var(--weui-BG-0);
+  overflow-y: auto;
 }
 
 /* 主操作按钮 */
