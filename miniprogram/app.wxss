@@ -33,6 +33,15 @@ button::after {
   color: var(--weui-FG-HALF);
 }
 
+/* 弹窗 - input */
+.dialog-input {
+  background: --weui-BG-5;
+  height: 80rpx;
+  line-height: 1;
+}
+
+
+
 @media (prefers-color-scheme: light) {
   page {
     --weui-BG-0: #ededed;

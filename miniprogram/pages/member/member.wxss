@@ -37,10 +37,3 @@
   text-align: left;
   font-weight: normal;
 }
-
-/* 弹窗 - input */
-.dialog-input {
-  background: #CCCCCC;
-  height: 80rpx;
-  line-height: 1;
-}
