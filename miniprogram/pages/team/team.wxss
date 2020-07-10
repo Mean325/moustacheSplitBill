@@ -22,6 +22,7 @@
 .team-title__date {
   color: #CCCCCC;
   font-size: 14px;
+  flex-shrink: 0;
 }
 
 .team-member {

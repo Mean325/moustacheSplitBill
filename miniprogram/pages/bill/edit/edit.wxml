@@ -1,3 +1,5 @@
+<wxs module="amountFilter" src="../../../filter/amount.wxs"></wxs>
+
 <!--index.wxml-->
 <view class="container">
 	<view class="bill">
@@ -50,7 +52,7 @@
 				<mp-cell bindtap="addUser">
 					<view class="flex__cell">
 						分账
-						平分{{ partnerList.length > 0 ? bill.num / (partnerList.length) : '' }}/人
+						平分{{ partnerList.length > 0 ? amountFilter.format(bill.num / (partnerList.length)) : 0 }}/人
 						<!-- 具体 -->
 					</view>
 				</mp-cell>

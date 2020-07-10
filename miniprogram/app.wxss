@@ -137,8 +137,19 @@ button::after {
   background-color: var(--weui-TAG-TEXT-GREEN);
 }
 
+/* 无数据样式 */
 .no-content {
   color: var(--weui-FG-1);
   margin-top: 18vh;
   text-align: center;
+}
+
+/* 文字超出显示省略号 */
+.ellipsis {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
