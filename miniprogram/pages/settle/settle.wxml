@@ -3,7 +3,7 @@
 <view class="container">
   <mp-cells class="solution">
     <mp-cell bindtap="toSolution" link value="查看全员结算方案">
-      <view slot="icon" class="solution-icon">
+      <view slot="icon" class="solution-icon" style="margin-right: 16px;">
         <image class="cell__icon" src="../../images/settle/calc.png"></image>
       </view>
     </mp-cell>
@@ -17,6 +17,7 @@
         avatarUrl="{{ item.user.avatarUrl }}"
         nickName="{{ item.user.nickName }}"
         width="40px"
+        marginRight="16px"
       ></avatar>
       <view>{{ item.user.nickName }}</view>
         <view slot="footer" class="cell-footer {{ item.num > 0 ? 'collect' : 'pay' }}">

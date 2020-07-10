@@ -47,6 +47,7 @@
                 avatarUrl="{{ data.payer[0].avatarUrl }}"
                 nickName="{{data.payer[0].nickName }}"
                 width="40px"
+                marginRight="16px"
               ></avatar>
               <view>{{ data.category.name }} - {{ data.payer[0].nickName }} 付款</view>
               <view class="cell-footer" slot="footer">

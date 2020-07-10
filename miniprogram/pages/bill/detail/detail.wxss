@@ -84,7 +84,7 @@
 
 /* 创建者 */
 .bill__creater {
-  padding: 0 32px;
+  padding: 0 16px;
 }
 
 /* 确定按钮文字居中 */

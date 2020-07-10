@@ -1,9 +1,9 @@
 {
   "navigationBarTitleText": " ",
   "usingComponents": {
-    "mp-cells": "/components/weui/cells/cells",
-    "mp-cell": "/components/weui/cell/cell",
-    "mp-slideview": "/components/weui/slideview/slideview",
+    "mp-cells": "weui-miniprogram/cells/cells",
+    "mp-cell": "weui-miniprogram/cell/cell",
+    "mp-slideview": "weui-miniprogram/slideview/slideview",
     "mp-tabbar": "/components/tabbar/tabbar",
     "avatar": "/components/avatar/avatar"
   },

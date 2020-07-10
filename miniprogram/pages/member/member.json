@@ -1,8 +1,8 @@
 {
   "navigationBarTitleText": "团队成员",
   "usingComponents": {
-    "mp-cells": "/components/weui/cells/cells",
-    "mp-cell": "/components/weui/cell/cell",
+    "mp-cells": "weui-miniprogram/cells/cells",
+    "mp-cell": "weui-miniprogram/cell/cell",
     "mp-dialog": "weui-miniprogram/dialog/dialog",
     "avatar": "/components/avatar/avatar",
     "bottom-button": "/components/bottomButton/bottomButton"

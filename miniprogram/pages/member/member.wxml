@@ -11,7 +11,7 @@
 		</view>
 		<mp-cells>
 			<mp-cell wx:for="{{ teamData.members }}">
-				<avatar slot="icon" class="cell__icon" avatarUrl="{{ item.avatarUrl }}" nickName="{{ item.nickName }}" width="40px"></avatar>
+				<avatar slot="icon" class="cell__icon" avatarUrl="{{ item.avatarUrl }}" nickName="{{ item.nickName }}" width="40px" marginRight="16px"></avatar>
 				<view>
 					{{ item.nickName }}
 					<text wx:if="{{ item.openid === teamData.adminId }}">(管理员)</text>
@@ -22,7 +22,7 @@
 			</mp-cell>
 			<!-- 邀请好友按钮 -->
 			<mp-cell bindtap="addUser" class="invite-btn" style="margin-bottom: 120rpx;">
-				<image slot="icon" class="cell__icon" src="/images/index/add.png"></image>
+				<image slot="icon" class="cell__icon" src="/images/index/add.png" style="margin-right: 16px;"></image>
 				<view>邀请好友</view>
 			</mp-cell>
 		</mp-cells>
