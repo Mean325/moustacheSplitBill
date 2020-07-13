@@ -1,52 +1,29 @@
+const utils = require("../../../../../utils/utils.js");
+
 Page({
   data: {
     formats: {},
     readOnly: false,
-    placeholder: '开始输入...',
-    editorHeight: 300,
-    keyboardHeight: 0,
-    isIOS: false
+    version: {
+      version: "",
+      updateTime: "",
+      intro: ""
+    }
+    
   },
   readOnlyChange() {
     this.setData({
       readOnly: !this.data.readOnly
     })
   },
-  onLoad() {
-    const platform = wx.getSystemInfoSync().platform
-    const isIOS = platform === 'ios'
-    this.setData({ isIOS})
-    const that = this
-    this.updatePosition(0)
-    let keyboardHeight = 0
-    wx.onKeyboardHeightChange(res => {
-      if (res.height === keyboardHeight) return
-      const duration = res.height > 0 ? res.duration * 1000 : 0
-      keyboardHeight = res.height
-      setTimeout(() => {
-        wx.pageScrollTo({
-          scrollTop: 0,
-          success() {
-            that.updatePosition(keyboardHeight)
-            that.editorCtx.scrollIntoView()
-          }
-        })
-      }, duration)
-
-    })
-  },
-  updatePosition(keyboardHeight) {
-    const toolbarHeight = 50
-    const { windowHeight, platform } = wx.getSystemInfoSync()
-    let editorHeight = keyboardHeight > 0 ? (windowHeight - keyboardHeight - toolbarHeight) : windowHeight
-    this.setData({ editorHeight, keyboardHeight })
-  },
-  calNavigationBarAndStatusBar() {
-    const systemInfo = wx.getSystemInfoSync()
-    const { statusBarHeight, platform } = systemInfo
-    const isIOS = platform === 'ios'
-    const navigationBarHeight = isIOS ? 44 : 48
-    return statusBarHeight + navigationBarHeight
+  onLoad(options) {
+    const { id } = options;
+    if (id) {
+      this.getDetail(id);
+      this.setData({
+        'version._id': id
+      })
+    }
   },
   onEditorReady() {
     const that = this
@@ -111,10 +88,98 @@ Page({
       }
     })
   },
+  /**
+   * 实现版本号输入框数据双向绑定
+   * @method 版本号输入框input输入事件
+   */
+  handleInputChange(e) {
+    this.setData({
+      'version.version': e.detail.value
+    })
+  },
+  // 日期选择器改变事件钩子
+  bindDateChange(e) {
+    this.setData({
+      'version.updateTime': e.detail.value
+    })
+  },
   // 输入事件钩子
   handleInput(e) {
-    setTimeout(() => {
-      console.log(e.html);
-    }, 200)
-  }
+    this.setData({
+      'version.intro': e.detail.html
+    })
+  },
+  // 获取商品详情
+  getDetail(id) {
+    wx.cloud.callFunction({
+      name: 'getVersionById',
+      data: {
+        id
+      }
+    })
+      .then(res => {
+        const { data, code, message } = res.result;
+        if (code === 200) {
+          this.setData({
+            version: data
+          })
+          this.editorCtx.setContents({
+            html: data.intro
+          })
+        }
+      })
+      .catch(console.error)
+  },
+  /**
+   * 调用云函数
+   * @method 编辑更新记录
+   */
+  editVersion() {
+    const { version, updateTime, intro } = this.data.version;
+    if (!version) {
+      wx.showToast({
+        title: '请输入版本号',
+        icon: 'none',
+      })
+      return;
+  }  else if (!updateTime) {
+      wx.showToast({
+        title: '请选择更新时间',
+        icon: 'none',
+      })
+      return;
+    }
+     else if (!intro) {
+      wx.showToast({
+        title: '请输入更新内容',
+        icon: 'none',
+      })
+      return;
+    }
+    wx.cloud.callFunction({
+      name: 'editVersion',
+      data: {
+        ...this.data.version
+      }
+    })
+      .then(res => {
+        const { data, code, message } = res.result;
+        console.log(data);
+        if (code === 200) {
+          wx.navigateBack({
+            success: res => {
+              wx.showToast({
+                title: '编辑成功',
+              })
+            }
+          });
+        } else {
+          wx.showToast({
+            title: message,
+            icon: 'none',
+          })
+        }
+      })
+      .catch(console.error)
+  },
 })

@@ -1,7 +1,9 @@
 {
   "navigationBarTitleText": "编辑版本介绍",
   "usingComponents": {
-    "bottom-button": "/components/bottomButton/bottomButton"
+    "bottom-button": "/components/bottomButton/bottomButton",
+    "mp-cells": "weui-miniprogram/cells/cells",
+    "mp-cell": "weui-miniprogram/cell/cell"
   },
   "enablePullDownRefresh": false,
   "disableScroll": true

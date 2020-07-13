@@ -1,11 +1,12 @@
-// miniprogram/pages/setting/about/version/version.js
+const moment = require('../../../../utils/moment.min.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list: [],   // 版本介绍列表
+    list: [], // 版本介绍列表
   },
 
   /**
@@ -16,12 +17,19 @@ Page({
   },
   getList() {
     wx.cloud.callFunction({
-      name: 'getVersion',
-      data: {}
-    })
+        name: 'getVersion',
+        data: {}
+      })
       .then(res => {
-        const { data, code, message } = res.result;
+        const {
+          data,
+          code,
+          message
+        } = res.result;
         if (code === 200) {
+          data.forEach(n => {
+            n.time = moment(n.updateTime).format("YYYY年MM月DD日")
+          });
           this.setData({
             list: data
           })
@@ -30,7 +38,9 @@ Page({
       .catch(console.error)
   },
   toDetail(e) {
-    const { id } = e.currentTarget.dataset;
+    const {
+      id
+    } = e.currentTarget.dataset;
     wx.navigateTo({
       url: `/pages/setting/about/version/detail/detail?id=${ id }`,
     })

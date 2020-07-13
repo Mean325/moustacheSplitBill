@@ -179,6 +179,13 @@
 					"id": -1,
 					"name": "编辑版本介绍 - 超级管理员",
 					"pathName": "pages/setting/admin/version/edit/edit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "更新记录 - 超级管理员",
+					"pathName": "pages/setting/admin/version/list",
 					"scene": null
 				}
 			]

@@ -6,7 +6,10 @@
       wx:for="{{ list }}"
       link
     >
-      <view>版本{{ item.version }}更新介绍</view>
+      <view class="flex-column-cell">
+        版本{{ item.version }}更新介绍
+        <text class="version-date">{{ item.time }}</text>
+      </view>
     </mp-cell>
   </mp-cells>
 </view>

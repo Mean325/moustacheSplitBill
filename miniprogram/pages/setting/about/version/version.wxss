@@ -1,0 +1,8 @@
+.flex-column-cell {
+  align-items: flex-start;
+}
+
+.version-date {
+  color: var(--weui-FG-1);
+  font-size: 12px;
+}
