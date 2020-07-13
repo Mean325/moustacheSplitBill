@@ -2,8 +2,8 @@
 <view class="container">
 	<!-- 用户信息 -->
 	<navigator url="/pages/setting/login/login" class="userinfo" hover-class="none">
-		<avatar wx:if="{{ userInfo.avatarUrl }}" class="userinfo-avatar" avatarUrl="{{ userInfo.avatarUrl }}" nickName="{{ userInfo.nickName }}" width="80px"></avatar>
-		<avatar wx:else class="userinfo-avatar" avatarUrl="{{ unloginAvatar }}" width="80px"></avatar>
+		<avatar wx:if="{{ userInfo.avatarUrl }}" class="userinfo-avatar" avatarUrl="{{ userInfo.avatarUrl }}" nickName="{{ userInfo.nickName }}" width="80px" color="{{ item.color }}"></avatar>
+		<avatar wx:else class="userinfo-avatar" avatarUrl="{{ unloginAvatar }}" width="80px" color="{{ item.color }}"></avatar>
 		<text class="userinfo__nick-name">{{ userInfo.nickName || "立即登录" }}</text>
 		<text class="userinfo__team-name">{{ userInfo.nickName || " " }}</text>
 		<!-- <open-data type="userAvatarUrl" default-avatar="{{ unloginAvatar }}" class="userinfo-avatar"></open-data>

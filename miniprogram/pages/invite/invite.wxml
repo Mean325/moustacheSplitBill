@@ -1,6 +1,6 @@
 <view class="container">
   <block wx:if="{{ canIUse }}">
-    <image class="avatar" src="/images/logo.png"></image>
+    <image class="logo" src="/images/logo.png"></image>
     <text style="text-align: center;">小胡子AA记账</text>
     <view class="line"></view>
     <view class="h">你的好友邀请您加入团队"{{ teamData.name }}"</view>

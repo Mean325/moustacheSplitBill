@@ -37,7 +37,7 @@
 				<mp-cell bindtap="selectPart" link>
 					<view class="flex__cell">
 						<text class="cell-label">参与</text>
-						<avatar wx:for="{{ partnerList }}" avatarUrl="{{ item.avatarUrl }}" nickName="{{ item.nickName }}" width="34px" marginLeft="20rpx"></avatar>
+						<avatar wx:for="{{ partnerList }}" avatarUrl="{{ item.avatarUrl }}" nickName="{{ item.nickName }}" width="34px" marginLeft="20rpx" color="{{ item.color }}"></avatar>
 						<text wx:if="{{ bill.partner.length > 4 }}" class="cell-value">等{{ bill.partner.length }}个人</text>
 					</view>
 				</mp-cell>
@@ -45,7 +45,7 @@
 				<mp-cell bindtap="selectPayer" link>
 					<view class="flex__cell">
 						付款
-						<avatar wx:for="{{ payerList }}" avatarUrl="{{ item.avatarUrl }}" nickName="{{ item.nickName }}" width="34px" marginLeft="20rpx"></avatar>
+						<avatar wx:for="{{ payerList }}" avatarUrl="{{ item.avatarUrl }}" nickName="{{ item.nickName }}" width="34px" marginLeft="20rpx" color="{{ item.color }}"></avatar>
 					</view>
 				</mp-cell>
 				<!-- 选择分账类型 -->

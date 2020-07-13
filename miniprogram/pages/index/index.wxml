@@ -12,6 +12,7 @@
           avatarUrl="{{ item.avatarUrl }}"
           nickName="{{ item.nickName }}"
           width="34px"
+          color="{{ item.color }}"
         ></avatar>
         <image src="/images/index/add.png" class="team-info__member-add" />
         </view>
@@ -48,6 +49,7 @@
                 nickName="{{data.payer[0].nickName }}"
                 width="40px"
                 marginRight="16px"
+                color="{{ item.color }}"
               ></avatar>
               <view class="ellipsis">{{ data.category.name }} - {{ data.payer[0].nickName }} 付款</view>
               <view class="cell-footer" slot="footer">

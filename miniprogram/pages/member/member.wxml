@@ -11,7 +11,7 @@
 		</view>
 		<mp-cells>
 			<mp-cell wx:for="{{ teamData.members }}">
-				<avatar slot="icon" class="cell__icon" avatarUrl="{{ item.avatarUrl }}" nickName="{{ item.nickName }}" width="40px" marginRight="16px"></avatar>
+				<avatar slot="icon" class="cell__icon" avatarUrl="{{ item.avatarUrl }}" nickName="{{ item.nickName }}" width="40px" marginRight="16px" color="{{ item.color }}"></avatar>
 				<view>
 					{{ item.nickName }}
 					<text wx:if="{{ item.openid === teamData.adminId }}">(管理员)</text>
@@ -54,7 +54,7 @@
 		</view>
 
 		<mp-dialog title="输入好友名称" show="{{ showDialog }}" bindbuttontap="tapDialogButton" buttons="{{[{text: '取消'}, {text: '添加'}]}}">
-			<input bindinput="handleInputChange" class="dialog-input" focus="{{ showDialog }}"></input>
+			<input bindinput="handleInputChange" value="{{ form.nickName }}" class="dialog-input" focus="{{ showDialog }}"></input>
 		</mp-dialog>
 
 	</view>

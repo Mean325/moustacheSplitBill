@@ -38,6 +38,7 @@ Page({
    */
   refresh() {
     const { activeTeamId } = app.globalData;
+    console.log(activeTeamId);
     if (activeTeamId) {
       this.getTeamData(activeTeamId);
       this.getBill(activeTeamId);

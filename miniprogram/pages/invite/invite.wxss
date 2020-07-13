@@ -21,7 +21,7 @@
   height: 80rpx;
 }
 
-.avatar {
+.logo {
   width: 160rpx;
   height: 160rpx;
   border-radius: 50%;

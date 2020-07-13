@@ -22,7 +22,7 @@
             data-item="{{ subItem }}"
             bindtap="choose"
           >
-            <avatar slot="icon" class="index-group__item-avatar" avatarUrl="{{ subItem.avatarUrl }}" nickName="{{ subItem.nickName }}" width="70rpx"></avatar>
+            <avatar slot="icon" class="index-group__item-avatar" avatarUrl="{{ subItem.avatarUrl }}" nickName="{{ subItem.nickName }}" width="70rpx" color="{{ subItem.color }}"></avatar>
             <!-- <image class="index-group__item-avatar" src="{{ subItem.avatarUrl }}" /> -->
             {{ subItem.nickName }}
             <icon wx:if="{{ tools.indexOf(selectedList, subItem.openid) }}" size="24" class="selected-icon" type="success_no_circle" />

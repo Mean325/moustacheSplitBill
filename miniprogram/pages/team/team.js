@@ -50,20 +50,23 @@ Page({
    */ 
   switchTeam(e) {
     const { teamid, teamname } = e.currentTarget.dataset;
+
+    app.globalData.activeTeamId = teamid;
+    wx.navigateBack({
+      success: () => {
+        wx.showToast({
+          icon: 'none',
+          title: `切换到团队'${ teamname }'`,
+        })
+      },
+    })
     console.log(teamid);
     app.editConfig({
       activeTeamId: teamid
     })
     .then(res => {
-      app.globalData.activeTeamId = teamid;
-      wx.navigateBack({
-        success: (res) => {
-          wx.showToast({
-            icon: 'none',
-            title: `切换到团队'${ teamname }'`,
-          })
-        },
-      })
+      console.log(res);
+      console.log("更新配置");
     })
   },
   showModal() {
@@ -86,9 +89,6 @@ Page({
    */
   handleInputChange(e) {
     this.data.form.name = e.detail.value;
-    // this.setData({
-    //   'form.name': e.detail.value
-    // })
   },
   /**
    * 调用云函数AA_addItem新增用户默认分类

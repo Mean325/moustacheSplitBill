@@ -16,6 +16,7 @@ Component({
       type: String,
       value: "40px"
     },    // 头像宽高
+    color: String,  // 虚拟用户头像背景颜色
     marginLeft: String,
     marginRight: String,
   },

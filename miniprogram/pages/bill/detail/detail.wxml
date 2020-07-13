@@ -39,7 +39,7 @@
 				<!-- 选择参与人 -->
 				<mp-cell wx:for="{{ bill.partner }}">
 					<view class="flex__cell">
-            <avatar avatarUrl="{{ item.avatarUrl }}" nickName="{{ item.nickName }}" width="40px" marginRight="20rpx"></avatar>
+            <avatar avatarUrl="{{ item.avatarUrl }}" nickName="{{ item.nickName }}" width="40px" marginRight="20rpx" color="{{ item.color }}"></avatar>
 						{{ item.nickName }}
 					</view>
           <text slot="footer" class="cell-footer">¥{{ amountFilter.format( bill.num / bill.partner.length ) }}</text>
