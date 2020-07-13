@@ -22,6 +22,9 @@ Page({
    * @method 根据Id获取团队信息
    */
   getSolution(teamId) {
+    wx.showLoading({
+      title: '结算中',
+    })
     wx.cloud.callFunction({
       name: 'getSolution',
       data: {
@@ -35,6 +38,7 @@ Page({
             solutionList: data
           })
         }
+        wx.hideLoading();
         wx.stopPullDownRefresh();
       })
       .catch(console.error)

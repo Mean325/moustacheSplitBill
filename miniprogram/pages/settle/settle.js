@@ -19,9 +19,12 @@ Page({
     this.getSettle(activeTeamId);
   },
   /**
-   * @method 根据Id获取团队信息
+   * @method 结算当前团队
    */
   getSettle(teamId) {
+    wx.showLoading({
+      title: '结算中',
+    })
     wx.cloud.callFunction({
       name: 'settle',
       data: {
@@ -36,8 +39,9 @@ Page({
           })
           wx.stopPullDownRefresh();
         }
+        wx.hideLoading();
       })
-      .catch(console.error)
+      .catch(wx.hideLoading())
   },
   toSolution() {
     wx.navigateTo({

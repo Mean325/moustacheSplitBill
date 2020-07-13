@@ -20,6 +20,7 @@
   height: 80px;
   border-radius: 50%;
   overflow: hidden;
+  background: #FFF;
 }
 
 .userinfo__nick-name {
