@@ -74,6 +74,11 @@ Page({
       isDialogShow: true
     })
   },
+  handleDialogClose() {
+    this.setData({
+      isDialogShow: false
+    })
+  },
   tapDialogButton(e) {
     console.log(e);
     if (e.detail.index === 1) {   // 当用户点击确定时

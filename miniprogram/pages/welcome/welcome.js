@@ -1,4 +1,5 @@
-const app = getApp()
+const app = getApp();
+var log = require('../../utils/log.js');
 
 Page({
   data: {
@@ -63,6 +64,12 @@ Page({
           'userInfo.openid': res.result.openid
         })
         app.globalData.userInfo = this.data.userInfo;
+        log.info('用户登录:', this.data.userInfo);
+        log.info('hello test hahaha') // 日志会和当前打开的页面关联，建议在页面的onHide、onShow等生命周期里面打
+        log.warn('warn')
+        log.error('error')
+        log.setFilterMsg('filterkeyword')
+        log.setFilterMsg('addfilterkeyword')
       },
       fail: err => {
         wx.showToast({

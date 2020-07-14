@@ -97,6 +97,11 @@ Page({
       showDialog: true
     })
   },
+  handleDialogClose() {
+    this.setData({
+      showDialog: false
+    })
+  },
   // 添加虚拟好友时点击事件
   tapDialogButton(e) {
     console.log(e);

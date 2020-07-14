@@ -33,14 +33,14 @@
   </view>
   <image bindtap="showModal" class="add-team-btn" src="/images/index/add.png" />
 
-  <mp-dialog title="新建团队" show="{{ isDialogShow }}" bindbuttontap="tapDialogButton" buttons="{{[{text: '取消'}, {text: '创建'}]}}">
+  <mp-dialog title="新建团队" wx:if="{{ isDialogShow }}" show bindclose="handleDialogClose" bindbuttontap="tapDialogButton" buttons="{{[{text: '取消'}, {text: '创建'}]}}">
     <input
       bindinput="handleInputChange"
       bindconfirm="addItem"
       class="dialog-input"
       maxlength="8"
       focus="{{ isDialogShow }}"
-      adjust-position="{{ true }}"
+      cursor-spacing="100px"
     ></input>
   </mp-dialog>
 </view>

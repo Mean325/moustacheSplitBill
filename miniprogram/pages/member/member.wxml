@@ -53,8 +53,13 @@
 			</view>
 		</view>
 
-		<mp-dialog title="输入好友名称" show="{{ showDialog }}" bindbuttontap="tapDialogButton" buttons="{{[{text: '取消'}, {text: '添加'}]}}">
-			<input bindinput="handleInputChange" value="{{ form.nickName }}" class="dialog-input" focus="{{ showDialog }}"></input>
+		<mp-dialog title="输入好友名称" wx:if="{{ showDialog }}" show bindclose="handleDialogClose" bindbuttontap="tapDialogButton" buttons="{{[{text: '取消'}, {text: '添加'}]}}">
+			<input
+			bindinput="handleInputChange"
+			value="{{ form.nickName }}"
+			class="dialog-input"
+			focus="{{ showDialog }}"
+      cursor-spacing="100px"></input>
 		</mp-dialog>
 
 	</view>
