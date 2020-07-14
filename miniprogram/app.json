@@ -30,6 +30,7 @@
     "navigationBarTitleText": "",
     "navigationStyle": "default",
     "backgroundTextStyle": "@backgroundTextStyle",
+    "backgroundColorTop": "@navBgColor",
     "backgroundColor": "@backgroundColor"
   },
   "tabBar": {
