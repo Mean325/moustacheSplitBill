@@ -40,20 +40,20 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "images/tabBar/home.png",
-        "selectedIconPath": "images/tabBar/home_active.png",
+        "iconPath": "@iconPath1",
+        "selectedIconPath": "@selectedIconPath1",
         "text": "首页"
       },
       {
         "pagePath": "pages/settle/settle",
-        "iconPath": "images/tabBar/statistics.png",
-        "selectedIconPath": "images/tabBar/statistics_active.png",
+        "iconPath": "@iconPath2",
+        "selectedIconPath": "@selectedIconPath2",
         "text": "结算"
       },
       {
         "pagePath": "pages/setting/setting",
-        "iconPath": "images/tabBar/my.png",
-        "selectedIconPath": "images/tabBar/my_active.png",
+        "iconPath": "@iconPath3",
+        "selectedIconPath": "@selectedIconPath3",
         "text": "我的"
       }
     ]

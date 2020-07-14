@@ -4,13 +4,25 @@
     "backgroundColor": "#EDEDED",
     "backgroundTextStyle": "dark",
     "tabBarBackgroundColor": "#EDEDED",
-    "tabFontColor": "#2c2c2c"
+    "tabFontColor": "#2c2c2c",
+    "iconPath1": "images/tabBar/home.png",
+    "selectedIconPath1": "images/tabBar/home_active.png",
+    "iconPath2": "images/tabBar/settle.png",
+    "selectedIconPath2": "images/tabBar/settle_active.png",
+    "iconPath3": "images/tabBar/my.png",
+    "selectedIconPath3": "images/tabBar/my_active.png"
   },
   "dark": {
     "navBgColor": "#2F8758",
     "backgroundColor": "#191919",
     "backgroundTextStyle": "light",
     "tabBarBackgroundColor": "#232323",
-    "tabFontColor": "#CCCCCC"
+    "tabFontColor": "#CCCCCC",
+    "iconPath1": "images/tabBar/home_dark.png",
+    "selectedIconPath1": "images/tabBar/home_active.png",
+    "iconPath2": "images/tabBar/settle_dark.png",
+    "selectedIconPath2": "images/tabBar/settle_active.png",
+    "iconPath3": "images/tabBar/my_dark.png",
+    "selectedIconPath3": "images/tabBar/my_active.png"
   }
 }
