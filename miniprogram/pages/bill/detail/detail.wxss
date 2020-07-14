@@ -89,7 +89,7 @@
 
 /* 确定按钮文字居中 */
 .submit {
-  background: var(--weui-BRAND);
+  background: var(--THEME);
   color: #FFFFFF;
   line-height: 354rpx;
 }

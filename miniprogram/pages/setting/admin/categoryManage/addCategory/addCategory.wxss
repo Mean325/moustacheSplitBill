@@ -41,14 +41,14 @@
 
 .icon-selected {
   background: rgba(63, 180, 117, 0.6);
-  border: 4rpx solid var(--weui-BRAND);
+  border: 4rpx solid var(--THEME);
   border-radius: 5px;
 }
 
 /* 添加分类按钮 */
 .add-class-btn {
   height: 100rpx;
-  background: var(--weui-BRAND);
+  background: var(--THEME);
   /* background-image: linear-gradient(270deg, #FEC830 0%, #FFDE37 100%); */
   border-radius: 60rpx;
   font-size: 18px;

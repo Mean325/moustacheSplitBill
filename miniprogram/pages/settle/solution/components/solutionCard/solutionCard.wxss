@@ -56,9 +56,9 @@
 .solution__btn {
   padding: 2px 8px;
   font-size: 13px;
-  background: var(--weui-BRAND);
+  background: var(--THEME);
   border-radius: 20px;
-  border: 1rpx solid var(--weui-BRAND);
+  border: 1rpx solid var(--THEME);
 }
 
 .solution__btn + .solution__btn {

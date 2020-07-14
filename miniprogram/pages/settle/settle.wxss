@@ -15,7 +15,7 @@
 .solution-icon {
   width: 40px;
   height: 40px;
-  background: var(--weui-BRAND);
+  background: var(--THEME);
   border-radius: 8px;
   display: flex;
   justify-content: center;

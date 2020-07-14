@@ -18,11 +18,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    wx.showModal({
-      title: '感谢',
-      content: "感谢您使用小胡子记账,该小程序处于初步上线阶段,有很多不完善的地方,欢迎您在'我的'-'意见反馈'中向我提出.",
-      showCancel: false
-    })
+    // wx.showModal({
+    //   title: '感谢',
+    //   content: "感谢您使用小胡子记账,该小程序处于初步上线阶段,有很多不完善的地方,欢迎您在'我的'-'意见反馈'中向我提出.",
+    //   showCancel: false
+    // })
   },
   /**
    * 生命周期函数--监听页面显示
@@ -69,7 +69,7 @@ Page({
       .catch(console.error)
   },
   /**
-   * @method 根据Id获取团队信息
+   * @method 根据Id获取团队账单列表
    */
   getBill(teamId) {
     wx.cloud.callFunction({
@@ -90,6 +90,9 @@ Page({
       })
       .catch(console.error)
   },
+  /**
+   * @method 查看账单详情
+   */
   toDetail(e) {
     console.log(e);
     const { id } = e.currentTarget.dataset;
@@ -97,6 +100,9 @@ Page({
       url: `/pages/bill/detail/detail?id=${ id }`,
     })
   },
+  /**
+   * @method 删除账单
+   */
   deleteBill(e) {
     const { id } = e.currentTarget.dataset;
     console.log(id);

@@ -26,7 +26,7 @@ let iconList = [
   "/images/class/tongqian.png",
 ];
 
-const md5 = require("./../../../../utils/md5.js");    // 引入md5加密
+// const md5 = require("./../../../../utils/md5.js");    // 引入md5加密
 const utils = require("../../../../utils/utils.js");
 const app = getApp();
 

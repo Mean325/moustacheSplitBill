@@ -60,15 +60,6 @@ exports.main = async (event, context) => {
         }
       })
   } else { // 不含_id时,新增该条数据
-    // let res = await cloud.callFunction({
-    //   name: 'hexMD5',
-    //   data: {
-    //     str: updateTime + wxContext.OPENID
-    //   }
-    // })
-    // _id = res.result;   // 当账目没有_id时,判断为新增,根据time和openid生成_id
-
-    // console.log(_id);
     await db.collection('bill').add({
         data: {
           creator: wxContext.OPENID,

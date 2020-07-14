@@ -1,6 +1,4 @@
 /* 引用weui */
-/* @import "/style/weui.wxss"; */
-/* @import '/miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss'; */
 
 /**app.wxss**/
 button {
@@ -42,7 +40,7 @@ button::after {
 
 
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) { */
   page {
     --weui-BG-0: #ededed;
     --weui-BG-1: #f7f7f7;
@@ -60,7 +58,7 @@ button::after {
     --weui-YELLOW: #ffc300;
     --weui-GREEN: #91d300;
     --weui-LIGHTGREEN: #95ec69;
-    --weui-BRAND: #3FB475;
+    --THEME: #3FB475;
     --weui-BLUE: #10aeff;
     --weui-INDIGO: #1485ee;
     --weui-PURPLE: #6467f0;
@@ -79,7 +77,7 @@ button::after {
     --weui-TAG-BACKGROUND-BLACK: rgba(0, 0, 0, .05);
     --weui-BG-COLOR-ACTIVE: #ececec;
   }
-}
+/* } */
 
 @media (prefers-color-scheme: dark) {
   page {
@@ -99,7 +97,7 @@ button::after {
     --weui-YELLOW: #cc9c00;
     --weui-GREEN: #74a800;
     --weui-LIGHTGREEN: #28b561;
-    --weui-BRAND: #2F8758;
+    --THEME: #2F8758;
     --weui-BLUE: #10aeff;
     --weui-INDIGO: #1196ff;
     --weui-PURPLE: #8183ff;
@@ -129,7 +127,7 @@ button::after {
 
 /* 主操作按钮 */
 .primary-btn {
-  background-color: var(--weui-BRAND);
+  background-color: var(--THEME);
 }
 
 /* 主操作按钮点击 */

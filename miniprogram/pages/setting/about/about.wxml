@@ -9,5 +9,8 @@
       <mp-cell bindtap="toVersion" link class="about-cell">
         <view>更新记录</view>
       </mp-cell>
+      <mp-cell bindtap="update" link class="about-cell">
+        <view>版本更新</view>
+      </mp-cell>
     </mp-cells>
 </view>

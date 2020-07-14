@@ -5,7 +5,7 @@
 .banner {
   height: 160rpx;
   padding: 60rpx;
-  background: var(--weui-BRAND);
+  background: var(--THEME);
   color: #FFFFFF;
   display: flex;
   flex-direction: column;

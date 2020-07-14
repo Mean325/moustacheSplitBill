@@ -5,7 +5,7 @@
   border-radius: 50%;
   text-align: center;
   font-size: 22px;
-  background: var(--weui-BRAND);
+  background: var(--THEME);
   color: #FFFFFF;
   overflow: hidden;
 }

@@ -12,7 +12,7 @@
 }
 
 .ql-active {
-  color: var(--weui-BRAND);
+  color: var(--THEME);
 }
 
 .iconfont {
