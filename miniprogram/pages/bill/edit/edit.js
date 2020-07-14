@@ -194,6 +194,7 @@ Page({
         if (code === 200) {
           wx.navigateBack({
             success: res => {
+              wx.vibrateShort();  // 轻微震动
               wx.showToast({
                 title: '记账成功',
               })

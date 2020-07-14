@@ -27,8 +27,10 @@
 			</mp-cell>
 		</mp-cells>
 
+		<!-- 底部记账按钮 -->
 		<bottom-button bindtap="toEditBill" value="开始记账"></bottom-button>
 		
+		<!-- 邀请好友操作按钮组件 -->
 		<view wx:if="{{ showActionsheet }}" class="fadeIn" bindtap="close">
 			<view class="weui-mask"></view>
 			<view class="weui-actionsheet weui-actionsheet_toggle">
@@ -36,7 +38,6 @@
 					<view class="weui-actionsheet__title-text">邀请好友</view>
 				</view>
 				<view class="weui-actionsheet__menu">
-					<!-- open-type='share' -->
 					<button
 						open-type='share'
 						style="width: 100%;font-weight:normal;"
@@ -45,7 +46,7 @@
 					>
 						微信邀请
 					</button>
-					<view bindtap="showAnonymousUserDialog" class="weui-actionsheet__cell">虚拟好友(对方没有微信)</view>
+					<view bindtap="showAnonymousUserDialog" class="weui-actionsheet__cell" hover-class="weui-cell_active">虚拟好友(对方没有微信)</view>
 				</view>
 				<view class="weui-actionsheet__action">
 					<view class="weui-actionsheet__cell">取消</view>
@@ -53,13 +54,15 @@
 			</view>
 		</view>
 
+		<!-- 添加虚拟好友弹窗 -->
 		<mp-dialog title="输入好友名称" wx:if="{{ showDialog }}" show bindclose="handleDialogClose" bindbuttontap="tapDialogButton" buttons="{{[{text: '取消'}, {text: '添加'}]}}">
 			<input
 			bindinput="handleInputChange"
 			value="{{ form.nickName }}"
 			class="dialog-input"
 			focus="{{ showDialog }}"
-      cursor-spacing="100px"></input>
+      cursor-spacing="100px">
+			</input>
 		</mp-dialog>
 
 	</view>

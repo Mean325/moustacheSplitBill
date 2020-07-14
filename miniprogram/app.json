@@ -21,7 +21,8 @@
     "pages/setting/admin/categoryManage/categoryManage",
     "pages/setting/admin/categoryManage/addCategory/addCategory",
     "pages/setting/admin/version/list",
-    "pages/setting/admin/version/edit/edit"
+    "pages/setting/admin/version/edit/edit",
+    "pages/other/wifi/wifi"
   ],
   "window": {
     "navigationBarBackgroundColor": "@navBgColor",
@@ -34,7 +35,7 @@
   "tabBar": {
     "custom": false,
     "backgroundColor": "@tabBarBackgroundColor",
-    "color": "#AAAAAA",
+    "color": "#2c2c2c",
     "selectedColor": "#3FB475",
     "list": [
       {

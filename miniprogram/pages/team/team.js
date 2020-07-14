@@ -52,6 +52,7 @@ Page({
     const { teamid, teamname } = e.currentTarget.dataset;
 
     app.globalData.activeTeamId = teamid;
+    wx.vibrateShort();  // 轻微震动
     wx.navigateBack({
       success: () => {
         wx.showToast({
@@ -109,6 +110,7 @@ Page({
     this.setData({
       isDialogShow: false
     })    // 隐藏dialog弹窗
+    wx.vibrateShort();  // 轻微震动
 
     if (!name) {
       wx.showToast({

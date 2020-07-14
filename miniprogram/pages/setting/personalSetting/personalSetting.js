@@ -16,6 +16,11 @@ Page({
    */
   onLoad(options) {
     this.getWelcomeConfig();
+    wx.showModal({
+      title: '提醒',
+      content: "设置功能还在开发中",
+      showCancel: false
+    })
   },
   /**
    * 实现数据双向绑定

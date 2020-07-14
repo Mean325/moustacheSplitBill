@@ -1,0 +1,15 @@
+<view class="container">
+  <block wx:if="{{ canIUse }}">
+    <view wx:if="{{ config.showWeather }}" class="weather">
+      <image class="weather-icon" src="/images/weather/duoyun.png"></image>
+      <text>{{ weather.temperature }}°C</text>
+    </view>
+    <text>{{ config.text }}</text>
+    <image class="avatar" src="/images/logo.png"></image>
+    <view class="line"></view>
+    <view class="h">申请获取以下权限</view>
+    <text class="p">获得您的公开信息(昵称,头像等)</text>
+    <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="login-btn" lang="zh_CN" hover-class="primary-btn_active" style="width: 100%;">授权登录</button>
+  </block>
+  <view wx:else>请升级微信版本</view>
+</view>

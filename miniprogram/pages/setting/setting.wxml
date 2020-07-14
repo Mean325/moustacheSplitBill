@@ -6,10 +6,12 @@
 		<avatar wx:else class="userinfo-avatar" avatarUrl="{{ unloginAvatar }}" width="80px" color="{{ item.color }}"></avatar>
 		<text class="userinfo__nick-name">{{ userInfo.nickName || "立即登录" }}</text>
 		<text class="userinfo__team-name">{{ userInfo.nickName || " " }}</text>
-		<!-- <open-data type="userAvatarUrl" default-avatar="{{ unloginAvatar }}" class="userinfo-avatar"></open-data>
-		<open-data type="userNickName" class="userinfo__nick-name"></open-data>
-		<text class="userinfo__team-name">{{ userInfo.nickName || " " }}</text> -->
 	</navigator>
+	<!-- <view class="userinfo">
+		<open-data type="userAvatarUrl" default-avatar="{{ unloginAvatar }}" class="userinfo-avatar"></open-data>
+		<open-data type="userNickName" class="userinfo__nick-name"></open-data>
+		<text class="userinfo__team-name">{{ userInfo.nickName || " " }}</text>
+	</view> -->
 	<!-- 其余设置 -->
 	<view class="setting-cells">
 		<navigator url="/pages/setting/personalSetting/personalSetting" class="setting-cell" hover-class="weui-cell_active">

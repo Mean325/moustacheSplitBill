@@ -1,4 +1,5 @@
 const app = getApp();
+const log = require('../../utils/log.js');
 
 Page({
   /**
@@ -34,6 +35,11 @@ Page({
     this.refresh();
   },
   /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage(e) {
+  },
+  /**
    * @method 重新获取当页数据
    */
   refresh() {
@@ -64,6 +70,9 @@ Page({
           this.setData({
             teamData: data
           })
+          log.info('获取团队数据:', data);
+        } else {
+          log.error('获取团队数失败:', message);
         }
       })
       .catch(console.error)

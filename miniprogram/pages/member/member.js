@@ -7,10 +7,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {},   // 当前用户信息
+    userInfo: {}, // 当前用户信息
     teamData: {},
 
     showActionsheet: false,
+    actionSheetGroups: [{
+        text: '微信邀请',
+        value: 1
+      },
+      {
+        text: '虚拟好友(对方没有微信)',
+        value: 2
+      }
+    ],
     showDialog: false,
     form: {
       nickName: ""
@@ -36,38 +45,48 @@ Page({
    */
   onShareAppMessage(e) {
     console.log(e);
-    const { _id } = this.data.teamData;
+    const {
+      _id
+    } = this.data.teamData;
     // if (_id) {
-      // const aa = await this.createInvite(_teamId);
-      // console.log(aa);
-      // const { _id } = res.result;
-      // console.log(`/pages/invite/invite?code=${ _id }`);
-      return {
-        title: '我在小胡子AA记账邀请您',
-        path: `/pages/invite/invite?code=${ _id }`
-      }
+    // const aa = await this.createInvite(_teamId);
+    // console.log(aa);
+    // const { _id } = res.result;
+    // console.log(`/pages/invite/invite?code=${ _id }`);
+    return {
+      title: '我在小胡子AA记账邀请您',
+      path: `/pages/invite/invite?code=${ _id }`
+    }
     // }
   },
   // 创建邀请     暂未使用
   createInvite(teamId) {
     wx.cloud.callFunction({
-      name: 'createInvite',
-      data: { teamId }
-    })
-    .then(res => res)
-    .catch(console.error)
+        name: 'createInvite',
+        data: {
+          teamId
+        }
+      })
+      .then(res => res)
+      .catch(console.error)
   },
   // 获取团队信息
   getTeamData() {
-    const { activeTeamId } = app.globalData;
+    const {
+      activeTeamId
+    } = app.globalData;
     wx.cloud.callFunction({
-      name: 'getTeamById',
-      data: {
-        teamId: activeTeamId
-      }
-    })
+        name: 'getTeamById',
+        data: {
+          teamId: activeTeamId
+        }
+      })
       .then(res => {
-        const { data, code, message } = res.result;
+        const {
+          data,
+          code,
+          message
+        } = res.result;
         if (code === 200) {
           data.time = moment(data.createTime).format("YYYY年MM月DD日");
           this.setData({
@@ -105,7 +124,7 @@ Page({
   // 添加虚拟好友时点击事件
   tapDialogButton(e) {
     console.log(e);
-    if (e.detail.index === 1) {   // 当用户点击确定时
+    if (e.detail.index === 1) { // 当用户点击确定时
       this.addAnonymousUser();
     }
     this.setData({
@@ -127,11 +146,17 @@ Page({
    */
   addAnonymousUser: utils.throttle(function () {
     let pages = getCurrentPages();
-    let { options } = pages.pop();
-    let type = Number(options.type);   // 获取路由参数type
+    let {
+      options
+    } = pages.pop();
+    let type = Number(options.type); // 获取路由参数type
 
-    const { nickName } = this.data.form;
-    const { activeTeamId } = app.globalData;
+    const {
+      nickName
+    } = this.data.form;
+    const {
+      activeTeamId
+    } = app.globalData;
     if (!nickName) {
       wx.showToast({
         title: '请输入好友名称',
@@ -140,12 +165,12 @@ Page({
       return;
     }
     wx.cloud.callFunction({
-      name: 'addAnonymousUser',
-      data: {
-        nickName,
-        teamId: activeTeamId
-      }
-    })
+        name: 'addAnonymousUser',
+        data: {
+          nickName,
+          teamId: activeTeamId
+        }
+      })
       .then(res => {
         console.log(res);
         wx.showToast({
@@ -153,8 +178,8 @@ Page({
         })
         this.setData({
           'form.nickName': ""
-        })    // 清空表单数据
-        this.getTeamData();   // 重新获取团队信息
+        }) // 清空表单数据
+        this.getTeamData(); // 重新获取团队信息
       })
       .catch(console.error)
   }, 1000),
@@ -162,7 +187,9 @@ Page({
    * @method 退出团队按钮
    */
   quitTeam() {
-    const { activeTeamId } = app.globalData;
+    const {
+      activeTeamId
+    } = app.globalData;
 
     wx.showModal({
       title: '提示',
@@ -170,13 +197,17 @@ Page({
       success: res => {
         if (res.confirm) {
           wx.cloud.callFunction({
-            name: 'quitTeam',
-            data: {
-              teamId: activeTeamId
-            }
-          })
+              name: 'quitTeam',
+              data: {
+                teamId: activeTeamId
+              }
+            })
             .then(res => {
-              const { data, code, message } = res.result;
+              const {
+                data,
+                code,
+                message
+              } = res.result;
               if (code === 200) {
                 wx.redirectTo({
                   url: '/pages/team/team',
