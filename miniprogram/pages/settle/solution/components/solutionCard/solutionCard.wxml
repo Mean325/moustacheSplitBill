@@ -28,9 +28,9 @@
   <view class="solution-card__ft">
     <text class="solution__amount">¥{{ data.num }}</text>
     <view class="solution__btns">
-      <!-- <view class="solution__btn remind">提醒还款</view>
+      <view class="solution__btn remind">提醒还款</view>
       <view class="solution__btn">确认结清</view>
-      <view class="solution__btn paid">已结清</view> -->
+      <!-- <view class="solution__btn paid">已结清</view> -->
     </view>
   </view>
 </view>
