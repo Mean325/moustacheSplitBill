@@ -47,6 +47,11 @@ Page({
     .then(res => {
       const { data, code, message } = res.result;
       if (code === 200) {
+        if (data.inTeam) {
+          wx.navigateTo({
+            url: '/pages/welcome/welcome',
+          })
+        }
         this.setData({
           teamData: data
         })

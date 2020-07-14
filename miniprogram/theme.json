@@ -3,12 +3,14 @@
     "navBgColor": "#3FB475",
     "backgroundColor": "#EDEDED",
     "backgroundTextStyle": "dark",
-    "tabBarBackgroundColor": "#EDEDED"
+    "tabBarBackgroundColor": "#EDEDED",
+    "tabFontColor": "#2c2c2c"
   },
   "dark": {
     "navBgColor": "#2F8758",
     "backgroundColor": "#191919",
     "backgroundTextStyle": "light",
-    "tabBarBackgroundColor": "#232323"
+    "tabBarBackgroundColor": "#232323",
+    "tabFontColor": "#CCCCCC"
   }
 }

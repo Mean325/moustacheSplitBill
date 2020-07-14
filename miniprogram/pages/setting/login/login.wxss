@@ -50,5 +50,6 @@
   border-radius: 25px;
   margin-top: 50rpx;
   padding: 12px 24px;
+  color: #FFFFFF;
   background: var(--THEME);
 }

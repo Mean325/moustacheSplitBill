@@ -44,9 +44,18 @@ exports.main = async (event, context) => {
   .end()
   console.log(res);
 
+  let list = res.list[0];
+  list.inTeam = false;
+  for (n of list.members) {
+    if (n.openid == wxContext.OPENID) {
+       list.inTeam = true;
+       break;
+    }
+  }
+
   return {
     message: "获取成功",
     code: 200,
-    data: res.list[0]
+    data: list
   }
 }
