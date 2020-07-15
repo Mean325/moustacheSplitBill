@@ -1,7 +1,9 @@
 const app = getApp()
 
 Page({
-  data: {},
+  data: {
+    version: getApp().globalData.version
+  },
   onLoad(options) {},
   toVersion() {
     wx.navigateTo({

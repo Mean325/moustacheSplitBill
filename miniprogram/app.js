@@ -1,9 +1,6 @@
-// require('./libs/Mixins.js');
-
-// const themeListeners = [];
-
 App({
   globalData: {
+    version: "1.0.7",
     userInfo: {
       openid: "ouGKR4pZmbV1WnrmRCwHP8_Aw7oA"
     },   // 用户信息

@@ -19,7 +19,8 @@ let iconList = [
   "/images/category/youxi.png",
   "/images/category/yuer.png",
   "/images/category/yule.png",
-  "/images/category/yundong.png"
+  "/images/category/yundong.png",
+  "/images/category/huankuan.png"
 ];
 
 const utils = require("../../../../../utils/utils.js");
