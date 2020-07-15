@@ -59,6 +59,7 @@
   background: var(--THEME);
   border-radius: 20px;
   border: 1rpx solid var(--THEME);
+  color: #FFFFFF;
 }
 
 .solution__btn + .solution__btn {
@@ -66,8 +67,9 @@
 }
 
 .solution__btn.remind {
-  border: 1rpx solid #333333;
+  border: 1rpx solid var(--weui-FG-HALF);
   background: transparent;
+  color: var(--weui-FG-HALF);
 }
 
 .solution__btn.paid {

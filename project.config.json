@@ -27,7 +27,7 @@
 			"outputPath": ""
 		},
 		"useIsolateContext": true,
-		"useCompilerModule": false,
+		"useCompilerModule": true,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
@@ -186,6 +186,14 @@
 					"id": -1,
 					"name": "更新记录 - 超级管理员",
 					"pathName": "pages/setting/admin/version/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 17,
+					"name": "提醒还款",
+					"pathName": "pages/settle/solution/remind/remind",
+					"query": "payer=王刚&payee=刘博&amount=87.32",
 					"scene": null
 				}
 			]

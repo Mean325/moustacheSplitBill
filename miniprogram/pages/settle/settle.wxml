@@ -17,6 +17,7 @@
           class="cell__icon"
           avatarUrl="{{ item.user.avatarUrl }}"
           nickName="{{ item.user.nickName }}"
+          color="{{ item.user.color }}"
           width="40px"
           marginRight="16px"
         ></avatar>

@@ -21,6 +21,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    toRemind() {
+      const { payer, collecter, num } = this.data.data;
+      wx.navigateTo({
+        url: `/pages/settle/solution/remind/remind?payee=${ collecter.nickName }&payer=${ payer.nickName }&amount=${ num }`,
+      })
+    }
   }
 })

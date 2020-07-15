@@ -1,6 +1,8 @@
 <!--components/bottomButton/bottomButton.wxml-->
 <button
   class="bottom-button primary-btn"
+  disabled="{{ disabled }}"
+  open-type="{{ openType }}"
   hover-class="primary-btn_active"
   style="width: 100%;padding-bottom: {{ isIphoneX ? '84rpx' : '16rpx' }};"
 >

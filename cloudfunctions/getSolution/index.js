@@ -18,12 +18,12 @@ exports.main = async (event, context) => {
 
   const user_team = db.collection('user_team');
 
-//   if (payInfo.length === 0) {
-//     return {
-//       code: -1,
-//       msg: '购物车中没有勾选物品'
-//     }
-//   }
+  if (!teamId) {
+    return {
+      code: -1,
+      msg: '没有选择团队'
+    }
+  }
 
   const res = await user_team
   .aggregate()
@@ -83,34 +83,48 @@ exports.main = async (event, context) => {
   console.log(payList);
 
   let solution = [];
-  for (let pay of payList) {
-    for (let collect of collectList) {
-      console.log(collect.num);
+  pay:
+  for (var i = 0; i < payList.length; i++) {
+    let pay = payList[i];
+    collect: 
+    for (var j = 0; j < collectList.length; j++) {
+      let collect = collectList[j];
+      if (pay.num === 0) {
+        continue pay;
+      }
+      if (collect.num === 0) {
+        continue collect;
+      }
+    
       console.log(pay.num);
-      let collectNum = Math.abs(collect.num);
+      console.log(collect.num);
       let payNum =  Math.abs(pay.num);
-      balance = (collectNum - payNum).toFixed(2);
+      let collectNum = Math.abs(collect.num);
+      balance = (payNum - collectNum).toFixed(2);
 
       let obj = {}
-      if (balance >= 0) {    // 当收款大于付款时
-        collect.num = balance;
-        console.log(collect.num);
-        obj = {
-          payer: pay.user,
-          collecter: collect.user,
-          num: payNum
-        }
-      } else {
+      if (balance >= 0) {    // 当付款款大于收款时
         pay.num = balance;
+        collect.num = 0;
         console.log(pay.num);
         obj = {
           payer: pay.user,
           collecter: collect.user,
           num: collectNum
         }
+      } else {
+        collect.num = balance;
+        pay.num = 0;
+        console.log(collect.num);
+        obj = {
+          payer: pay.user,
+          collecter: collect.user,
+          num: payNum
+        }
       }
       solution.push(obj);
     }
+
   }
   console.log(solution);
 

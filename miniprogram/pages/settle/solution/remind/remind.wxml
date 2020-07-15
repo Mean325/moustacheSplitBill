@@ -1,0 +1,12 @@
+<!-- 群组列表管理 -->
+<view class="container">
+  <radio-group bindchange="handelRadioChange">
+    <label class="weui-cell weui-check__label" hover-class="weui-cell_active" wx:for="{{items}}" wx:key="value">
+      <radio value="{{item.value}}" checked="{{ item.checked }}" class="radio" color="#3FB475" />
+      <view class="weui-cell__bd">{{item.name}}</view>
+    </label>
+  </radio-group>
+
+  <!-- 底部记账按钮 -->
+  <bottom-button disabled="{{ !selectedValue }}" open-type="share" value="发送"></bottom-button>
+</view>

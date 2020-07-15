@@ -9,6 +9,8 @@ Component({
       type: String,
       value: ""
     },    // 按钮文字
+    openType: String,
+    disabled: Boolean
   },
   data: {
     isIphoneX: false,   // iPhone X系列安全区域处理
