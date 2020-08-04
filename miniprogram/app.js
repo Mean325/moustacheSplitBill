@@ -1,6 +1,6 @@
 App({
   globalData: {
-    version: "1.0.7",
+    version: "1.0.8",
     userInfo: {
       openid: "ouGKR4pZmbV1WnrmRCwHP8_Aw7oA"
     },   // 用户信息
