@@ -12,7 +12,7 @@
     <mp-cell>
       <view>记账提醒</view>
       <view class="cell-footer" slot="footer">
-        <switch bindchange="switchRemind" checked="{{ config.remind }}" disabled/>
+        <switch bindchange="switchRemind" checked="{{ config.remind }}"/>
       </view>
     </mp-cell>
     <mp-cell wx:if="{{ config.remind }}" link>

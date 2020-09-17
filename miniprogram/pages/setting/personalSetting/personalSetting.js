@@ -8,7 +8,8 @@ Page({
     config: {
       remind: false,
       remindTime: "0:00"
-    }
+    },
+    tmplId: "iwS7L3Ks-86IyqdMpvihRu9lBgfm4AtjqzIVSm08Jxk"
   },
   /**
    * 获取云端配置
@@ -30,6 +31,29 @@ Page({
     let value = e.detail.value;
     this.setData({
       'config.remind': value
+    })
+    const { tmplId } = this.data;
+    wx.requestSubscribeMessage({
+      tmplIds: [tmplId],
+      success(res) {
+        console.log(res);
+        if (res[tmplId] === "accept") {
+          wx.cloud.callFunction({
+            name: 'addRemind',
+            data: {
+              time1: "111",
+              thing3: "222",
+              thing4: "333"
+            }
+          })
+            .then(res => {
+              wx.showToast({
+                title: '设置成功',
+              })
+            })
+            .catch(console.error)
+        }
+      }
     })
   },
   /**
