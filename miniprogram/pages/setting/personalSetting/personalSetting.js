@@ -9,7 +9,8 @@ Page({
       remind: false,
       remindTime: "0:00"
     },
-    tmplId: "iwS7L3Ks-86IyqdMpvihRu9lBgfm4AtjqzIVSm08Jxk"
+    // tmplId: "iwS7L3Ks-86IyqdMpvihRu9lBgfm4AtjqzIVSm08Jxk"
+    tmplId: "iwS7L3Ks-86IyqdMpvihRuiPt7Tjef9uJh51jwMRT0g"
   },
   /**
    * 获取云端配置
@@ -43,7 +44,8 @@ Page({
             data: {
               time1: "111",
               thing3: "222",
-              thing4: "333"
+              thing4: "333",
+              tmplId: tmplId
             }
           })
             .then(res => {
@@ -102,6 +104,16 @@ Page({
           title: '保存成功',
         })
         wx.navigateBack();
+      })
+      .catch(console.error)
+  },
+  sendMsg() {
+    wx.cloud.callFunction({
+      name: 'sendMsg',
+      data: {}
+    })
+      .then(res => {
+        console.log(res);
       })
       .catch(console.error)
   }

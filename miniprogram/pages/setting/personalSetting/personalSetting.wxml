@@ -24,4 +24,5 @@
       </view>
     </mp-cell>
   </mp-cells>
+  <button bindtap="sendMsg">按钮</button>
 </view>
