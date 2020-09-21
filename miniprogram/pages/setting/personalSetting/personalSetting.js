@@ -18,9 +18,11 @@ Page({
    */
   onLoad(options) {
     this.getWelcomeConfig();
+  },
+  setDarkMode() {
     wx.showModal({
       title: '提醒',
-      content: "设置功能还在开发中",
+      content: "深色模式目前只支持跟随系统",
       showCancel: false
     })
   },

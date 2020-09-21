@@ -1,6 +1,6 @@
 <view class="container">
   <mp-cells>
-    <mp-cell link>
+    <mp-cell bindtap="setDarkMode" link>
       <view>深色模式</view>
       <view class="cell-footer" slot="footer">
         跟随系统
