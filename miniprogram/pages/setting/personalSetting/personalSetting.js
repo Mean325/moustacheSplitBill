@@ -9,8 +9,7 @@ Page({
       remind: false,
       remindTime: "0:00"
     },
-    // tmplId: "iwS7L3Ks-86IyqdMpvihRu9lBgfm4AtjqzIVSm08Jxk"
-    tmplId: "iwS7L3Ks-86IyqdMpvihRuiPt7Tjef9uJh51jwMRT0g"
+    tmplId: "iwS7L3Ks-86IyqdMpvihRlh43xWKKxKDogQbCa3on50"
   },
   /**
    * 获取云端配置
@@ -35,30 +34,53 @@ Page({
     this.setData({
       'config.remind': value
     })
-    const { tmplId } = this.data;
-    wx.requestSubscribeMessage({
-      tmplIds: [tmplId],
-      success(res) {
-        console.log(res);
-        if (res[tmplId] === "accept") {
-          wx.cloud.callFunction({
-            name: 'addRemind',
-            data: {
-              time1: "111",
-              thing3: "222",
-              thing4: "333",
-              tmplId: tmplId
-            }
-          })
-            .then(res => {
-              wx.showToast({
-                title: '设置成功',
-              })
+    if (value) {
+      const {
+        tmplId
+      } = this.data;
+      wx.getSetting({
+        success: res => {
+          console.log(res);
+          if (res.authSetting['scope.userInfo']) { // 用户已授权
+            // wx.getUserInfo({
+            //   success: res => {
+            //     this.setData({
+            //       userInfo: res.userInfo
+            //     })
+            //   }
+            // });
+          } else {
+            wx.requestSubscribeMessage({
+              tmplIds: [tmplId],
+              success: res => {
+                console.log(res);
+                if (res[tmplId] === "accept") {
+                  // 用户同意订阅消息
+                  wx.cloud.callFunction({
+                      name: 'addRemind',
+                      data: {
+                        tmplId: tmplId
+                      }
+                    })
+                    .then(res => {
+                      // wx.showToast({
+                      //   title: '设置成功',
+                      // })
+                      console.log(1);
+                    })
+                    .catch(console.error)
+                } else if (res[tmplId] === "reject") {
+                  // 如果用户取消订阅消息
+                  this.setData({
+                    'config.remind': false
+                  })
+                }
+              }
             })
-            .catch(console.error)
+          }
         }
-      }
-    })
+      });
+    }
   },
   /**
    * 实现数据双向绑定
@@ -95,11 +117,11 @@ Page({
    */
   saveWelcomeConfig() {
     wx.cloud.callFunction({
-      name: 'adminSetWelcome',
-      data: {
-        config: this.data.config
-      }
-    })
+        name: 'adminSetWelcome',
+        data: {
+          config: this.data.config
+        }
+      })
       .then(res => {
         console.log(res);
         wx.showToast({
@@ -111,9 +133,9 @@ Page({
   },
   sendMsg() {
     wx.cloud.callFunction({
-      name: 'sendMsg',
-      data: {}
-    })
+        name: 'sendMsg',
+        data: {}
+      })
       .then(res => {
         console.log(res);
       })

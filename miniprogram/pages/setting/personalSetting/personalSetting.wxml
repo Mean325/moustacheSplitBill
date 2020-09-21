@@ -15,7 +15,7 @@
         <switch bindchange="switchRemind" checked="{{ config.remind }}"/>
       </view>
     </mp-cell>
-    <mp-cell wx:if="{{ config.remind }}" link>
+    <mp-cell wx:if="{{ false }}" link>
       <view>提醒时间</view>
       <view class="cell-footer" slot="footer">
         <picker wx:if="{{ config.remind }}" mode="time" value="{{ config.remindTime }}" bindchange="handleRemindTimeChange">
@@ -23,6 +23,12 @@
         </picker>
       </view>
     </mp-cell>
+    <!-- 关于记账提醒 -->
+    <navigator url="/pages/setting/personalSetting/remindDesc/remindDesc" class="setting-cell" hover-class="weui-cell_active">
+			<mp-cell wx:if="{{ config.remind }}" link>
+      <view>关于记账提醒</view>
+    </mp-cell>
+		</navigator>
   </mp-cells>
-  <button bindtap="sendMsg">按钮</button>
+  <button bindtap="sendMsg">发送</button>
 </view>

@@ -15,6 +15,7 @@
     "pages/settle/solution/remind/remind",
     "pages/setting/setting",
     "pages/setting/personalSetting/personalSetting",
+    "pages/setting/personalSetting/remindDesc/remindDesc",
     "pages/setting/about/about",
     "pages/setting/about/version/version",
     "pages/setting/about/version/detail/detail",

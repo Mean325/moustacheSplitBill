@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "关于记账提醒",
+  "usingComponents": {
+    "bottom-button": "/components/bottomButton/bottomButton"
+  },
+  "enablePullDownRefresh": false
+}
