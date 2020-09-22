@@ -1,9 +1,7 @@
 App({
   globalData: {
-    version: "1.0.8",
-    userInfo: {
-      openid: "ouGKR4pZmbV1WnrmRCwHP8_Aw7oA"
-    },   // 用户信息
+    version: "1.0.9",
+    userInfo: {},   // 用户信息
     categoryList: [],  // 分类列表
 
     deviceInfo: {},   // 设备信息

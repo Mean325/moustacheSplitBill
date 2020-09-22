@@ -1,4 +1,5 @@
 const app = getApp();
+const log = require('../../../../utils/log.js');  // 接入log
 
 
 Page({
@@ -43,6 +44,7 @@ Page({
   },
   // 根据首字母排序
   formatList(list) {
+    log.info('首字母排序:', list);
     console.log(list);
     if (!String.prototype.localeCompare) return null;
 
@@ -84,6 +86,7 @@ Page({
   },
   onChoose(e) {
     console.log(e)
+    // 此处可能报错???
     const item = e.detail,
       {
         openid

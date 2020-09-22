@@ -32,7 +32,8 @@ exports.main = async (event, context) => {
       }
     })
   } else {
-    console.log("新建")
+    console.log("新建");
+    // 新建的时候报undefined is not an object???
     return await db.collection('config').doc(wxContext.OPENID).set({
       // data 传入需要局部更新的数据
       data: {

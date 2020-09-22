@@ -130,6 +130,7 @@ Page({
    * @method 保存用户配置
    */ 
   editConfig(e) {
+    // 此处可能报错???
     const { teamid, teamname } = e.currentTarget.dataset;
     console.log(teamid);
     app.editConfig({
