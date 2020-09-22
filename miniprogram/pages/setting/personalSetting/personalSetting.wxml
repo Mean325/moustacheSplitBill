@@ -30,5 +30,5 @@
     </mp-cell>
 		</navigator>
   </mp-cells>
-  <button bindtap="sendMsg">发送</button>
+  <!-- <button bindtap="sendMsg">发送订阅消息(测试用)</button> -->
 </view>

@@ -1,6 +1,6 @@
-// miniprogram/pages/admin/setWelcome/setWelcome.js
-Page({
+const app = getApp();
 
+Page({
   /**
    * 页面的初始数据
    */
@@ -9,14 +9,14 @@ Page({
       remind: false,
       remindTime: "0:00"
     },
-    tmplId: "iwS7L3Ks-86IyqdMpvihRlh43xWKKxKDogQbCa3on50"
+    tmplId: "iwS7L3Ks-86IyqdMpvihRglHB4qzrK9i4ZER5_M9sUE"
   },
   /**
    * 获取云端配置
    * @hook 页面加载时
    */
   onLoad(options) {
-    this.getWelcomeConfig();
+    this.getConfig();
   },
   setDarkMode() {
     wx.showModal({
@@ -31,56 +31,52 @@ Page({
    */
   switchRemind(e) {
     let value = e.detail.value;
-    this.setData({
-      'config.remind': value
-    })
     if (value) {
       const {
         tmplId
       } = this.data;
-      wx.getSetting({
+      wx.requestSubscribeMessage({
+        tmplIds: [tmplId],
         success: res => {
           console.log(res);
-          if (res.authSetting['scope.userInfo']) { // 用户已授权
-            // wx.getUserInfo({
-            //   success: res => {
-            //     this.setData({
-            //       userInfo: res.userInfo
-            //     })
-            //   }
-            // });
-          } else {
-            wx.requestSubscribeMessage({
-              tmplIds: [tmplId],
-              success: res => {
-                console.log(res);
-                if (res[tmplId] === "accept") {
-                  // 用户同意订阅消息
-                  wx.cloud.callFunction({
-                      name: 'addRemind',
-                      data: {
-                        tmplId: tmplId
-                      }
-                    })
-                    .then(res => {
-                      // wx.showToast({
-                      //   title: '设置成功',
-                      // })
-                      console.log(1);
-                    })
-                    .catch(console.error)
-                } else if (res[tmplId] === "reject") {
-                  // 如果用户取消订阅消息
-                  this.setData({
-                    'config.remind': false
-                  })
+          if (res[tmplId] === "accept") {
+            // 用户同意订阅消息
+            wx.cloud.callFunction({
+                name: 'addRemind',
+                data: {
+                  tmplId: tmplId
                 }
-              }
+              })
+              .then(res => {})
+              .catch(console.error)
+          } else if (res[tmplId] === "reject") {
+            // 如果用户取消订阅消息
+            this.setData({
+              'config.remind': false
             })
           }
         }
       });
+    } else {
+      // 用户关闭订阅消息
+      wx.cloud.callFunction({
+          name: 'delRemind',
+          data: {}
+        })
+        .then(res => {})
+        .catch(console.error)
     }
+    this.setData({
+      'config.remind': value
+    })
+    // 添加/取消订阅消息成功后,更新用户配置
+    app.editConfig({
+        hasRemind: value
+      })
+      .then(res => {
+        console.log(res);
+        console.log("更新配置");
+      })
   },
   /**
    * 实现数据双向绑定
@@ -94,22 +90,16 @@ Page({
     })
   },
   /**
-   * 调用云函数getWelcomeConfig获取
-   * @method 获取启动页配置
+   * 调用云函数getConfig获取
+   * @method 获取配置
    */
-  getWelcomeConfig() {
-    // wx.cloud.callFunction({
-    //   name: 'getWelcomeConfig',
-    //   data: {}
-    // })
-    //   .then(res => {
-    //     let data = res.result.data;
-    //     console.log(res);
-    //     this.setData({
-    //       config: data
-    //     });
-    //   })
-    //   .catch(console.error)
+  getConfig() {
+    app.getConfig().then(res => {
+      const { hasRemind } = res;
+      this.setData({
+        'config.remind': hasRemind
+      })
+    })
   },
   /**
    * 调用云函数adminSetWelcome获取

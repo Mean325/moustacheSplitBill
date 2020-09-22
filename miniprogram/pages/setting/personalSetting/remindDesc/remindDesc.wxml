@@ -1,8 +1,8 @@
 <!-- 关于记账提醒 -->
-<image src="https://6d65-mean-hfb19-1302251752.tcb.qcloud.la/%E9%BB%98%E8%AE%A4%E8%B5%84%E6%BA%90/operate.gif?sign=dcfe124ef6963dc080bd7e73e899e6c5&t=1600694455" class="operate-gif" alt="操作指南" />
 <view class="container">
+  <image src="https://6d65-mean-hfb19-1302251752.tcb.qcloud.la/%E9%BB%98%E8%AE%A4%E8%B5%84%E6%BA%90/operate.gif?sign=dcfe124ef6963dc080bd7e73e899e6c5&t=1600694455" class="operate-gif" alt="操作指南" />
   <view class="title">记账提醒</view>
   <view class="text">订阅通知后, 将在每天20点时提醒您</view>
   <view class="text">订阅通知的具体操作只需简单的三步: 点击下方的订阅消息通知按钮 - 在弹出框中勾选"总是保持以上选择,不再询问" - 最后点击按钮"允许"</view>
 </view>
-<bottom-button bindtap="editBill" value="开启记账提醒"></bottom-button>
+<!-- <bottom-button bindtap="editBill" value="开启记账提醒"></bottom-button> -->
