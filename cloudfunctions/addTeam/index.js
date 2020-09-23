@@ -27,17 +27,18 @@ exports.main = async (event, context) => {
     if (res._id) {
       console.log('添加团队成功')
       console.log(res);
-      await db.collection('user_team').add({
+      const resq = await db.collection('user_team').add({
         data: {
           _openid: wxContext.OPENID,
           _teamId: res._id
         }
       })
-        .then(resq => {
-          console.log('用户与团队管理表创建成功')
-          console.log(resq);
-          return resq;
-        })
+      console.log(resq);
+      return {
+        code: 200,
+        data: res._id,
+        message: "创建团队成功"
+      };
     }
   } else {
     return {

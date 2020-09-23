@@ -46,40 +46,18 @@ Page({
     })
     .then(res => {
       const { data, code, message } = res.result;
-      if (code === 200) {
-        if (data.inTeam) {
-          wx.navigateTo({
-            url: '/pages/welcome/welcome',
-          })
-        }
+      if (code === 200 && !data.inTeam) {
         this.setData({
           teamData: data
+        })
+      } else {
+        // 未找到该团队时,跳转到首页
+        wx.navigateTo({
+          url: '/pages/welcome/welcome',
         })
       }
     })
     .catch(console.error)
-  },
-  /**
-   * 当userInfo可以被获取时,跳转到首页
-   * 否则停留在授权页面
-   * @method 获取用户设置
-   */
-  getSetting() {
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {    // 用户已授权
-          wx.getUserInfo({
-            success: res => {
-              console.log(res.userInfo);
-              this.setData({
-                userInfo: res.userInfo
-              })
-              this.getOpenid();
-            }
-          });
-        }
-      }
-    });
   },
   /**
    * @method 授权登录按钮点击事件
@@ -94,14 +72,10 @@ Page({
       this.joinTeam(_id);
       this.getOpenid();
     } else {    // 用户按了拒绝按钮
-      wx.showModal({
-        title: '警告',
-        content: '您拒绝了授权，有些功能将无法正常使用',
-        showCancel: false,
-        confirmText: '返回',
-        success: res => {
-        }
-      });
+      wx.showToast({
+        title: '您拒绝了授权，有些功能将无法正常使用',
+        icon: 'none'
+      })
     }
   },
   /**
@@ -118,43 +92,7 @@ Page({
             title: message,
           })
         }
-        this.editConfig()
-      },
-      fail: err => {
-        console.error(err)
-      }
-    })
-  },
-  /**
-   * 讲新加入的团队设置为当前active
-   * @method 保存用户配置
-   */ 
-  editConfig(e) {
-    // 此处可能报错???
-    const { teamid, teamname } = e.currentTarget.dataset;
-    console.log(teamid);
-    app.editConfig({
-      activeTeamId: teamid
-    })
-    .then(res => {
-      app.globalData.activeTeamId = teamid;
-    })
-  },
-  /**
-   * 调用云函数login
-   * @method 获取用户openid
-   */
-  getOpenid() {
-    // 调用云函数login
-    wx.cloud.callFunction({
-      name: 'login',
-      data: {},
-      success: res => {
-        this.setData({
-          'userInfo.openid': res.result.openid
-        })
-        this.saveUser(this.data.userInfo);
-        app.globalData.userInfo = this.data.userInfo;
+        this.editConfig(teamId) // 更新当前团队及配置
       },
       fail: err => {
         wx.showToast({
@@ -164,7 +102,38 @@ Page({
       }
     })
   },
-    /**
+  /**
+   * 将新加入的团队设置为当前active
+   * @method 保存用户配置
+   */ 
+  editConfig(teamId) {
+    console.log(teamId);
+    app.editConfig({
+      activeTeamId: teamId
+    })
+    .then(res => {
+      app.globalData.activeTeamId = teamId;
+    })
+  },
+  /**
+   * 调用云函数login
+   * @method 获取用户openid
+   */
+  getOpenid() {
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},
+      success: res => {
+        this.setData({
+          'userInfo.openid': res.result.openid
+        })  // 更新当前页面信息,用户后续储存
+        this.saveUser(this.data.userInfo);  // 保存用户信息至数据库
+        app.globalData.userInfo = this.data.userInfo;  // 保存用户信息至全局
+      },
+      fail: err => {}
+    })
+  },
+  /**
    * @method 添加用户信息
    */
   saveUser(data) {

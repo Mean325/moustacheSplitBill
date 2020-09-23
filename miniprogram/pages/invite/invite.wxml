@@ -6,6 +6,7 @@
     <view class="h">你的好友邀请您加入团队"{{ teamData.name }}"</view>
     <text class="p">需要授权获得您的公开信息(昵称,头像等)</text>
     <button
+      disabled="{{ !teamData._id }}"
       class="login-btn"
       type="primary"
       open-type="getUserInfo"

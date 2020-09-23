@@ -11,7 +11,15 @@
 		</view>
 		<mp-cells>
 			<mp-cell wx:for="{{ teamData.members }}">
-				<avatar slot="icon" class="cell__icon" avatarUrl="{{ item.avatarUrl }}" nickName="{{ item.nickName }}" width="40px" marginRight="16px" color="{{ item.color }}"></avatar>
+				<avatar
+					slot="icon"
+					class="cell__icon"
+					avatarUrl="{{ item.avatarUrl }}"
+					nickName="{{ item.nickName }}"
+					width="40px"
+					marginRight="16px"
+					color="{{ item.color }}"
+				></avatar>
 				<view>
 					{{ item.nickName }}
 					<text wx:if="{{ item.openid === teamData.adminId }}">(管理员)</text>

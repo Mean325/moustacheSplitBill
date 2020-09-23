@@ -11,7 +11,7 @@ Page({
     isDialogShow: false,
     form: {
       name: ''
-    }
+    },
   },
   /**
    * 生命周期函数--监听页面显示
@@ -71,9 +71,17 @@ Page({
     })
   },
   showModal() {
-    this.setData({
-      isDialogShow: true
-    })
+    console.log(app.globalData.userInfo)
+    const { openid, avatarUrl } = app.globalData.userInfo;
+    if (openid && avatarUrl) {  // 当用户信息不含openid及头像时,判断为未登录
+      this.setData({
+        isDialogShow: true
+      })
+    } else {
+      wx.navigateTo({
+        url: `/pages/setting/login/login`,
+      })
+    }
   },
   handleDialogClose() {
     this.setData({
@@ -126,11 +134,24 @@ Page({
       }
     })
       .then(res => {
-        console.log(res);
-        wx.showToast({
-          title: '创建成功'
-        })
-        this.getTeamList();   // 重新获取团队列表
+        let { data, code, message } = res.result;
+        if (code === 200) {
+          wx.showToast({
+            title: '创建成功'
+          })
+          // 此处为正确返回code,message格式???
+          app.globalData.activeTeamId = data;   // 更新全局变量
+          wx.vibrateShort();  // 轻微震动
+          app.editConfig({
+            activeTeamId: data
+          })  // 更新用户配置
+          this.getTeamList();   // 重新获取团队列表
+        } else {
+          wx.showToast({
+            title: message,
+            icon: 'none',
+          })
+        }
       })
       .catch(console.error)
   }, 1000)

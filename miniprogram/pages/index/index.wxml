@@ -48,10 +48,10 @@
                 slot="icon" 
                 class="cell__icon"
                 avatarUrl="{{ data.payer[0].avatarUrl }}"
-                nickName="{{data.payer[0].nickName }}"
+                nickName="{{ data.payer[0].nickName }}"
                 width="40px"
                 marginRight="16px"
-                color="{{ item.color }}"
+                color="{{ data.payer[0].color }}"
               ></avatar>
               <view class="ellipsis">{{ data.category.name }} - {{ data.payer[0].nickName }} 付款</view>
               <view class="cell-footer" slot="footer">
@@ -75,7 +75,9 @@
   </view>
 </view>
 
-<navigator url="/pages/bill/edit/inputAmount/inputAmount" class="bookkeep-btn" hover-class="none">
+<navigator wx:if="{{ teamData._id }}" url="/pages/bill/edit/inputAmount/inputAmount" class="bookkeep-btn" hover-class="none">
   <image bindtap="showModal" src="/images/index/add.png" />
 </navigator>
-<!-- <mp-tabbar style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{list}}" bindchange="tabChange"></mp-tabbar> -->
+<navigator wx:else url="/pages/team/team" class="bookkeep-btn" hover-class="none">
+  <image bindtap="showModal" src="/images/index/add.png" />
+</navigator>

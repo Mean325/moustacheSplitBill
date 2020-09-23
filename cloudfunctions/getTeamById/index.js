@@ -45,6 +45,13 @@ exports.main = async (event, context) => {
   console.log(res);
 
   let list = res.list[0];
+  if (!list) {
+    return {
+      message: '没有找到该团队',
+      code: -1,
+      data: null
+    }
+  }
   list.inTeam = false;
   for (n of list.members) {
     if (n.openid == wxContext.OPENID) {

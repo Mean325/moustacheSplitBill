@@ -1,6 +1,6 @@
 App({
   globalData: {
-    version: "1.0.9",
+    version: "1.1.0",
     userInfo: {},   // 用户信息
     categoryList: [],  // 分类列表
 

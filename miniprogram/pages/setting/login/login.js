@@ -72,14 +72,10 @@ Page({
       })
       this.getOpenid();
     } else {    // 用户按了拒绝按钮
-      wx.showModal({
-        title: '警告',
-        content: '您拒绝了授权，有些功能将无法正常使用',
-        showCancel: false,
-        confirmText: '返回',
-        success: res => {
-        }
-      });
+      wx.showToast({
+        icon: 'none',
+        title: `您拒绝了授权, 将无法正常使用该小程序`,
+      })
     }
   },
   getOpenid() {

@@ -25,6 +25,7 @@
           avatarUrl="{{ item.avatarUrl }}"
           nickName="{{ item.nickName }}"
           width="40px"
+          color="{{ item.color }}"
         ></avatar>
         <text>等{{ item.memberNum }}个人</text>
       </view>

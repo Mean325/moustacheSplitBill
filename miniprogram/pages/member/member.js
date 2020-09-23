@@ -209,13 +209,22 @@ Page({
                 message
               } = res.result;
               if (code === 200) {
-                wx.redirectTo({
-                  url: '/pages/team/team',
-                  success: res => {
-                    wx.showToast({
-                      title: message
-                    })
-                  },
+                wx.showToast({
+                  title: '退出团队成功',
+                  icon: 'none',
+                })
+                app.editConfig({
+                  activeTeamId: ""
+                })
+                .then(res => {
+                  wx.redirectTo({
+                    url: '/pages/team/team',
+                    success: res => {
+                      wx.showToast({
+                        title: message
+                      })
+                    },
+                  })
                 })
               }
             })
