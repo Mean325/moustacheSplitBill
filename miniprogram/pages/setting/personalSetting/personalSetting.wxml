@@ -9,10 +9,11 @@
   </mp-cells>
 
   <mp-cells>
+    <!-- 记账提醒 -->
     <mp-cell>
       <view>记账提醒</view>
       <view class="cell-footer" slot="footer">
-        <switch bindchange="switchRemind" checked="{{ config.remind }}"/>
+        <switch bindchange="switchRemind" data-index="0" checked="{{ config.remind }}"/>
       </view>
     </mp-cell>
     <mp-cell wx:if="{{ false }}" link>
@@ -23,12 +24,18 @@
         </picker>
       </view>
     </mp-cell>
-    <!-- 关于记账提醒 -->
-    <navigator url="/pages/setting/personalSetting/remindDesc/remindDesc" class="setting-cell" hover-class="weui-cell_active">
-			<mp-cell wx:if="{{ config.remind }}" link>
-      <view>关于记账提醒</view>
+    <mp-cell>
+      <view>还款提醒</view>
+      <view class="cell-footer" slot="footer">
+        <switch bindchange="switchRemind" data-index="1" checked="{{ config.remind }}"/>
+      </view>
     </mp-cell>
+    <!-- 关于提醒 -->
+    <navigator url="/pages/setting/personalSetting/remindDesc/remindDesc" class="setting-cell" hover-class="weui-cell_active">
+			<mp-cell link>
+        <view>关于提醒</view>
+      </mp-cell>
 		</navigator>
   </mp-cells>
-  <!-- <button bindtap="sendMsg">发送订阅消息(测试用)</button> -->
+  <button bindtap="sendMsg">发送订阅消息(测试用)</button>
 </view>
