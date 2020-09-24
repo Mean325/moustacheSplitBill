@@ -32,7 +32,7 @@ Page({
   // },
   /**
    * 当userInfo可以被获取时,保存到userInfo
-   * @method 获取用户数据
+   * @method wx获取用户数据
    */
   getUserInfo() {
     wx.getSetting({

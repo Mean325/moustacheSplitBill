@@ -29,7 +29,7 @@ Page({
               //   success: res => {
               //     console.log(res);
               //     console.log("用户的code:" + res.code);
-                  this.getOpenid();
+                  this.login();
                   // 可以传给后台，再经过解析获取用户的 openid
                   // 或者可以直接使用微信的提供的接口直接获取 openid ，方法如下：
                   // wx.request({
@@ -70,7 +70,7 @@ Page({
       this.setData({
         userInfo: e.detail.userInfo
       })
-      this.getOpenid();
+      this.login();
     } else {    // 用户按了拒绝按钮
       wx.showToast({
         icon: 'none',
@@ -78,7 +78,11 @@ Page({
       })
     }
   },
-  getOpenid() {
+  /**
+   * 保存用户信息
+   * @method 登录接口
+   */
+  login() {
     // 调用云函数login
     wx.cloud.callFunction({
       name: 'login',

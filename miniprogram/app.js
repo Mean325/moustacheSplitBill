@@ -69,8 +69,10 @@ App({
         .catch(console.error)
     })
   },
+  /**
+   * @method 添加/更新用户配置
+   */
   editConfig(params) {
-    console.log(params);
     return new Promise((resolve, reject) => {
       wx.cloud.callFunction({
         name: 'editConfig',
@@ -85,7 +87,7 @@ App({
     })
   },
   /**
-   * 上一次操作的团队
+   * 获取上一次操作的团队,及设置
    * @method 获取用户配置
    */
   getConfig() {
