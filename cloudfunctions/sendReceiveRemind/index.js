@@ -1,5 +1,5 @@
 /**
- * @method 发送订阅消息
+ * @method 发送收款提醒消息
  */
 
 // 云函数入口文件
@@ -21,38 +21,42 @@ exports.main = async (event, context) => {
 
   try {
     // 获取当前时间
-    const now = formatTime(new Date(), 'Y年M月D日'),
-          content1 = "记得记账哦",
-          content2 = "晚上好，今天还有支出未记录吗？"
+    const now = formatTime(new Date(), 'Y年M月D日');
 
     const msgs = await db.collection('remind').where({
-      tmplId: "iwS7L3Ks-86IyqdMpvihRglHB4qzrK9i4ZER5_M9sUE"
-    }).get();   // 获取所有模板为记账提醒的提醒
+      openid: "1",
+      tmplId: "4Pq_UQswBLqvEqEwcysL35t4gm96rFXI-fyHMq9bQQU"
+    }).get(); // 查询收款人是否开启收款提醒
     console.log(msgs)
 
-    const sendMsg = msgs.data.map(async msg => {
-      try {
-        await cloud.openapi.subscribeMessage.send({
-          touser: msg.openid,
-          page: "pages/welcome/welcome",
-          data: {
-            time1: {
-              value: now
+    if (msgs.data) {
+      const sendMsg = msgs.data.map(async msg => {
+        try {
+          await cloud.openapi.subscribeMessage.send({
+            touser: msg.openid,
+            page: `pages/bill/edit/edit?id=${ id }`, // 账单详情页
+            data: {
+              name2: {
+                value: now
+              },
+              amount3: {
+                value: `¥${ content1 }`
+              },
+              time4: {
+                value: now
+              },
+              time4: {
+                value: `对方已点击还款,如有疑问点击查看详情`
+              }
             },
-            thing3: {
-              value: content1
-            },
-            thing4: {
-              value: content2
-            }
-          },
-          templateId: msg.tmplId
-        });
-      } catch (err) {
-        console.log(err)
-        return err
-      }
-    })
+            templateId: msg.tmplId
+          });
+        } catch (err) {
+          console.log(err)
+          return err
+        }
+      })
+    }
   } catch (error) {
     console.log(error)
     return error

@@ -16,28 +16,39 @@ const _ = db.command
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext();
   const {
-    ...param
+    tmplId
   } = event;
 
-  const {
-    data
-  } = await db.collection('remind').doc(wxContext.OPENID).get()
-  console.log(data);
-  if (data) {
-    // console.log("更新")
-    // return await db.collection('config').doc(wxContext.OPENID).update({
-    //   // data 传入需要局部更新的数据
-    //   data: {
-    //     ...param
-    //   }
-    // })
-  } else {
-    console.log("新建")
-    return await db.collection('remind').doc(wxContext.OPENID).set({
-      // data 传入需要局部更新的数据
-      data: {
-        ...param
-      }
-    })
+  if (!tmplId) {
+    return {
+      code: -1,
+      message: '模板消息不能为空',
+      data: null
+    }
   }
+
+  let result;
+  await db.collection('remind').add({
+    data: {
+      openid: wxContext.OPENID,
+      tmplId
+    }
+  })
+  .then(res => {
+    console.log('添加提醒成功', res)
+    result = {
+      message: "添加提醒成功",
+      code: 200,
+      data: null
+    }
+  })
+  .catch(err => {
+    console.error(err)
+    result = {
+      message: "添加提醒失败",
+      code: 400,
+      err
+    }
+  })
+  return result;
 }

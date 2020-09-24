@@ -9,7 +9,7 @@ Component({
     data: {
       type: Object,
       value: {}
-    },    // 
+    }, // 
   },
 
   /**
@@ -24,7 +24,11 @@ Component({
    */
   methods: {
     toRemind() {
-      const { payer, collecter, num } = this.data.data;
+      const {
+        payer,
+        collecter,
+        num
+      } = this.data.data;
       wx.navigateTo({
         url: `/pages/settle/solution/remind/remind?payee=${ collecter.nickName }&payer=${ payer.nickName }&amount=${ num }`,
       })
@@ -39,28 +43,39 @@ Component({
         content: '请再次确认已于对方结清金额',
         success: res => {
           if (res.confirm) {
-            const { activeTeamId } = app.globalData;
-            const { payer, collecter, num } = this.data.data;
+            const {
+              activeTeamId
+            } = app.globalData;
+            const {
+              payer,
+              collecter,
+              num
+            } = this.data.data;
             wx.cloud.callFunction({
-              name: 'editBill',
-              data: {
-                teamId: activeTeamId,
-                num, // 金额
-                categoryId: "a7d38b365f0ea31e004d9ccb382518c7", // 账目分类id为还款
-                remark: "还款结算", // 备注
-                date: utils.getDate(), // 日期
-                partner: [collecter.openid], // 参与者Id
-                payer: [payer.openid], // 付款人Id
-                splitType: 1, // 分账类型为均分
-              }
-            })
+                name: 'editBill',
+                data: {
+                  teamId: activeTeamId,
+                  num, // 金额
+                  categoryId: "a7d38b365f0ea31e004d9ccb382518c7", // 账目分类id为还款
+                  remark: "还款结算", // 备注
+                  date: utils.getDate(), // 日期
+                  partner: [collecter.openid], // 参与者Id
+                  payer: [payer.openid], // 付款人Id
+                  splitType: 1, // 分账类型为均分
+                }
+              })
               .then(res => {
-                const { data, code, message } = res.result;
+                const {
+                  data,
+                  code,
+                  message
+                } = res.result;
                 console.log(data);
                 if (code === 200) {
+                  this.sendReceiveRemind(); // 发送收款提醒订阅消息
                   wx.navigateBack({
                     success: res => {
-                      wx.vibrateShort();  // 轻微震动
+                      wx.vibrateShort(); // 轻微震动
                       wx.showToast({
                         title: '结清成功',
                       })
@@ -72,6 +87,27 @@ Component({
           }
         }
       })
+    },
+    /**
+     * @method 发送收款提醒订阅消息
+     */
+    sendReceiveRemind(billId, amount, collecter, payer) {
+      wx.cloud.callFunction({
+          name: 'sendReceiveRemind',
+          data: {
+            billId, // 账单id
+            amount, // 金额
+            partner: collecter.openid, // 收款者名称
+            payer: payer.openid, // 付款人名称
+          }
+        })
+        .then(res => {
+          const { data, code, message } = res.result;
+          if (code === 200) {
+            console.log(data);
+          }
+        })
+        .catch(console.error)
     }
   }
 })

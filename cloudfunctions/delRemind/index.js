@@ -15,10 +15,14 @@ const $ = db.command.aggregate
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext();
-  const { id } = event;
+  const { tmplId } = event;
   
   try {
     const res = await db.collection('remind').doc(wxContext.OPENID).remove()
+    const res = await db.collection('remind').where({
+      openid: wxContext.OPENID,
+      tmplId
+    }).remove()
     return {
       code: 200,
       data: res,

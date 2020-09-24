@@ -9,7 +9,10 @@ Page({
       remind: false,
       remindTime: "0:00"
     },
-    tmplId: "iwS7L3Ks-86IyqdMpvihRglHB4qzrK9i4ZER5_M9sUE"
+    tmplIds: [
+      "iwS7L3Ks-86IyqdMpvihRglHB4qzrK9i4ZER5_M9sUE",  // 记账提醒模板
+      "4Pq_UQswBLqvEqEwcysL35t4gm96rFXI-fyHMq9bQQU"   // 收款提醒模板
+    ]
   },
   /**
    * 获取云端配置
@@ -30,11 +33,10 @@ Page({
    * @hook 提醒switch改变事件
    */
   switchRemind(e) {
-    let value = e.detail.value;
+    const { value } = e.detail,   // 当前开关的值
+          index = Number(e.currentTarget.dataset.index),  // 提醒序号,用于订阅消息数组中取模板Id
+          tmplId = this.data.tmplIds[index];
     if (value) {
-      const {
-        tmplId
-      } = this.data;
       wx.requestSubscribeMessage({
         tmplIds: [tmplId],
         success: res => {
@@ -44,7 +46,7 @@ Page({
             wx.cloud.callFunction({
                 name: 'addRemind',
                 data: {
-                  tmplId: tmplId
+                  tmplId
                 }
               })
               .then(res => {})
@@ -61,7 +63,9 @@ Page({
       // 用户关闭订阅消息
       wx.cloud.callFunction({
           name: 'delRemind',
-          data: {}
+          data: {
+            tmplId
+          }
         })
         .then(res => {})
         .catch(console.error)
@@ -121,9 +125,13 @@ Page({
       })
       .catch(console.error)
   },
+  /**
+   * 测试用
+   * @method 发送记账提醒消息
+   */
   sendMsg() {
     wx.cloud.callFunction({
-        name: 'sendMsg',
+        name: 'sendBillRemind',
         data: {}
       })
       .then(res => {
