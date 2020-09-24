@@ -2,9 +2,26 @@ const app = getApp()
 
 Page({
   data: {
-    version: getApp().globalData.version
+    version: ""
   },
-  onLoad(options) {},
+  onLoad(options) {
+    const version = this.getVersion();
+    this.setData({ version });
+  },
+  getVersion() {
+    const { miniProgram } = wx.getAccountInfoSync()
+    const { envVersion, version } = miniProgram;
+    switch (envVersion) {
+      case "release":
+        return version;
+      case "develop":
+        return "开发版"
+      case "trial":
+        return "体验版"
+      default:
+        return ""
+    }
+  },
   toVersion() {
     wx.navigateTo({
       url: '/pages/setting/about/version/version',
