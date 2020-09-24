@@ -131,9 +131,9 @@
           "scene": null
         },
         {
-          "id": -1,
+          "id": 8,
           "name": "输入金额",
-          "pathName": "pages/bookkeep/inputAmount/inputAmount",
+          "pathName": "pages/welcome/welcome",
           "query": "",
           "scene": null
         },
@@ -198,6 +198,20 @@
           "name": "提醒还款",
           "pathName": "pages/settle/solution/remind/remind",
           "query": "payer=王刚&payee=刘博&amount=87.32",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "添加账单",
+          "pathName": "pages/bill/edit/edit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "具体分账",
+          "pathName": "pages/bill/edit/edit",
+          "query": "",
           "scene": null
         }
       ]

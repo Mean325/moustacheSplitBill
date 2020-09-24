@@ -6,7 +6,7 @@
     </mp-cell>
     <picker mode="date" value="{{ version.updateTime }}" start="2020-01-01" bindchange="bindDateChange">
       <mp-cell>
-        <input bindinput="handleInputChange" value="{{ version.updateTime }}" placeholder="请选择更新时间" maxlength="30" readonly></input>
+        <input value="{{ version.updateTime }}" placeholder="请选择更新时间" maxlength="30" readonly></input>
       </mp-cell>
     </picker>
   </mp-cells>

@@ -10,6 +10,7 @@
     "pages/bill/edit/inputAmount/inputAmount",
     "pages/bill/edit/selectPart/selectPart",
     "pages/bill/edit/selectPayer/selectPayer",
+    "pages/bill/edit/splitBill/splitBill",
     "pages/settle/settle",
     "pages/settle/solution/solution",
     "pages/settle/solution/remind/remind",

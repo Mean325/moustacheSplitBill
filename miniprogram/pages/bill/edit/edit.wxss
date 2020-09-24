@@ -93,6 +93,21 @@
   margin-left: 10rpx;
 }
 
+/* 分账类型选择框 */
+.split-type {
+  padding: 0px 20rpx;
+  margin-left: 30rpx;
+  line-height: 1.5;
+  border: 1px solid #999999;
+  color: #999999;
+  border-radius: 15px;
+}
+.split-type.active {
+  background: var(--THEME);
+  color: #FFFFFF;
+  border-color: var(--THEME);
+}
+
 /* 备注输入框 */
 .bill__remark-input {
   padding: 0 30rpx;

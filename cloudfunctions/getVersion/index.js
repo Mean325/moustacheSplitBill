@@ -16,7 +16,6 @@ const _ = db.command
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
 
-  let result;
   try {
     let { data } = await db.collection('version').get();
 

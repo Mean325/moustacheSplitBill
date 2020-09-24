@@ -42,7 +42,7 @@ Page({
    * @hook 页面显示时
    */
   onShow() {
-    this.calcSplit();
+    // this.calcSplit();
   },
   toInputAmount() {
     wx.navigateTo({
@@ -109,10 +109,22 @@ Page({
       url: '/pages/bill/edit/selectPayer/selectPayer',
     })
   },
-  //  计算分账 
-  calcSplit() {
-    if (this.data.bill.splitType === 1) {   // 分账类型为均分时
-      
+  /**
+   * 计算分账
+   * @method 切换分账类型
+   */
+  changeSplitType(e) {
+    const { type } = e.currentTarget.dataset;
+    this.setData({
+      'bill.splitType': type
+    })
+    if (type === 1) {   // 分账类型为均分时
+      console.log(11);
+    } else if (type === 2) {   // 分账类型为具体时
+      console.log(22);
+      wx.navigateTo({
+        url: '/pages/bill/edit/splitBill/splitBill',
+      })
     }
   },
   /**

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "具体分账",
+  "usingComponents": {
+    "mp-cells": "weui-miniprogram/cells/cells",
+    "mp-cell": "weui-miniprogram/cell/cell",
+    "avatar": "/components/avatar/avatar",
+    "bottom-button": "/components/bottomButton/bottomButton"
+  },
+  "enablePullDownRefresh": false
+}
