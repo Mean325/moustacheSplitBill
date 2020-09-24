@@ -16,7 +16,10 @@ const _ = db.command
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext();
   const {
-    ...param
+    billId, // 账单id
+    amount, // 金额
+    receiver, // 收款者名称
+    sender, // 付款人名称
   } = event;
 
   try {
@@ -24,38 +27,43 @@ exports.main = async (event, context) => {
     const now = formatTime(new Date(), 'Y年M月D日');
 
     const msgs = await db.collection('remind').where({
-      openid: "1",
+      openid: receiver.openid,
       tmplId: "4Pq_UQswBLqvEqEwcysL35t4gm96rFXI-fyHMq9bQQU"
     }).get(); // 查询收款人是否开启收款提醒
     console.log(msgs)
 
     if (msgs.data) {
-      const sendMsg = msgs.data.map(async msg => {
-        try {
-          await cloud.openapi.subscribeMessage.send({
-            touser: msg.openid,
-            page: `pages/bill/edit/edit?id=${ id }`, // 账单详情页
-            data: {
-              name2: {
-                value: now
-              },
-              amount3: {
-                value: `¥${ content1 }`
-              },
-              time4: {
-                value: now
-              },
-              time4: {
-                value: `对方已点击还款,如有疑问点击查看详情`
-              }
+      const msg = msgs.data[0]
+      console.log(msg)
+      try {
+        await cloud.openapi.subscribeMessage.send({
+          touser: msg.openid,
+          page: `pages/bill/edit/edit?id=${ billId }`, // 账单详情页
+          data: {
+            name2: {
+              value: sender.nickName
             },
-            templateId: msg.tmplId
-          });
-        } catch (err) {
-          console.log(err)
-          return err
+            amount3: {
+              value: `¥${ amount }`
+            },
+            time4: {
+              value: now
+            },
+            thing7: {
+              value: `对方已点击还款,如有疑问点击查看详情`
+            }
+          },
+          templateId: msg.tmplId
+        });
+        return {
+          message: "发送收款提醒成功",
+          code: 200,
+          data: null
         }
-      })
+      } catch (err) {
+        console.log(err)
+        return err
+      }
     }
   } catch (error) {
     console.log(error)

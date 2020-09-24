@@ -13,7 +13,7 @@
     <mp-cell>
       <view>记账提醒</view>
       <view class="cell-footer" slot="footer">
-        <switch bindchange="switchRemind" data-index="0" checked="{{ config.remind }}"/>
+        <switch bindchange="switchRemind" data-index="0" data-type="billRemind" checked="{{ config.billRemind }}"/>
       </view>
     </mp-cell>
     <mp-cell wx:if="{{ false }}" link>
@@ -27,7 +27,7 @@
     <mp-cell>
       <view>还款提醒</view>
       <view class="cell-footer" slot="footer">
-        <switch bindchange="switchRemind" data-index="1" checked="{{ config.remind }}"/>
+        <switch bindchange="switchRemind" data-index="1" data-type="receiveRemind" checked="{{ config.receiveRemind }}"/>
       </view>
     </mp-cell>
     <!-- 关于提醒 -->

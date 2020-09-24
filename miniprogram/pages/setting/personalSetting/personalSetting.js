@@ -6,12 +6,13 @@ Page({
    */
   data: {
     config: {
-      remind: false,
-      remindTime: "0:00"
+      billRemind: false, // 记账提醒
+      remindTime: "0:00", // 记账提醒时间
+      receiveRemind: false // 收款提醒
     },
     tmplIds: [
-      "iwS7L3Ks-86IyqdMpvihRglHB4qzrK9i4ZER5_M9sUE",  // 记账提醒模板
-      "4Pq_UQswBLqvEqEwcysL35t4gm96rFXI-fyHMq9bQQU"   // 收款提醒模板
+      "iwS7L3Ks-86IyqdMpvihRglHB4qzrK9i4ZER5_M9sUE", // 记账提醒模板
+      "4Pq_UQswBLqvEqEwcysL35t4gm96rFXI-fyHMq9bQQU" // 收款提醒模板
     ]
   },
   /**
@@ -33,9 +34,11 @@ Page({
    * @hook 提醒switch改变事件
    */
   switchRemind(e) {
-    const { value } = e.detail,   // 当前开关的值
-          index = Number(e.currentTarget.dataset.index),  // 提醒序号,用于订阅消息数组中取模板Id
-          tmplId = this.data.tmplIds[index];
+    const { value } = e.detail, // 当前开关的值
+      { index, type } = e.currentTarget.dataset, // 提醒序号,用于订阅消息数组中取模板Id
+      tmplId = this.data.tmplIds[Number(index)];
+    let config = this.data.config;
+
     if (value) {
       wx.requestSubscribeMessage({
         tmplIds: [tmplId],
@@ -53,8 +56,9 @@ Page({
               .catch(console.error)
           } else if (res[tmplId] === "reject") {
             // 如果用户取消订阅消息
+            config[type] = false;
             this.setData({
-              'config.remind': false
+              config
             })
           }
         }
@@ -70,13 +74,14 @@ Page({
         .then(res => {})
         .catch(console.error)
     }
+    config[type] = value;
     this.setData({
-      'config.remind': value
+      config
     })
     // 添加/取消订阅消息成功后,更新用户配置
     app.editConfig({
-        hasRemind: value
-      })
+      [type]: value
+    })
       .then(res => {
         console.log(res);
         console.log("更新配置");
@@ -99,9 +104,13 @@ Page({
    */
   getConfig() {
     app.getConfig().then(res => {
-      const { hasRemind } = res;
+      const {
+        billRemind,
+        receiveRemind
+      } = res;
       this.setData({
-        'config.remind': hasRemind
+        'config.billRemind': billRemind,
+        'config.receiveRemind': receiveRemind
       })
     })
   },

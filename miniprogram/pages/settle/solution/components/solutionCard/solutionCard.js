@@ -71,8 +71,9 @@ Component({
                   message
                 } = res.result;
                 console.log(data);
+                console.log(collecter);
                 if (code === 200) {
-                  this.sendReceiveRemind(); // 发送收款提醒订阅消息
+                  this.sendReceiveRemind(data, num, collecter, payer); // 发送收款提醒订阅消息
                   wx.navigateBack({
                     success: res => {
                       wx.vibrateShort(); // 轻微震动
@@ -97,8 +98,8 @@ Component({
           data: {
             billId, // 账单id
             amount, // 金额
-            partner: collecter.openid, // 收款者名称
-            payer: payer.openid, // 付款人名称
+            receiver: collecter, // 收款者名称
+            sender: payer, // 付款人名称
           }
         })
         .then(res => {
