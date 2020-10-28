@@ -28,6 +28,7 @@ Page({
   },
   onLoad(options) {
     let { id, num } = options;
+    num = num | 0;
     this.setData({
       'bill.num': parseFloat(num)
     })    // 获取上一页所输入的金额值
@@ -38,12 +39,8 @@ Page({
     if(id) this.getBillDetail(id);   // 当路由中带有id时,为编辑,获取账单详情
   },
   /**
-   * 页面显示时,重新计算分账
-   * @hook 页面显示时
+   * @method 点击金额事件,跳转到输入页面
    */
-  onShow() {
-    // this.calcSplit();
-  },
   toInputAmount() {
     wx.navigateTo({
       url: `/pages/bill/edit/inputAmount/inputAmount?num=${ this.data.bill.num }&type=edit`,
@@ -94,20 +91,26 @@ Page({
    * @method 参与人cell点击事件
    */
   selectPart() {
-    app.globalData.selectedMembers = this.data.bill.partner;
-    wx.navigateTo({
-      url: '/pages/bill/edit/selectPart/selectPart',
-    })
+    const { partner } = this.data.bill;
+    if (partner.length) {
+      app.globalData.selectedMembers = partner;
+      wx.navigateTo({
+        url: '/pages/bill/edit/selectPart/selectPart',
+      })
+    }
   },
   /**
    * 跳转到选择付款人页面
    * @method 付款人cell点击事件
    */
   selectPayer() {
-    app.globalData.selectedMembers = this.data.bill.payer;
-    wx.navigateTo({
-      url: '/pages/bill/edit/selectPayer/selectPayer',
-    })
+    const { payer } = this.data.bill.payer;
+    if (payer.length) {
+      app.globalData.selectedMembers = payer;
+      wx.navigateTo({
+        url: '/pages/bill/edit/selectPayer/selectPayer',
+      })
+    }
   },
   /**
    * 计算分账
@@ -121,7 +124,9 @@ Page({
     if (type === 1) {   // 分账类型为均分时
       console.log(11);
     } else if (type === 2) {   // 分账类型为具体时
-      console.log(22);
+      // 保存参与人至全局,用于分账时展示
+      app.globalData.selectedMembers = this.data.bill.partner;
+      // 跳转到具体分账页面
       wx.navigateTo({
         url: '/pages/bill/edit/splitBill/splitBill',
       })
@@ -174,7 +179,7 @@ Page({
       .catch(console.error)
   },
   /**
-   * 调用云函数
+   * 底部按钮点击事件
    * @method 添加账单
    */
   editBill() {

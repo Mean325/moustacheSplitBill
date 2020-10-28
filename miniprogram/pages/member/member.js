@@ -1,6 +1,7 @@
+const app = getApp();
 const utils = require("../../utils/utils.js");
 const moment = require('../../utils/moment.min.js');
-const app = getApp();
+const team = require('../../utils/team.js');   // 团队相关utils
 
 Page({
   /**
@@ -75,28 +76,15 @@ Page({
     const {
       activeTeamId
     } = app.globalData;
-    wx.cloud.callFunction({
-        name: 'getTeamById',
-        data: {
-          teamId: activeTeamId
-        }
+    team.getTeamById(activeTeamId).then(res => {
+      res.time = moment(res.createTime).format("YYYY年MM月DD日");
+      this.setData({
+        teamData: res
       })
-      .then(res => {
-        const {
-          data,
-          code,
-          message
-        } = res.result;
-        if (code === 200) {
-          data.time = moment(data.createTime).format("YYYY年MM月DD日");
-          this.setData({
-            teamData: data
-          })
 
-          app.globalData.teamMembers = data.members;
-        }
-      })
-      .catch(console.error)
+      app.globalData.teamMembers = data.members;
+    })
+    .catch(err => {})
   },
   // 邀请按钮点击事件
   addUser() {

@@ -22,7 +22,7 @@
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
     "useMultiFrameRuntime": false,
-    "useApiHook": false,
+    "useApiHook": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -180,8 +180,8 @@
           "scene": null
         },
         {
-          "id": -1,
-          "name": "编辑版本介绍 - 超级管理员",
+          "id": 15,
+          "name": "编辑更新介绍 - 超级管理员",
           "pathName": "pages/setting/admin/version/edit/edit",
           "query": "",
           "scene": null

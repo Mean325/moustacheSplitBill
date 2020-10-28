@@ -3,11 +3,12 @@ App({
     userInfo: {},   // 用户信息
     categoryList: [],  // 分类列表
 
-    deviceInfo: {},   // 设备信息
-
+    activeTeam: {},   // 当前active的团队信息
     activeTeamId: "",   // 当前active的团队Id
     teamMembers: [],    // 团队成员
     selectedMembers: [],  // 选中的成员id列表,用于记账时选择参与人和付款人
+
+    deviceInfo: {},   // 设备信息
   },
   onLaunch() {
     if (!wx.cloud) {

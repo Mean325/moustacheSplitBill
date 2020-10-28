@@ -4,12 +4,12 @@
   <view class="banner">
     <view class="team-info">
       <!-- 左侧团队列表按钮 -->
-      <navigator url="/pages/team/team" class="team-info__name" hover-class="none">我的团队 ▶</navigator>
+      <navigator url="/pages/team/team" class="team-info__name" hover-class="none">{{ teamData.name }} ▶</navigator>
       <!-- 右侧成员列表按钮 -->
       <navigator wx:if="{{ teamData._id }}" url="/pages/member/member" class="team-info__member" hover-class="none">
         <view style="font-size: 0;">
         <avatar
-          wx:for="{{ teamData.members }}"
+          wx:for="{{ members }}"
           class="team-info__member-avatar"
           avatarUrl="{{ item.avatarUrl }}"
           nickName="{{ item.nickName }}"

@@ -1,10 +1,10 @@
 const app = getApp();
+const computedBehavior = require('miniprogram-computed');   // computed/watch拓展
 const log = require('../../utils/log.js');
+const team = require('../../utils/team.js');   // 团队相关utils
 
 Page({
-  /**
-   * 页面的初始数据
-   */
+  behaviors: [computedBehavior],
   data: {
     teamData: {},  // 团队信息
     amount: 0,    // 团队总消费
@@ -14,6 +14,12 @@ Page({
       type: 'warn',
       text: '删除'
     }],   // 左滑删除组件
+  },
+  computed: {
+    members(data) {
+      let members = data.teamData ? data.teamData.members || [] : [];
+      return members.slice(0, 3);
+    },    // 成员信息,用于右上角展示
   },
   /**
    * 生命周期函数--监听页面加载
@@ -35,11 +41,6 @@ Page({
     this.refresh();
   },
   /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage(e) {
-  },
-  /**
    * @method 重新获取当页数据
    */
   refresh() {
@@ -54,28 +55,15 @@ Page({
    * @method 根据Id获取团队信息
    */
   getTeamData(teamId) {
-    wx.cloud.callFunction({
-      name: 'getTeamById',
-      data: {
-        teamId
-      }
-    })
-      .then(res => {
-        const { data, code, message } = res.result;
-        if (code === 200) {
-          let { members } = data;
-          console.log(members);
-          app.globalData.teamMembers = members;
-          data.members = members.slice(0, 3);
-          this.setData({
-            teamData: data
-          })
-          log.info('获取团队数据:', data);
-        } else {
-          log.error('获取团队数失败:', message);
-        }
+    team.getTeamById(teamId).then(res => {
+      this.setData({
+        teamData: res
       })
-      .catch(console.error)
+      log.info('获取团队数据:', res);
+    })
+    .catch(err => {
+      log.info('获取团队数据失败:', err);
+    })
   },
   /**
    * @method 根据Id获取团队账单列表

@@ -1,6 +1,9 @@
 const app = getApp()
+const computedBehavior = require('miniprogram-computed');   // computed/watch拓展
+const team = require('../../utils/team.js');   // 团队相关utils
 
 Page({
+  behaviors: [computedBehavior],
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),    // 判断小程序的API，回调，参数，组件等是否在当前版本可用
     teamData: {},   // 当前邀请的团队信息
@@ -11,7 +14,7 @@ Page({
     console.log(options);
     const { code } = options;
     if (code) {
-      this.getTeamById(code);   // 根据code获取团队信息
+      this.getTeamData(code);   // 根据code获取团队信息
     } else {
       console.log("找不到当前code,返回首页")
       wx.navigateTo({
@@ -39,25 +42,27 @@ Page({
   /**
    * @method 根据路由中的teamId获取团队信息
    */
-  getTeamById(teamId) {
-    wx.cloud.callFunction({
-      name: 'getTeamById',
-      data: { teamId }
-    })
-    .then(res => {
-      const { data, code, message } = res.result;
-      if (code === 200 && !data.inTeam) {
+  getTeamData(teamId) {
+    team.getTeamById(teamId).then(res => {
+      if (!res.inTeam) {
         this.setData({
-          teamData: data
+          teamData: res
         })
       } else {
-        // 未找到该团队时,跳转到首页
+        // 已在改团队中,跳转到首页
         wx.navigateTo({
           url: '/pages/welcome/welcome',
         })
       }
+      log.info('获取团队数据:', res);
     })
-    .catch(console.error)
+    .catch(err => {
+      // 未找到该团队时,跳转到首页
+      wx.navigateTo({
+        url: '/pages/welcome/welcome',
+      })
+      log.info('获取团队数据失败:', err);
+    })
   },
   /**
    * @method 授权登录按钮点击事件
