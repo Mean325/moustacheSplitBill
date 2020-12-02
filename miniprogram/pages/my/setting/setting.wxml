@@ -31,11 +31,11 @@
       </view>
     </mp-cell>
     <!-- 关于提醒 -->
-    <navigator url="/pages/setting/personalSetting/remindDesc/remindDesc" class="setting-cell" hover-class="weui-cell_active">
+    <navigator url="/pages/pages/setting/remindDesc/remindDesc" class="setting-cell" hover-class="weui-cell_active">
 			<mp-cell link>
         <view>关于提醒</view>
       </mp-cell>
 		</navigator>
   </mp-cells>
-  <button bindtap="sendMsg">发送订阅消息(测试用)</button>
+  <!-- <button bindtap="sendMsg">发送订阅消息(测试用)</button> -->
 </view>

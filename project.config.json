@@ -28,11 +28,14 @@
       "disablePlugins": [],
       "outputPath": ""
     },
+    "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
-    "packNpmRelationList": []
+    "packNpmRelationList": [],
+    "minifyWXSS": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.12.2",
@@ -51,28 +54,16 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "current": -1,
-      "list": []
-    },
-    "conversation": {
-      "current": -1,
-      "list": []
-    },
     "plugin": {
-      "current": -1,
       "list": []
     },
     "game": {
-      "current": -1,
       "list": []
     },
     "gamePlugin": {
-      "current": -1,
       "list": []
     },
     "miniprogram": {
-      "current": -1,
       "list": [
         {
           "id": 0,
@@ -161,14 +152,14 @@
         {
           "id": -1,
           "name": "更新记录",
-          "pathName": "pages/setting/about/version/version",
+          "pathName": "pages/my/about/version/version",
           "query": "code=e1422f825ed082ea006506d73940f5f5",
           "scene": null
         },
         {
           "id": -1,
           "name": "设置",
-          "pathName": "pages/setting/personalSetting/personalSetting",
+          "pathName": "pages/my/setting/setting",
           "query": "",
           "scene": null
         },
@@ -212,6 +203,18 @@
           "name": "具体分账",
           "pathName": "pages/bill/edit/edit",
           "query": "",
+          "scene": null
+        },
+        {
+          "name": "wifi",
+          "pathName": "pages/other/wifi/wifi",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "WIFI带参",
+          "pathName": "pages/other/wifi/wifi",
+          "query": "SSID=zjzl_asus_5G&password=Zjzl1234567890123",
           "scene": null
         }
       ]

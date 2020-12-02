@@ -79,7 +79,7 @@ Page({
       })
     } else {
       wx.navigateTo({
-        url: `/pages/setting/login/login`,
+        url: `/pages/my/login/login`,
       })
     }
   },

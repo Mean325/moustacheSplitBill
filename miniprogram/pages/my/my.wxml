@@ -1,7 +1,7 @@
 <!-- 我的页面 -->
 <view class="container">
 	<!-- 用户信息 -->
-	<navigator url="/pages/setting/login/login" class="userinfo" hover-class="none">
+	<navigator url="/pages/my/login/login" class="userinfo" hover-class="none">
 		<avatar wx:if="{{ userInfo.avatarUrl }}" class="userinfo-avatar" avatarUrl="{{ userInfo.avatarUrl }}" nickName="{{ userInfo.nickName }}" width="80px"></avatar>
 		<avatar wx:else class="userinfo-avatar" avatarUrl="{{ unloginAvatar }}" width="80px" color="{{ item.color }}"></avatar>
 		<text class="userinfo__nick-name">{{ userInfo.nickName || "立即登录" }}</text>
@@ -14,7 +14,7 @@
 	</view> -->
 	<!-- 其余设置 -->
 	<view class="setting-cells">
-		<navigator url="/pages/setting/personalSetting/personalSetting" class="setting-cell" hover-class="weui-cell_active">
+		<navigator url="/pages/my/setting/setting" class="setting-cell" hover-class="weui-cell_active">
 			<image src="/images/setting/setting.png" class="setting-cell__icon border"></image>
 			<text>设置</text>
 		</navigator>
@@ -27,11 +27,11 @@
 			<text>意见反馈</text>
 		</button>
 		<!-- 管理员设置 - 仅超级管理员显示 -->
-		<navigator url="/pages/setting/admin/index/index" wx:if="{{ userInfo.openid === 'ouGKR4pZmbV1WnrmRCwHP8_Aw7oA' }}" class="setting-cell">
+		<navigator url="/pages/my/admin/index/index" wx:if="{{ userInfo.openid === 'ouGKR4pZmbV1WnrmRCwHP8_Aw7oA' }}" class="setting-cell">
 			<image src="/images/setting/jiekou.png" class="setting-cell__icon"></image>
 			<text>小程序设置</text>
 		</navigator>
-		<navigator url="/pages/setting/about/about" class="setting-cell" hover-class="weui-cell_active">
+		<navigator url="/pages/my/about/about" class="setting-cell" hover-class="weui-cell_active">
 			<image src="/images/setting/about.png" class="setting-cell__icon"></image>
 			<text>关于</text>
 		</navigator>

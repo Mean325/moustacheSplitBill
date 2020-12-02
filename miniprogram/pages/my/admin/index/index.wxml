@@ -2,21 +2,21 @@
 <view class="container">
   <!-- 小程序设置 -->
   <mp-cells>
-    <mp-cell bindtap="linkTo" data-url="/pages/setting/admin/categoryManage/categoryManage" link>
+    <mp-cell bindtap="linkTo" data-url="/pages/my/admin/categoryManage/categoryManage" link>
       <view>默认分类管理</view>
     </mp-cell>
   </mp-cells>
 
   <!-- 启动页面设置 -->
   <mp-cells>
-    <mp-cell bindtap="linkTo" data-url="/pages/setting/admin/setWelcome/setWelcome" link>
+    <mp-cell bindtap="linkTo" data-url="/pages/my/admin/setWelcome/setWelcome" link>
       <view>设置启动页</view>
     </mp-cell>
   </mp-cells>
 
   <!-- 关于 -->
   <mp-cells>
-    <mp-cell bindtap="linkTo" data-url="/pages/setting/admin/version/list" link>
+    <mp-cell bindtap="linkTo" data-url="/pages/my/admin/version/list" link>
       <view>编辑更新记录</view>
     </mp-cell>
   </mp-cells>

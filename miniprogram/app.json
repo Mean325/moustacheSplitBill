@@ -14,17 +14,17 @@
     "pages/settle/settle",
     "pages/settle/solution/solution",
     "pages/settle/solution/remind/remind",
-    "pages/setting/setting",
-    "pages/setting/personalSetting/personalSetting",
-    "pages/setting/personalSetting/remindDesc/remindDesc",
-    "pages/setting/about/about",
-    "pages/setting/about/version/version",
-    "pages/setting/about/version/detail/detail",
-    "pages/setting/admin/index/index",
-    "pages/setting/admin/categoryManage/categoryManage",
-    "pages/setting/admin/categoryManage/addCategory/addCategory",
-    "pages/setting/admin/version/list",
-    "pages/setting/admin/version/edit/edit",
+    "pages/my/my",
+    "pages/my/setting/setting",
+    "pages/my/setting/remindDesc/remindDesc",
+    "pages/my/about/about",
+    "pages/my/about/version/version",
+    "pages/my/about/version/detail/detail",
+    "pages/my/admin/index/index",
+    "pages/my/admin/categoryManage/categoryManage",
+    "pages/my/admin/categoryManage/addCategory/addCategory",
+    "pages/my/admin/version/list",
+    "pages/my/admin/version/edit/edit",
     "pages/other/wifi/wifi"
   ],
   "window": {
@@ -55,7 +55,7 @@
         "text": "结算"
       },
       {
-        "pagePath": "pages/setting/setting",
+        "pagePath": "pages/my/my",
         "iconPath": "@iconPath3",
         "selectedIconPath": "@selectedIconPath3",
         "text": "我的"

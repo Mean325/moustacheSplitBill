@@ -5,62 +5,98 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    SSID: 'zjzl_asus_5G', //Wi-Fi 的SSID，即账号
+    password: 'Zjzl1234567890123', //Wi-Fi 的密码
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad(options) {
+    const { SSID, password } = options;
+    this.createQrCode(SSID, password);
+    if(SSID && password) {
+      // this.createQrCode(SSID, password);
+      this.setData({
+        SSID,
+        password
+      })
+      this.init();
+    } else {
+      wx.showToast({
+        title: '连接出错',
+        icon: "none"
+      })
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  init() {
+    //检测手机型号
+    wx.getSystemInfo({
+      success: (res) => {
+        var system = '';
+        if (res.platform == 'android') system = parseInt(res.system.substr(8));
+        if (res.platform == 'ios') system = parseInt(res.system.substr(4));
+        if (res.platform == 'android' && system < 6) {
+          wx.showToast({
+            title: '手机版本不支持',
+          })
+          return
+        }
+        if (res.platform == 'ios' && system < 11.2) {
+          wx.showToast({
+            title: '手机版本不支持',
+          })
+          return
+        }
+        //2.初始化 Wi-Fi 模块
+        this.startWifi();
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  //初始化 Wi-Fi 模块
+  startWifi() {
+    wx.startWifi({
+      success: () => {
+        //请求成功连接Wifi
+        this.connectWifi();
+      },
+      fail: (res) => {
+        wx.showToast({
+          title: '请确认设备是否支持WiFi',
+        })
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  connectWifi() {
+    wx.startWifi({
+      success: (res) => {
+        wx.connectWifi({
+          SSID: this.data.SSID,
+          password: this.data.password,
+          success(res) {
+            wx.showToast({
+              title: 'wifi连接成功',
+            })
+          },
+          fail: (res) => {
+            wx.showToast({
+              title: 'wifi连接失败',
+            })
+          }
+        })
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  createQrCode(SSID, password) {
+    wx.cloud.callFunction({
+      name: 'createWifiQrCode',
+      data: { SSID, password }
+    })
+      .then(res => {
+        console.log(res);
+        let base64 = wx.arrayBufferToBase64(res.result.buffer); 
+        base64　= 'data:image/jpeg;base64,' + base64;
+        console.log(base64)
+      })
+      .catch(console.error)
   }
 })

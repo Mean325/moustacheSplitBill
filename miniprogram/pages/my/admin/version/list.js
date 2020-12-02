@@ -41,7 +41,7 @@ Page({
     } = e.currentTarget.dataset;
     console.log(id);
     wx.navigateTo({
-      url: `/pages/setting/admin/version/edit/edit?id=${id}`,
+      url: `/pages/my/admin/version/edit/edit?id=${id}`,
     })
   },
   toDetail(e) {
@@ -49,7 +49,7 @@ Page({
       id
     } = e.currentTarget.dataset;
     wx.navigateTo({
-      url: `/pages/setting/about/version/detail/detail?id=${id}`,
+      url: `/pages/my/about/version/detail/detail?id=${id}`,
     })
   },
   handleSlideTap(e) {
@@ -62,7 +62,7 @@ Page({
     if (index === 0) { // 点击编辑按钮时
       console.log(id);
       wx.navigateTo({
-        url: `/pages/setting/admin/version/edit/edit?id=${id}`,
+        url: `/pages/my/admin/version/edit/edit?id=${id}`,
       })
     } else if (index === 1) { // 点击删除按钮时
       console.log(id);

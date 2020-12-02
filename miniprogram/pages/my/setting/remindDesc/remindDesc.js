@@ -1,4 +1,4 @@
-// miniprogram/pages/setting/personalSetting/remindDesc/remindDesc.js
+// miniprogram/pages/pages/setting/remindDesc/remindDesc.js
 Page({
 
   /**

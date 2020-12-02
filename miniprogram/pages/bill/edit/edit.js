@@ -83,7 +83,7 @@ Page({
   //  */
   // toCategoryManage() {
   //   wx.navigateTo({
-  //     url: '/pages/setting/classManage/classManage',
+  //     url: '/pages/my/classManage/classManage',
   //   })
   // },
   /**

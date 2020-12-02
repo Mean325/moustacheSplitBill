@@ -1,2 +1,2 @@
 <!--pages/other/wifi.wxml-->
-<text>pages/other/wifi.wxml</text>
+<text bindtap="init">点击连接WiFi</text>

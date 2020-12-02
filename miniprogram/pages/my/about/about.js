@@ -24,7 +24,7 @@ Page({
   },
   toVersion() {
     wx.navigateTo({
-      url: '/pages/setting/about/version/version',
+      url: '/pages/my/about/version/version',
     })
   },
   update() {

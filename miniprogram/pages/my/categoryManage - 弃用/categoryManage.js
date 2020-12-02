@@ -91,7 +91,7 @@ Page({
     if (data._id) {
       app.setActiveCategoryDetail(data);
       wx.navigateTo({
-        url: `/pages/setting/classManage/addClass/addClass?_id=${ data._id }&type=${ data.type }`
+        url: `/pages/my/classManage/addClass/addClass?_id=${ data._id }&type=${ data.type }`
       })
     }
   },
@@ -145,7 +145,7 @@ Page({
   addClass() {
     let type = this.data.activeType;
     wx.navigateTo({
-      url: `/pages/setting/classManage/addClass/addClass?type=${type}`,
+      url: `/pages/my/classManage/addClass/addClass?type=${type}`,
     })
   },
 })

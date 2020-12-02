@@ -42,7 +42,7 @@ Page({
       id
     } = e.currentTarget.dataset;
     wx.navigateTo({
-      url: `/pages/setting/about/version/detail/detail?id=${ id }`,
+      url: `/pages/my/about/version/detail/detail?id=${ id }`,
     })
   }
 })

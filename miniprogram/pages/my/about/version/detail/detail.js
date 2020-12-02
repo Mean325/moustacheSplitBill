@@ -1,4 +1,4 @@
-// miniprogram/pages/setting/about/version/detail/detail.js
+// miniprogram/pages/my/about/version/detail/detail.js
 Page({
   /**
    * 页面的初始数据
